@@ -1,0 +1,85 @@
+PDFIFY SITE - FILE LIST (build 20261116)
+============================================================
+
+Every page is ONE standalone file (its CSS and JavaScript are inside it).
+No "assets" folder is needed. Upload all folders below to the root of the website.
+
+ROOT FILES (put next to index.html)
+------------------------------------------------------------
+  index.html
+  config.js
+  manifest.webmanifest
+  sw.js
+  favicon.ico
+  icon-192.png
+  icon-512.png
+  icon-maskable-512.png
+  apple-touch-icon.png
+
+TOOL PAGES - 32 tools (one folder each, with index.html inside)
+------------------------------------------------------------
+  [Organize PDF]
+    merge-pdf/index.html         Merge PDF
+    split-pdf/index.html         Split PDF
+    remove-pages/index.html      Remove Pages
+    extract-pages/index.html     Extract Pages
+    organize-pdf/index.html      Organize PDF
+  [Optimize PDF]
+    compress-pdf/index.html      Compress PDF
+    repair-pdf/index.html        Repair PDF
+    scan-pdf/index.html          Scan to PDF
+    ocr-pdf/index.html           OCR PDF
+  [Convert to PDF]
+    jpg-to-pdf/index.html        JPG to PDF
+    png-to-pdf/index.html        PNG to PDF
+    word-to-pdf/index.html       WORD to PDF
+    html-to-pdf/index.html       HTML to PDF
+    text-to-document/index.html  Text to Document
+    excel-to-pdf/index.html      EXCEL to PDF
+    powerpoint-to-pdf/index.html POWERPOINT to PDF
+  [Convert from PDF]
+    pdf-to-word/index.html       PDF to WORD
+    pdf-to-jpg/index.html        PDF to JPG
+    pdf-to-png/index.html        PDF to PNG
+    pdf-to-powerpoint/index.html PDF to POWERPOINT
+    pdf-to-pdfa/index.html       PDF to PDF/A
+    pdf-to-excel/index.html      PDF to EXCEL
+  [Edit & Security]
+    edit-pdf/index.html          Edit PDF
+    rotate-pdf/index.html        Rotate PDF
+    crop-pdf/index.html          Crop PDF
+    add-page-numbers/index.html  Add Page Numbers
+    watermark-pdf/index.html     Watermark PDF
+    sign-pdf/index.html          Sign PDF
+    redact-pdf/index.html        Redact PDF
+    unlock-pdf/index.html        Unlock PDF
+    pro-pdf-edit/index.html      Pro PDF Edit
+    protect-pdf/index.html       Protect PDF
+
+OTHER PAGES
+------------------------------------------------------------
+    about/index.html            
+    contact/index.html          
+    faq/index.html              
+    pricing/index.html          
+    security/index.html         
+    privacy/index.html          
+    terms/index.html            
+    features/index.html         
+    tools/index.html            
+    business/index.html         
+    integrations/index.html     
+    pdfify-api/index.html       
+    pdfify-image/index.html     
+    desktop-app/index.html      
+    mobile-app/index.html       
+    login/index.html            
+    signup/index.html           
+    forgot-password/index.html  
+    reset-password/index.html   
+    account/index.html          
+    upload-check/index.html     
+
+TOTAL: 54 pages + 8 root files
+
+AFTER UPLOADING open  https://pdfify.online/upload-check/  - it shows a tick or a cross for every page and file.
