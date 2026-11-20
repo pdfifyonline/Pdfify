@@ -27,6 +27,13 @@ TOOL PAGES - 32 tools (one folder each, with index.html inside)
   [Optimize PDF]
     compress-pdf/index.html      Compress PDF
     repair-pdf/index.html        Repair PDF
+    pdf-to-text/index.html       Copy PDF Text
+    pdf-to-markdown/index.html   PDF to Markdown
+    compare-pdf/index.html       Compare PDF
+    fill-pdf-form/index.html     PDF Forms
+    summarize-pdf/index.html     Summarize PDF
+    translate-pdf/index.html     Translate PDF
+    cloudflare-worker/pdfify-ai.js   free AI helper (paste into Cloudflare, NOT uploaded to GitHub)
     scan-pdf/index.html          Scan to PDF
     ocr-pdf/index.html           OCR PDF
   [Convert to PDF]

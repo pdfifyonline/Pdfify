@@ -1,0 +1,24 @@
+DONE BY CLAUDE (18 Nov 2026)
+- Supabase project "Pdfify": api_keys table + security rules created.
+- config.js filled with your project URL and public anon key (safe to be public).
+- Word export fixed: .docx now has styles, relationships and properties (Google Docs "file is corrupt" fix).
+  Applied to every page that creates Word files.
+
+YOU MUST DO (Supabase dashboard, 2 minutes, cannot be done from here)
+1. Authentication > URL Configuration
+   Site URL:       https://pdfify.online/account/
+   Redirect URLs:  https://pdfify.online/account/
+                   https://pdfify.online/reset-password/
+2. Authentication > SMTP Settings: add Brevo or Resend before real users sign up.
+3. Upload ALL files in this folder to GitHub, push, open /upload-check/.
+4. Test: /signup/ -> confirm email -> /login/ -> /account/ -> create an API key.
+
+ADDED (browser-only, not yet tested live): Copy PDF Text, PDF to Markdown, Compare PDF, PDF Forms, Summarize PDF (quick mode + free AI mode), Translate PDF (free AI).
+FREE AI needs ONE setup: follow CLOUDFLARE-SETUP.txt (no card, no key). Until then Translate and AI summary show 'not switched on'.
+DEPLOYED to Supabase: Edge Function api-verify (checks API keys). See the PDFify API page.
+
+STILL NOT BUILT (honest list)
+- Premium plans and payment gateway: needs your Stripe/PayPal account. Not built.
+- API keys can now be checked (api-verify), but there are no conversion endpoints and no rate limits yet.
+- Google / Facebook login buttons need your own Google/Facebook app keys in Supabase.
+- PDF to Word keeps text only (no tables/images). Scanned PDFs need OCR.

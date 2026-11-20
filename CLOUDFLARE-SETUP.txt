@@ -1,0 +1,15 @@
+FREE AI SETUP (Translate PDF + AI Summarize). No payment, no card, no API key.
+Cloudflare Workers AI free allowance: 10,000 "neurons" per day (shared, resets 00:00 UTC).
+That is roughly a few hundred small requests a day. When it runs out the tools show a "try later" message.
+
+1. Make a free account at dash.cloudflare.com (if you do not have one).
+2. Left menu: Workers & Pages > Create > Create Worker. Name it  pdfify-ai  > Deploy.
+3. Click "Edit code". Delete everything and paste the whole file  cloudflare-worker/pdfify-ai.js . Click Deploy.
+4. Worker > Settings > Bindings > Add > Workers AI. Variable name must be exactly:  AI   > Save and deploy.
+5. Copy the Worker address (looks like https://pdfify-ai.YOURNAME.workers.dev).
+6. Open config.js and add the line  AI_URL: "https://pdfify-ai.YOURNAME.workers.dev"  (comma after the SUPABASE_ANON_KEY line). Upload config.js to GitHub.
+7. Worker > Settings > Domains & Routes (optional): add  ai.pdfify.online  if your domain is on Cloudflare.
+8. Cloudflare dashboard > Security > WAF > Rate limiting rules: add a free rule, 20 requests per minute per IP on this Worker.
+
+If a model name is rejected, open Workers AI > Models in the dashboard and check the current names for
+"m2m100" (translation) and "bart-large-cnn" (summary), then change them in the Worker code.
