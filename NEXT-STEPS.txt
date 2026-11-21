@@ -15,10 +15,18 @@ YOU MUST DO (Supabase dashboard, 2 minutes, cannot be done from here)
 
 ADDED (browser-only, not yet tested live): Copy PDF Text, PDF to Markdown, Compare PDF, PDF Forms, Summarize PDF (quick mode + free AI mode), Translate PDF (free AI).
 FREE AI needs ONE setup: follow CLOUDFLARE-SETUP.txt (no card, no key). Until then Translate and AI summary show 'not switched on'.
-DEPLOYED to Supabase: Edge Function api-verify (checks API keys). See the PDFify API page.
+DEVELOPER PORTAL (like iLovePDF's separate API site), all FREE:
+- /developers/signup/, /developers/login/, /developers/ (projects, API keys, 2,500 free credits per month, usage list), /developers/docs/
+- Normal user login (/login/, /signup/, /account/) no longer shows API keys.
+- Supabase: Edge Function "api" with tools merge, split, extract, remove, rotate, watermark, pagenumbers, credits. Old "api-verify" still exists.
+- Supabase tables: developers, api_credits, api_usage (+ api_keys). Credits reset every month automatically.
+- Limits: 8 MB per request, 300 pages per file. 1 credit = 1 PDF file.
+- Both portals use the same Supabase login system (one email can have both). Pages are separate.
 
 STILL NOT BUILT (honest list)
 - Premium plans and payment gateway: needs your Stripe/PayPal account. Not built.
-- API keys can now be checked (api-verify), but there are no conversion endpoints and no rate limits yet.
+- API cannot do compress, Word, Excel, PowerPoint or OCR (needs a paid server). No rate limit per second yet.
 - Google / Facebook login buttons need your own Google/Facebook app keys in Supabase.
 - PDF to Word keeps text only (no tables/images). Scanned PDFs need OCR.
+
+- Supabase > Authentication > Policies/Passwords: switch ON 'Leaked password protection' (free security setting).

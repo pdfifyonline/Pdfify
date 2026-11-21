@@ -306,25 +306,37 @@ footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margi
     <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:12px" id="tbl"></table></div>
 </div>
 <script>
-var PAGES = ["/", "/merge-pdf/", "/split-pdf/", "/remove-pages/", "/extract-pages/", "/organize-pdf/", "/compress-pdf/", "/repair-pdf/", "/pdf-to-text/", "/pdf-to-markdown/", "/compare-pdf/", "/fill-pdf-form/", "/summarize-pdf/", "/translate-pdf/", "/scan-pdf/", "/jpg-to-pdf/", "/png-to-pdf/", "/word-to-pdf/", "/html-to-pdf/", "/text-to-document/", "/pdf-to-word/", "/pdf-to-jpg/", "/pdf-to-png/", "/pdf-to-powerpoint/", "/edit-pdf/", "/rotate-pdf/", "/crop-pdf/", "/add-page-numbers/", "/watermark-pdf/", "/sign-pdf/", "/redact-pdf/", "/unlock-pdf/", "/pro-pdf-edit/", "/protect-pdf/", "/pdf-to-pdfa/", "/ocr-pdf/", "/excel-to-pdf/", "/powerpoint-to-pdf/", "/pdf-to-excel/", "/about/", "/contact/", "/faq/", "/pricing/", "/security/", "/privacy/", "/terms/", "/features/", "/tools/", "/business/", "/integrations/", "/pdfify-api/", "/pdfify-image/", "/desktop-app/", "/mobile-app/", "/login/", "/signup/", "/forgot-password/", "/reset-password/", "/account/"], FILES = ["/config.js", "/manifest.webmanifest", "/sw.js", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"];
+var PAGES = ["/", "/merge-pdf/", "/split-pdf/", "/remove-pages/", "/extract-pages/", "/organize-pdf/", "/compress-pdf/", "/repair-pdf/", "/pdf-to-text/", "/pdf-to-markdown/", "/compare-pdf/", "/fill-pdf-form/", "/summarize-pdf/", "/translate-pdf/", "/developers/", "/developers/login/", "/developers/signup/", "/developers/docs/", "/scan-pdf/", "/jpg-to-pdf/", "/png-to-pdf/", "/word-to-pdf/", "/html-to-pdf/", "/text-to-document/", "/pdf-to-word/", "/pdf-to-jpg/", "/pdf-to-png/", "/pdf-to-powerpoint/", "/edit-pdf/", "/rotate-pdf/", "/crop-pdf/", "/add-page-numbers/", "/watermark-pdf/", "/sign-pdf/", "/redact-pdf/", "/unlock-pdf/", "/pro-pdf-edit/", "/protect-pdf/", "/pdf-to-pdfa/", "/ocr-pdf/", "/excel-to-pdf/", "/powerpoint-to-pdf/", "/pdf-to-excel/", "/about/", "/contact/", "/faq/", "/pricing/", "/security/", "/privacy/", "/terms/", "/features/", "/tools/", "/business/", "/integrations/", "/pdfify-api/", "/pdfify-image/", "/desktop-app/", "/mobile-app/", "/login/", "/signup/", "/forgot-password/", "/reset-password/", "/account/"], FILES = ["/config.js", "/manifest.webmanifest", "/sw.js", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"];
 function row(url, state, note) { return '<tr style="border-bottom:1px solid #e2e8f0"><td style="padding:6px 4px">' + (state === 'ok' ? '&#9989;' : '&#10060;') + '</td><td style="padding:6px 4px"><a href="' + url + '">' + url + '</a></td><td style="padding:6px 4px;color:#666">' + note + '</td></tr>'; }
 (async function () {
-  var rows = '', good = 0, total = PAGES.length + FILES.length;
-  for (var i = 0; i < PAGES.length; i++) {
-    var u = PAGES[i], st = 'bad', note = 'MISSING (404)';
-    try { var r = await fetch(u, { cache: 'no-store' }); if (r.ok) { var t = await r.text(); if (t.indexOf('name="pdfify-build"') > -1) { st = 'ok'; note = 'new version'; good++; } else { note = 'found, but it is an OLD version'; } } } catch (e) { note = 'could not check'; }
-    rows += row(u, st, note);
+  var total = PAGES.length + FILES.length, good = 0, done = 0, sum = document.getElementById('sum');
+  function get(u, asText) {
+    var c = new AbortController(), t = setTimeout(function () { c.abort(); }, 20000);
+    return fetch(u, { cache: 'no-store', signal: c.signal }).then(function (r) {
+      return (asText && r.ok ? r.text() : Promise.resolve('')).then(function (txt) { clearTimeout(t); return { ok: r.ok, text: txt }; });
+    }).catch(function () { clearTimeout(t); return null; });
   }
-  for (var j = 0; j < FILES.length; j++) {
-    var f = FILES[j], s2 = 'bad', n2 = 'MISSING (404)';
-    try { var r2 = await fetch(f, { cache: 'no-store' }); if (r2.ok) { s2 = 'ok'; n2 = 'found'; good++; } } catch (e) {}
-    rows += row(f, s2, n2);
-  }
-  document.getElementById('tbl').innerHTML = rows;
-  var sum = document.getElementById('sum');
-  sum.textContent = good + ' of ' + total + ' items are correct on the live site.' + (good === total ? ' Everything is uploaded.' : ' Upload the items marked with a red cross.');
+  function tick() { done++; sum.textContent = 'Checking... ' + done + ' of ' + total; }
+  var jobs = PAGES.map(function (u) {
+    return get(u, true).then(function (r) {
+      tick(); var st = 'bad', note = 'MISSING (404)';
+      if (!r) note = 'could not check (slow network, try again)';
+      else if (r.ok) { if (r.text.indexOf('name="pdfify-build"') > -1) { st = 'ok'; note = 'new version'; good++; } else note = 'found, but it is an OLD version'; }
+      return row(u, st, note);
+    });
+  }).concat(FILES.map(function (f) {
+    return get(f, false).then(function (r) {
+      tick(); var st = 'bad', note = 'MISSING (404)';
+      if (!r) note = 'could not check (slow network, try again)'; else if (r.ok) { st = 'ok'; note = 'found'; good++; }
+      return row(f, st, note);
+    });
+  }));
+  var rows = await Promise.all(jobs);
+  document.getElementById('tbl').innerHTML = rows.join('');
+  sum.textContent = good + ' of ' + total + ' items are correct on the live site.' + (good === total ? ' Everything is uploaded.' : ' Items with a red cross are missing, old, or could not be checked.');
   sum.className = 'msg ' + (good === total ? 'ok' : 'error');
-  try { await fetch('https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js', { method: 'HEAD' }); var c = document.getElementById('cdn'); c.textContent = 'Library CDN (cdn.jsdelivr.net) is reachable from this browser.'; c.className = 'msg ok'; } catch (e) { var c2 = document.getElementById('cdn'); c2.textContent = 'The library CDN (cdn.jsdelivr.net) could not be reached. Tools that need libraries will not work in this browser or network.'; c2.className = 'msg error'; }
+  var c = document.getElementById('cdn');
+  try { await fetch('https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js', { method: 'HEAD' }); c.textContent = 'Library CDN (cdn.jsdelivr.net) is reachable from this browser.'; c.className = 'msg ok'; } catch (e) { c.textContent = 'The library CDN (cdn.jsdelivr.net) could not be reached. Tools that need libraries will not work in this browser or network.'; c.className = 'msg error'; }
 })();
 </script>
 </body>

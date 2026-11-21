@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations | PDFify Online</title>
+    <meta name="description" content="Connect PDFify to other tools. Integrations are being planned.">
+    <meta name="author" content="Muhammad Kamran">
+    <meta name="pdfify-build" content="20261116">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pdfify.online/integrations/">
+    <meta name="google-site-verification" content="f7a075e9edc2152b">
+    <meta name="theme-color" content="#e5322d">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3QDB80S0X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3QDB80S0X');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+:root {
+    --primary-red: #e5322d;
+    --primary-hover: #c8231f;
+    --dark-navy: #1f2430;
+    --light-bg: #f8f9fa;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { background-color: var(--light-bg); color: #333333; display: flex; flex-direction: column; min-height: 100vh; }
+
+header { background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.nav-toggle-btn { background: none; border: none; font-size: 18px; color: var(--dark-navy); cursor: pointer; padding: 5px; }
+.logo { font-size: 20px; font-weight: 800; color: var(--dark-navy); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+.logo i, .logo span { color: var(--primary-red); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.btn-share { background: var(--primary-red); color: #fff; border: none; padding: 6px 14px; border-radius: 16px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.btn-login { color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 700; padding: 6px 10px; }
+
+.drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.2s ease; }
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+.drawer { position: fixed; top: 0; width: 290px; height: 100%; background: #ffffff; z-index: 1100; transition: transform 0.2s ease; overflow-y: auto; padding: 20px; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+.left-drawer { left: 0; transform: translateX(-100%); }
+.left-drawer.active { transform: translateX(0); }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+.drawer-section { margin-bottom: 18px; }
+.drawer-section h5 { font-size: 11px; text-transform: uppercase; color: #a0aec0; margin-bottom: 6px; font-weight: 700; }
+.drawer-section ul { list-style: none; }
+.drawer-section ul li a { display: flex; align-items: center; gap: 10px; padding: 7px 0; color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 600; }
+.drawer-section ul li a:hover { color: var(--primary-red); }
+.drawer-section ul li a i { color: var(--primary-red); width: 16px; text-align: center; }
+.drawer-auth { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.drawer-auth a, .drawer-auth button { display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--primary-red); }
+.drawer-auth .a-login { color: var(--primary-red); background: #fff; }
+.drawer-auth .a-signup { color: #fff; background: var(--primary-red); }
+
+.main-container { max-width: 900px; margin: 30px auto; padding: 25px; flex: 1; width: calc(100% - 24px); background: #ffffff; border-radius: 8px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); text-align: center; }
+.main-container.wide { max-width: 1100px; }
+.back-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--dark-navy); color: #ffffff; padding: 8px 16px; border-radius: 14px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 20px; transition: background 0.2s; }
+.back-btn:hover { background: var(--primary-red); }
+.tool-header-icon { font-size: 40px; color: var(--primary-red); margin-bottom: 12px; }
+h1 { font-size: 22px; color: var(--dark-navy); margin-bottom: 10px; font-weight: 800; }
+h2 { font-size: 17px; color: var(--dark-navy); margin: 22px 0 8px; }
+p.desc { color: #666; font-size: 13px; max-width: 640px; margin: 0 auto 25px; line-height: 1.5; }
+.btn-primary { background: var(--primary-red); color: #ffffff; padding: 12px 28px; font-size: 15px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; margin-top: 15px; display: inline-block; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-light { background: #f1f5f9; color: var(--dark-navy); padding: 9px 18px; font-size: 13px; font-weight: 700; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; display: inline-block; text-decoration: none; }
+.btn-light:hover { background: #e2e8f0; }
+
+footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margin-top: 40px; }
+.footer-container { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; text-align: left; }
+.footer-col h4 { font-size: 12px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 6px; }
+.footer-col a, .footer-col p { color: #a0aec0; text-decoration: none; font-size: 12px; line-height: 1.5; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { max-width: 1240px; margin: 15px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: #a0aec0; }
+
+/* messages */
+.msg { display: none; font-size: 13px; font-weight: 600; padding: 10px 12px; border-radius: 8px; margin: 14px auto 0; max-width: 560px; text-align: left; }
+.msg.error { display: block; background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.msg.ok { display: block; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.msg.info { display: block; background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+/* tool UI */
+.tl-drop { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 35px 20px; background: #f8fafc; max-width: 520px; margin: 0 auto; cursor: pointer; text-align: center; transition: all 0.2s; }
+.tl-drop:hover, .tl-drop.over { background: #f1f5f9; border-color: var(--primary-red); }
+.tl-drop i { font-size: 40px; color: var(--primary-red); }
+.tl-drop b { display: block; margin-top: 10px; color: var(--dark-navy); font-size: 14px; }
+.tl-drop small { display: block; margin-top: 4px; color: #888; font-size: 12px; }
+.tl-files { list-style: none; max-width: 520px; margin: 14px auto 0; text-align: left; }
+.tl-files li { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 6px; background: #fff; font-size: 13px; }
+.tl-files .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--dark-navy); }
+.tl-files .sz { color: #888; font-size: 12px; white-space: nowrap; }
+.tl-files button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 26px; height: 26px; cursor: pointer; color: var(--dark-navy); }
+.tl-files button:hover { background: #e2e8f0; }
+.tl-files button.rm:hover { background: #fee2e2; color: #b91c1c; }
+.tl-options { max-width: 520px; margin: 16px auto 0; text-align: left; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; }
+.tl-options label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.tl-options label:first-child { margin-top: 0; }
+.tl-options input[type=text], .tl-options input[type=number], .tl-options input[type=password], .tl-options select, .tl-options textarea { width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff; }
+.tl-options input[type=color] { width: 48px; height: 32px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 2px; background: #fff; }
+.tl-options .row { display: flex; gap: 10px; }
+.tl-options .row > div { flex: 1; }
+.tl-options .chk { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.tl-options .hint { font-size: 12px; color: #777; margin-top: 4px; font-weight: 400; }
+.tl-progress { margin: 14px auto 0; max-width: 520px; font-size: 13px; font-weight: 600; color: #1e40af; display: none; }
+.tl-progress .bar { height: 6px; background: #dbeafe; border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.tl-progress .bar i { display: block; height: 100%; width: 0; background: var(--primary-red); transition: width 0.15s; }
+.tl-results { max-width: 520px; margin: 16px auto 0; text-align: left; }
+.tl-results .res { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #bbf7d0; background: #f0fdf4; border-radius: 8px; margin-bottom: 8px; }
+.tl-results .res div { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; color: #166534; word-break: break-all; }
+.tl-results .res small { display: block; font-weight: 400; color: #4d7c5f; margin-top: 2px; }
+.howto { text-align: left; max-width: 640px; margin: 30px auto 0; padding-top: 18px; border-top: 1px solid var(--border-color); }
+.howto ol { margin: 6px 0 0 18px; font-size: 13px; color: #555; line-height: 1.8; }
+.howto p { font-size: 13px; color: #555; line-height: 1.7; margin-top: 8px; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; text-align: left; margin-top: 10px; }
+.grid-cards a { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--dark-navy); transition: all 0.15s; }
+.grid-cards a:hover { border-color: var(--primary-red); box-shadow: 0 2px 8px rgba(229,50,45,0.12); }
+.grid-cards a i { color: var(--primary-red); font-size: 22px; margin-top: 2px; }
+.grid-cards a b { display: block; font-size: 14px; }
+.grid-cards a span { display: block; font-size: 12px; color: #777; margin-top: 2px; line-height: 1.4; }
+.doc { text-align: left; max-width: 720px; margin: 0 auto; }
+.doc h2 { margin-top: 26px; }
+.doc p, .doc li { font-size: 14px; color: #444; line-height: 1.75; margin-top: 8px; }
+.doc ul, .doc ol { margin-left: 20px; }
+.doc a { color: var(--primary-red); font-weight: 600; text-decoration: none; }
+.faq details { border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; margin-top: 10px; background: #fff; }
+.faq summary { font-weight: 700; font-size: 14px; color: var(--dark-navy); cursor: pointer; }
+.faq details p { margin-top: 8px; }
+
+/* organize grid */
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin: 16px auto 0; text-align: center; }
+.pg-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; background: #fff; }
+.pg-item canvas { max-width: 100%; height: auto; border: 1px solid #eee; transition: transform 0.2s; }
+.pg-item .ctl { display: flex; justify-content: center; gap: 4px; margin-top: 6px; }
+.pg-item .ctl button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 28px; height: 26px; cursor: pointer; }
+.pg-item .ctl button:hover { background: #e2e8f0; }
+.pg-item .num { font-size: 11px; color: #777; margin-top: 4px; }
+
+/* page editor */
+.ed-bar { position: sticky; top: 56px; z-index: 50; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; margin: 0 auto 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; }
+.ed-bar button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 6px; padding: 7px 12px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--dark-navy); display: inline-flex; align-items: center; gap: 6px; }
+.ed-bar button.on { background: var(--primary-red); color: #fff; border-color: var(--primary-red); }
+.ed-bar input[type=number] { width: 58px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; }
+.ed-bar input[type=color] { width: 34px; height: 30px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 1px; background: #fff; }
+.ed-hint { font-size: 12px; color: #666; margin-bottom: 10px; }
+.ed-pages { display: flex; flex-direction: column; align-items: center; gap: 14px; background: #e9edf2; padding: 14px 6px; border-radius: 8px; overflow-x: auto; }
+.ed-page { position: relative; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); flex-shrink: 0; touch-action: pan-y; }
+.ed-page canvas { display: block; width: 100%; height: 100%; }
+.ed-over { position: absolute; inset: 0; }
+.ed-over.tool { cursor: crosshair; touch-action: none; }
+.ed-obj { position: absolute; }
+.ed-obj.sel { outline: 1.5px dashed #2563eb; }
+.ed-obj .del { display: none; position: absolute; top: -12px; right: -12px; width: 22px; height: 22px; border-radius: 50%; background: #dc2626; color: #fff; border: none; cursor: pointer; font-size: 12px; line-height: 22px; text-align: center; z-index: 5; }
+.ed-obj .rs { display: none; position: absolute; right: -7px; bottom: -7px; width: 14px; height: 14px; background: #2563eb; border-radius: 3px; cursor: nwse-resize; z-index: 5; touch-action: none; }
+.ed-obj.sel .del, .ed-obj.sel .rs { display: block; }
+.ed-obj.txt { white-space: pre; outline: 1px dashed rgba(37,99,235,0.5); min-width: 20px; padding: 0 2px; cursor: move; line-height: 1.15; }
+.ed-obj.img img { width: 100%; height: 100%; display: block; pointer-events: none; }
+.ed-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 14px; }
+.ed-modal.open { display: flex; }
+.ed-modal .box { background: #fff; border-radius: 10px; padding: 16px; width: 100%; max-width: 460px; text-align: left; }
+.ed-modal canvas { width: 100%; height: 180px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; touch-action: none; cursor: crosshair; }
+.ed-modal input[type=text] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 22px; font-family: "Brush Script MT", "Segoe Script", cursive; }
+.ed-modal .tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+.ed-modal .tabs button { flex: 1; }
+
+@media (max-width: 640px) { .main-container { padding: 16px; } }
+
+.tl-options.wide { max-width: 100%; }
+
+/* forms */
+.form-box { max-width: 380px; margin: 0 auto; text-align: left; }
+.social-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; background: #fff; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--dark-navy); cursor: pointer; }
+.social-btn:hover { background: #f8fafc; }
+.divider { text-align: center; font-size: 12px; color: #888; margin: 14px 0; }
+.form-box label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin-bottom: 5px; }
+.form-box input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; margin-bottom: 14px; }
+.form-box input:focus { outline: 2px solid rgba(229,50,45,0.35); border-color: var(--primary-red); }
+.form-box .btn-primary { width: 100%; margin-top: 4px; }
+.form-box .msg { max-width: none; margin: 0 0 14px; }
+.alt-line { font-size: 13px; color: #555; margin-top: 14px; text-align: center; }
+.alt-line a, .legal a, .small-link { color: var(--primary-red); text-decoration: none; font-weight: 600; font-size: 13px; }
+.legal { font-size: 12px; color: #777; margin-top: 10px; line-height: 1.5; text-align: center; }
+@media (max-width: 420px) { .btn-login { display: none; } }
+
+/* account page */
+.acc { max-width: 560px; margin: 0 auto; text-align: left; }
+.acc h2 { margin: 24px 0 8px; padding-top: 16px; border-top: 1px solid var(--border-color); }
+.acc h2:first-of-type { border-top: none; padding-top: 0; }
+.acc .who { font-size: 15px; font-weight: 700; color: var(--dark-navy); }
+.acc .since { font-size: 12px; color: #777; margin: 2px 0 10px; }
+.acc form label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.acc form input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+.acc form .btn-primary { margin-top: 12px; }
+.acc ul.keys { list-style: none; margin-top: 8px; }
+.acc ul.keys li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 8px; background: #fff; }
+.acc ul.keys li div { min-width: 0; }
+.acc ul.keys b { display: block; font-size: 14px; color: var(--dark-navy); }
+.acc ul.keys code { display: block; font-size: 12px; color: #555; word-break: break-all; margin: 2px 0; }
+.acc ul.keys small { color: #888; font-size: 11px; }
+.acc ul.keys .key-empty { color: #777; font-size: 13px; justify-content: center; }
+.newkey { display: none; border: 1px solid #fde68a; background: #fffbeb; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 13px; color: #78350f; }
+.newkey code { display: block; background: #fff; border: 1px solid #fde68a; border-radius: 6px; padding: 8px; margin: 6px 0; word-break: break-all; color: #111; font-size: 12px; }
+
+    </style>
+</head>
+<body>
+<script>
+/* PDFify shared layout: header, menu, share button and footer for every page.
+   Edit this file once and every page updates. */
+(function () {
+    'use strict';
+    var D = {"groups": [{"name": "Organize PDF", "tools": [{"slug": "merge-pdf", "name": "Merge PDF", "icon": "fa-object-group"}, {"slug": "split-pdf", "name": "Split PDF", "icon": "fa-scissors"}, {"slug": "remove-pages", "name": "Remove Pages", "icon": "fa-trash-can"}, {"slug": "extract-pages", "name": "Extract Pages", "icon": "fa-file-export"}, {"slug": "organize-pdf", "name": "Organize PDF", "icon": "fa-table-cells-large"}]}, {"name": "Optimize PDF", "tools": [{"slug": "compress-pdf", "name": "Compress PDF", "icon": "fa-compress"}, {"slug": "repair-pdf", "name": "Repair PDF", "icon": "fa-wrench"}, {"slug": "scan-pdf", "name": "Scan to PDF", "icon": "fa-camera"}, {"slug": "ocr-pdf", "name": "OCR PDF", "icon": "fa-eye"}]}, {"name": "Convert to PDF", "tools": [{"slug": "jpg-to-pdf", "name": "JPG to PDF", "icon": "fa-image"}, {"slug": "png-to-pdf", "name": "PNG to PDF", "icon": "fa-file-image"}, {"slug": "word-to-pdf", "name": "WORD to PDF", "icon": "fa-file-word"}, {"slug": "html-to-pdf", "name": "HTML to PDF", "icon": "fa-code"}, {"slug": "text-to-document", "name": "Text to Document", "icon": "fa-file-lines"}, {"slug": "excel-to-pdf", "name": "EXCEL to PDF", "icon": "fa-file-excel"}, {"slug": "powerpoint-to-pdf", "name": "POWERPOINT to PDF", "icon": "fa-file-powerpoint"}]}, {"name": "Convert from PDF", "tools": [{"slug": "pdf-to-word", "name": "PDF to WORD", "icon": "fa-file-word"}, {"slug": "pdf-to-jpg", "name": "PDF to JPG", "icon": "fa-file-image"}, {"slug": "pdf-to-png", "name": "PDF to PNG", "icon": "fa-images"}, {"slug": "pdf-to-powerpoint", "name": "PDF to POWERPOINT", "icon": "fa-file-powerpoint"}, {"slug": "pdf-to-pdfa", "name": "PDF to PDF/A", "icon": "fa-box-archive"}, {"slug": "pdf-to-excel", "name": "PDF to EXCEL", "icon": "fa-file-excel"}, {"slug": "pdf-to-text", "name": "Copy PDF Text", "icon": "fa-copy"}, {"slug": "pdf-to-markdown", "name": "PDF to Markdown", "icon": "fa-hashtag"}]}, {"name": "Edit & Security", "tools": [{"slug": "edit-pdf", "name": "Edit PDF", "icon": "fa-pen-to-square"}, {"slug": "rotate-pdf", "name": "Rotate PDF", "icon": "fa-rotate"}, {"slug": "crop-pdf", "name": "Crop PDF", "icon": "fa-crop-simple"}, {"slug": "add-page-numbers", "name": "Add Page Numbers", "icon": "fa-list-ol"}, {"slug": "watermark-pdf", "name": "Watermark PDF", "icon": "fa-droplet"}, {"slug": "sign-pdf", "name": "Sign PDF", "icon": "fa-signature"}, {"slug": "redact-pdf", "name": "Redact PDF", "icon": "fa-user-secret"}, {"slug": "unlock-pdf", "name": "Unlock PDF", "icon": "fa-unlock"}, {"slug": "pro-pdf-edit", "name": "Pro PDF Edit", "icon": "fa-pen-ruler"}, {"slug": "protect-pdf", "name": "Protect PDF", "icon": "fa-lock"}, {"slug": "compare-pdf", "name": "Compare PDF", "icon": "fa-code-compare"}, {"slug": "fill-pdf-form", "name": "PDF Forms", "icon": "fa-file-pen"}, {"slug": "summarize-pdf", "name": "Summarize PDF", "icon": "fa-list-check"}, {"slug": "translate-pdf", "name": "Translate PDF", "icon": "fa-language"}]}], "products": [["pdfify-api", "PDFify API", "fa-terminal"], ["pdfify-image", "PDFify Image", "fa-image"], ["business", "Business", "fa-briefcase"], ["integrations", "Integrations", "fa-plug"]], "company": [["features", "Features", "fa-star"], ["pricing", "Pricing", "fa-tags"], ["security", "Security", "fa-shield-halved"], ["about", "About us", "fa-circle-info"], ["faq", "FAQ", "fa-circle-question"], ["contact", "Contact", "fa-envelope"]], "email": "pdfify963@gmail.com", "address": "Al Amarat Al Mahaj 119, Muscat, Oman"};
+    var ROOT = '/';
+    var loggedIn = false;
+    try { var ss = JSON.parse(localStorage.getItem('pdfify_session') || 'null'); loggedIn = !!(ss && ss.access_token && (ss.expires_at || 0) * 1000 > Date.now() - 30 * 86400000); } catch (e) { loggedIn = false; }
+    function H(p) { return ROOT + p; }
+    function li(slug, name, icon) { return '<li><a href="' + H(slug + '/') + '"><i class="fa-solid ' + icon + '"></i> ' + name + '</a></li>'; }
+
+    var tools = D.groups.map(function (g) {
+        return '<div class="drawer-section"><h5>' + g.name + '</h5><ul>' + g.tools.map(function (t) { return li(t.slug, t.name, t.icon); }).join('') + '</ul></div>';
+    }).join('');
+    var products = '<div class="drawer-section"><h5>Products</h5><ul>' + D.products.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+    var company = '<div class="drawer-section"><h5>Company</h5><ul>' + D.company.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+
+    var logo = '<a href="' + H('') + '" class="logo"><span>PDFify</span><i class="fa-solid fa-heart"></i></a>';
+    var header =
+        '<header><div class="nav-container"><div class="header-left">' +
+        '<button class="nav-toggle-btn" onclick="toggleLeftDrawer()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>' + logo +
+        '</div><div class="header-right">' + (loggedIn ? '<a class="btn-login" href="' + H('account/') + '">Account</a>' : '<a class="btn-login" href="' + H('login/') + '">Log in</a>') +
+        '<button class="btn-share" onclick="shareWebsite()"><i class="fa-solid fa-share-nodes"></i> Share</button></div></div></header>' +
+        '<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawers()"></div>' +
+        '<div class="drawer left-drawer" id="left-drawer"><div class="drawer-header">' + logo +
+        '<i class="fa-solid fa-xmark" onclick="toggleLeftDrawer()" style="cursor:pointer;"></i></div>' +
+        tools + products + company +
+        '<div class="drawer-section"><h5>Legal</h5><ul>' + li('privacy', 'Privacy Policy', 'fa-user-shield') + li('terms', 'Terms of Service', 'fa-file-contract') + '</ul></div>' +
+        '<div class="drawer-auth">' + (loggedIn ? '<a class="a-login" href="' + H('account/') + '">My account</a><button type="button" class="a-signup" onclick="pdfifyLogout()">Log out</button>' : '<a class="a-login" href="' + H('login/') + '">Log in</a><a class="a-signup" href="' + H('signup/') + '">Create free account</a>') +
+        '<button type="button" class="a-login" onclick="installFromMenu()"><i class="fa-solid fa-download"></i> Install App</button></div></div>';
+
+    var footer =
+        '<footer><div class="footer-container">' +
+        '<div class="footer-col"><h4>PDFify</h4><ul><li><a href="' + H('') + '">Home</a></li><li><a href="' + H('tools/') + '">All tools</a></li><li><a href="' + H('features/') + '">Features</a></li><li><a href="' + H('pricing/') + '">Pricing</a></li><li><a href="' + H('about/') + '">About us</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Help &amp; Legal</h4><ul><li><a href="' + H('faq/') + '">FAQ</a></li><li><a href="' + H('contact/') + '">Contact</a></li><li><a href="' + H('security/') + '">Security</a></li><li><a href="' + H('privacy/') + '">Privacy Policy</a></li><li><a href="' + H('terms/') + '">Terms of Service</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Connect With Us</h4><ul>' +
+        '<li><a href="https://fb.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-facebook" style="color:#1877f2;"></i> Facebook Page</a></li>' +
+        '<li><a href="https://insta.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i> Instagram</a></li>' +
+        '<li><a href="https://www.youtube.com/@pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Channel</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Contact Info</h4><p><i class="fa-solid fa-location-dot"></i> ' + D.address + '</p>' +
+        '<p style="margin-top:6px;"><i class="fa-solid fa-envelope"></i> <a href="mailto:' + D.email + '">' + D.email + '</a></p></div></div>' +
+        '<div class="footer-bottom"><p>&copy; 2026 PDFify.online - All Rights Reserved.</p><p>Powered by PDFify Engine</p></div></footer>';
+
+    document.body.insertAdjacentHTML('afterbegin', header);
+
+    window.toggleLeftDrawer = function () {
+        document.getElementById('left-drawer').classList.toggle('active');
+        document.getElementById('drawer-overlay').classList.toggle('active');
+    };
+    window.closeDrawers = function () {
+        document.getElementById('left-drawer').classList.remove('active');
+        document.getElementById('drawer-overlay').classList.remove('active');
+    };
+    window.pdfifyLogout = function () { try { localStorage.removeItem('pdfify_session'); } catch (e) {} location.href = H('login/'); };
+    window.shareWebsite = function () {
+        var url = (location.protocol === 'http:' || location.protocol === 'https:') ? location.origin + location.pathname.replace(/index\.html$/, '') : 'https://pdfify.online/';
+        if (navigator.share) {
+            navigator.share({ title: document.title, text: 'Free online PDF tools - PDFify:', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied: ' + url); }, function () { alert('Copy this link: ' + url); });
+        } else { alert('Copy this link: ' + url); }
+    };
+    var deferred = null;
+    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
+    window.installFromMenu = function () {
+        if (deferred) { window.closeDrawers(); deferred.prompt(); deferred = null; }
+        else { location.href = H('desktop-app/'); }
+    };
+    window.__pdfifyInstallPrompt = function () { var d = deferred; deferred = null; return d; };
+    window.__pdfifyHasPrompt = function () { return !!deferred; };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.body.insertAdjacentHTML('beforeend', footer);
+    });
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+    }
+})();
+
+</script>
+<div class="main-container">
+    <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="tool-header-icon"><i class="fa-solid fa-plug"></i></div>
+    <h1>Integrations</h1>
+    <p class="desc">Connect PDFify to other tools. Integrations are being planned.</p>
+    <div class="doc">
+<p>We want PDFify to work together with the tools you already use. Integrations with automation services and website platforms are being planned.</p><p>There is nothing to connect yet. If you would like a particular integration, email <a href="mailto:pdfify963@gmail.com">pdfify963@gmail.com</a> and tell us what you need. We will let you know when it is ready.</p><p style="text-align:center"><a class="btn-primary" href="/pdfify-api/">See the API plan</a></p>
+    </div>
+</div>
+
+</body>
+</html>

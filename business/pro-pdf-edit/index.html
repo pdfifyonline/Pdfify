@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro PDF Edit – Edit and Redact PDF Online | PDFify Online</title>
+    <meta name="description" content="The full editor: add text, shapes, highlights, images and signatures, and black out sensitive content, all in one place.">
+    <meta name="author" content="Muhammad Kamran">
+    <meta name="pdfify-build" content="20261116">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pdfify.online/pro-pdf-edit/">
+    <meta name="google-site-verification" content="f7a075e9edc2152b">
+    <meta name="theme-color" content="#e5322d">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3QDB80S0X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3QDB80S0X');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+:root {
+    --primary-red: #e5322d;
+    --primary-hover: #c8231f;
+    --dark-navy: #1f2430;
+    --light-bg: #f8f9fa;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { background-color: var(--light-bg); color: #333333; display: flex; flex-direction: column; min-height: 100vh; }
+
+header { background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.nav-toggle-btn { background: none; border: none; font-size: 18px; color: var(--dark-navy); cursor: pointer; padding: 5px; }
+.logo { font-size: 20px; font-weight: 800; color: var(--dark-navy); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+.logo i, .logo span { color: var(--primary-red); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.btn-share { background: var(--primary-red); color: #fff; border: none; padding: 6px 14px; border-radius: 16px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.btn-login { color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 700; padding: 6px 10px; }
+
+.drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.2s ease; }
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+.drawer { position: fixed; top: 0; width: 290px; height: 100%; background: #ffffff; z-index: 1100; transition: transform 0.2s ease; overflow-y: auto; padding: 20px; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+.left-drawer { left: 0; transform: translateX(-100%); }
+.left-drawer.active { transform: translateX(0); }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+.drawer-section { margin-bottom: 18px; }
+.drawer-section h5 { font-size: 11px; text-transform: uppercase; color: #a0aec0; margin-bottom: 6px; font-weight: 700; }
+.drawer-section ul { list-style: none; }
+.drawer-section ul li a { display: flex; align-items: center; gap: 10px; padding: 7px 0; color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 600; }
+.drawer-section ul li a:hover { color: var(--primary-red); }
+.drawer-section ul li a i { color: var(--primary-red); width: 16px; text-align: center; }
+.drawer-auth { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.drawer-auth a, .drawer-auth button { display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--primary-red); }
+.drawer-auth .a-login { color: var(--primary-red); background: #fff; }
+.drawer-auth .a-signup { color: #fff; background: var(--primary-red); }
+
+.main-container { max-width: 900px; margin: 30px auto; padding: 25px; flex: 1; width: calc(100% - 24px); background: #ffffff; border-radius: 8px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); text-align: center; }
+.main-container.wide { max-width: 1100px; }
+.back-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--dark-navy); color: #ffffff; padding: 8px 16px; border-radius: 14px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 20px; transition: background 0.2s; }
+.back-btn:hover { background: var(--primary-red); }
+.tool-header-icon { font-size: 40px; color: var(--primary-red); margin-bottom: 12px; }
+h1 { font-size: 22px; color: var(--dark-navy); margin-bottom: 10px; font-weight: 800; }
+h2 { font-size: 17px; color: var(--dark-navy); margin: 22px 0 8px; }
+p.desc { color: #666; font-size: 13px; max-width: 640px; margin: 0 auto 25px; line-height: 1.5; }
+.btn-primary { background: var(--primary-red); color: #ffffff; padding: 12px 28px; font-size: 15px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; margin-top: 15px; display: inline-block; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-light { background: #f1f5f9; color: var(--dark-navy); padding: 9px 18px; font-size: 13px; font-weight: 700; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; display: inline-block; text-decoration: none; }
+.btn-light:hover { background: #e2e8f0; }
+
+footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margin-top: 40px; }
+.footer-container { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; text-align: left; }
+.footer-col h4 { font-size: 12px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 6px; }
+.footer-col a, .footer-col p { color: #a0aec0; text-decoration: none; font-size: 12px; line-height: 1.5; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { max-width: 1240px; margin: 15px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: #a0aec0; }
+
+/* messages */
+.msg { display: none; font-size: 13px; font-weight: 600; padding: 10px 12px; border-radius: 8px; margin: 14px auto 0; max-width: 560px; text-align: left; }
+.msg.error { display: block; background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.msg.ok { display: block; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.msg.info { display: block; background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+/* tool UI */
+.tl-drop { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 35px 20px; background: #f8fafc; max-width: 520px; margin: 0 auto; cursor: pointer; text-align: center; transition: all 0.2s; }
+.tl-drop:hover, .tl-drop.over { background: #f1f5f9; border-color: var(--primary-red); }
+.tl-drop i { font-size: 40px; color: var(--primary-red); }
+.tl-drop b { display: block; margin-top: 10px; color: var(--dark-navy); font-size: 14px; }
+.tl-drop small { display: block; margin-top: 4px; color: #888; font-size: 12px; }
+.tl-files { list-style: none; max-width: 520px; margin: 14px auto 0; text-align: left; }
+.tl-files li { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 6px; background: #fff; font-size: 13px; }
+.tl-files .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--dark-navy); }
+.tl-files .sz { color: #888; font-size: 12px; white-space: nowrap; }
+.tl-files button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 26px; height: 26px; cursor: pointer; color: var(--dark-navy); }
+.tl-files button:hover { background: #e2e8f0; }
+.tl-files button.rm:hover { background: #fee2e2; color: #b91c1c; }
+.tl-options { max-width: 520px; margin: 16px auto 0; text-align: left; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; }
+.tl-options label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.tl-options label:first-child { margin-top: 0; }
+.tl-options input[type=text], .tl-options input[type=number], .tl-options input[type=password], .tl-options select, .tl-options textarea { width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff; }
+.tl-options input[type=color] { width: 48px; height: 32px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 2px; background: #fff; }
+.tl-options .row { display: flex; gap: 10px; }
+.tl-options .row > div { flex: 1; }
+.tl-options .chk { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.tl-options .hint { font-size: 12px; color: #777; margin-top: 4px; font-weight: 400; }
+.tl-progress { margin: 14px auto 0; max-width: 520px; font-size: 13px; font-weight: 600; color: #1e40af; display: none; }
+.tl-progress .bar { height: 6px; background: #dbeafe; border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.tl-progress .bar i { display: block; height: 100%; width: 0; background: var(--primary-red); transition: width 0.15s; }
+.tl-results { max-width: 520px; margin: 16px auto 0; text-align: left; }
+.tl-results .res { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #bbf7d0; background: #f0fdf4; border-radius: 8px; margin-bottom: 8px; }
+.tl-results .res div { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; color: #166534; word-break: break-all; }
+.tl-results .res small { display: block; font-weight: 400; color: #4d7c5f; margin-top: 2px; }
+.howto { text-align: left; max-width: 640px; margin: 30px auto 0; padding-top: 18px; border-top: 1px solid var(--border-color); }
+.howto ol { margin: 6px 0 0 18px; font-size: 13px; color: #555; line-height: 1.8; }
+.howto p { font-size: 13px; color: #555; line-height: 1.7; margin-top: 8px; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; text-align: left; margin-top: 10px; }
+.grid-cards a { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--dark-navy); transition: all 0.15s; }
+.grid-cards a:hover { border-color: var(--primary-red); box-shadow: 0 2px 8px rgba(229,50,45,0.12); }
+.grid-cards a i { color: var(--primary-red); font-size: 22px; margin-top: 2px; }
+.grid-cards a b { display: block; font-size: 14px; }
+.grid-cards a span { display: block; font-size: 12px; color: #777; margin-top: 2px; line-height: 1.4; }
+.doc { text-align: left; max-width: 720px; margin: 0 auto; }
+.doc h2 { margin-top: 26px; }
+.doc p, .doc li { font-size: 14px; color: #444; line-height: 1.75; margin-top: 8px; }
+.doc ul, .doc ol { margin-left: 20px; }
+.doc a { color: var(--primary-red); font-weight: 600; text-decoration: none; }
+.faq details { border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; margin-top: 10px; background: #fff; }
+.faq summary { font-weight: 700; font-size: 14px; color: var(--dark-navy); cursor: pointer; }
+.faq details p { margin-top: 8px; }
+
+/* organize grid */
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin: 16px auto 0; text-align: center; }
+.pg-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; background: #fff; }
+.pg-item canvas { max-width: 100%; height: auto; border: 1px solid #eee; transition: transform 0.2s; }
+.pg-item .ctl { display: flex; justify-content: center; gap: 4px; margin-top: 6px; }
+.pg-item .ctl button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 28px; height: 26px; cursor: pointer; }
+.pg-item .ctl button:hover { background: #e2e8f0; }
+.pg-item .num { font-size: 11px; color: #777; margin-top: 4px; }
+
+/* page editor */
+.ed-bar { position: sticky; top: 56px; z-index: 50; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; margin: 0 auto 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; }
+.ed-bar button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 6px; padding: 7px 12px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--dark-navy); display: inline-flex; align-items: center; gap: 6px; }
+.ed-bar button.on { background: var(--primary-red); color: #fff; border-color: var(--primary-red); }
+.ed-bar input[type=number] { width: 58px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; }
+.ed-bar input[type=color] { width: 34px; height: 30px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 1px; background: #fff; }
+.ed-hint { font-size: 12px; color: #666; margin-bottom: 10px; }
+.ed-pages { display: flex; flex-direction: column; align-items: center; gap: 14px; background: #e9edf2; padding: 14px 6px; border-radius: 8px; overflow-x: auto; }
+.ed-page { position: relative; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); flex-shrink: 0; touch-action: pan-y; }
+.ed-page canvas { display: block; width: 100%; height: 100%; }
+.ed-over { position: absolute; inset: 0; }
+.ed-over.tool { cursor: crosshair; touch-action: none; }
+.ed-obj { position: absolute; }
+.ed-obj.sel { outline: 1.5px dashed #2563eb; }
+.ed-obj .del { display: none; position: absolute; top: -12px; right: -12px; width: 22px; height: 22px; border-radius: 50%; background: #dc2626; color: #fff; border: none; cursor: pointer; font-size: 12px; line-height: 22px; text-align: center; z-index: 5; }
+.ed-obj .rs { display: none; position: absolute; right: -7px; bottom: -7px; width: 14px; height: 14px; background: #2563eb; border-radius: 3px; cursor: nwse-resize; z-index: 5; touch-action: none; }
+.ed-obj.sel .del, .ed-obj.sel .rs { display: block; }
+.ed-obj.txt { white-space: pre; outline: 1px dashed rgba(37,99,235,0.5); min-width: 20px; padding: 0 2px; cursor: move; line-height: 1.15; }
+.ed-obj.img img { width: 100%; height: 100%; display: block; pointer-events: none; }
+.ed-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 14px; }
+.ed-modal.open { display: flex; }
+.ed-modal .box { background: #fff; border-radius: 10px; padding: 16px; width: 100%; max-width: 460px; text-align: left; }
+.ed-modal canvas { width: 100%; height: 180px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; touch-action: none; cursor: crosshair; }
+.ed-modal input[type=text] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 22px; font-family: "Brush Script MT", "Segoe Script", cursive; }
+.ed-modal .tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+.ed-modal .tabs button { flex: 1; }
+
+@media (max-width: 640px) { .main-container { padding: 16px; } }
+
+.tl-options.wide { max-width: 100%; }
+
+/* forms */
+.form-box { max-width: 380px; margin: 0 auto; text-align: left; }
+.social-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; background: #fff; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--dark-navy); cursor: pointer; }
+.social-btn:hover { background: #f8fafc; }
+.divider { text-align: center; font-size: 12px; color: #888; margin: 14px 0; }
+.form-box label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin-bottom: 5px; }
+.form-box input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; margin-bottom: 14px; }
+.form-box input:focus { outline: 2px solid rgba(229,50,45,0.35); border-color: var(--primary-red); }
+.form-box .btn-primary { width: 100%; margin-top: 4px; }
+.form-box .msg { max-width: none; margin: 0 0 14px; }
+.alt-line { font-size: 13px; color: #555; margin-top: 14px; text-align: center; }
+.alt-line a, .legal a, .small-link { color: var(--primary-red); text-decoration: none; font-weight: 600; font-size: 13px; }
+.legal { font-size: 12px; color: #777; margin-top: 10px; line-height: 1.5; text-align: center; }
+@media (max-width: 420px) { .btn-login { display: none; } }
+
+/* account page */
+.acc { max-width: 560px; margin: 0 auto; text-align: left; }
+.acc h2 { margin: 24px 0 8px; padding-top: 16px; border-top: 1px solid var(--border-color); }
+.acc h2:first-of-type { border-top: none; padding-top: 0; }
+.acc .who { font-size: 15px; font-weight: 700; color: var(--dark-navy); }
+.acc .since { font-size: 12px; color: #777; margin: 2px 0 10px; }
+.acc form label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.acc form input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+.acc form .btn-primary { margin-top: 12px; }
+.acc ul.keys { list-style: none; margin-top: 8px; }
+.acc ul.keys li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 8px; background: #fff; }
+.acc ul.keys li div { min-width: 0; }
+.acc ul.keys b { display: block; font-size: 14px; color: var(--dark-navy); }
+.acc ul.keys code { display: block; font-size: 12px; color: #555; word-break: break-all; margin: 2px 0; }
+.acc ul.keys small { color: #888; font-size: 11px; }
+.acc ul.keys .key-empty { color: #777; font-size: 13px; justify-content: center; }
+.newkey { display: none; border: 1px solid #fde68a; background: #fffbeb; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 13px; color: #78350f; }
+.newkey code { display: block; background: #fff; border: 1px solid #fde68a; border-radius: 6px; padding: 8px; margin: 6px 0; word-break: break-all; color: #111; font-size: 12px; }
+
+    </style>
+</head>
+<body>
+<script>
+/* PDFify shared layout: header, menu, share button and footer for every page.
+   Edit this file once and every page updates. */
+(function () {
+    'use strict';
+    var D = {"groups": [{"name": "Organize PDF", "tools": [{"slug": "merge-pdf", "name": "Merge PDF", "icon": "fa-object-group"}, {"slug": "split-pdf", "name": "Split PDF", "icon": "fa-scissors"}, {"slug": "remove-pages", "name": "Remove Pages", "icon": "fa-trash-can"}, {"slug": "extract-pages", "name": "Extract Pages", "icon": "fa-file-export"}, {"slug": "organize-pdf", "name": "Organize PDF", "icon": "fa-table-cells-large"}]}, {"name": "Optimize PDF", "tools": [{"slug": "compress-pdf", "name": "Compress PDF", "icon": "fa-compress"}, {"slug": "repair-pdf", "name": "Repair PDF", "icon": "fa-wrench"}, {"slug": "scan-pdf", "name": "Scan to PDF", "icon": "fa-camera"}, {"slug": "ocr-pdf", "name": "OCR PDF", "icon": "fa-eye"}]}, {"name": "Convert to PDF", "tools": [{"slug": "jpg-to-pdf", "name": "JPG to PDF", "icon": "fa-image"}, {"slug": "png-to-pdf", "name": "PNG to PDF", "icon": "fa-file-image"}, {"slug": "word-to-pdf", "name": "WORD to PDF", "icon": "fa-file-word"}, {"slug": "html-to-pdf", "name": "HTML to PDF", "icon": "fa-code"}, {"slug": "text-to-document", "name": "Text to Document", "icon": "fa-file-lines"}, {"slug": "excel-to-pdf", "name": "EXCEL to PDF", "icon": "fa-file-excel"}, {"slug": "powerpoint-to-pdf", "name": "POWERPOINT to PDF", "icon": "fa-file-powerpoint"}]}, {"name": "Convert from PDF", "tools": [{"slug": "pdf-to-word", "name": "PDF to WORD", "icon": "fa-file-word"}, {"slug": "pdf-to-jpg", "name": "PDF to JPG", "icon": "fa-file-image"}, {"slug": "pdf-to-png", "name": "PDF to PNG", "icon": "fa-images"}, {"slug": "pdf-to-powerpoint", "name": "PDF to POWERPOINT", "icon": "fa-file-powerpoint"}, {"slug": "pdf-to-pdfa", "name": "PDF to PDF/A", "icon": "fa-box-archive"}, {"slug": "pdf-to-excel", "name": "PDF to EXCEL", "icon": "fa-file-excel"}, {"slug": "pdf-to-text", "name": "Copy PDF Text", "icon": "fa-copy"}, {"slug": "pdf-to-markdown", "name": "PDF to Markdown", "icon": "fa-hashtag"}]}, {"name": "Edit & Security", "tools": [{"slug": "edit-pdf", "name": "Edit PDF", "icon": "fa-pen-to-square"}, {"slug": "rotate-pdf", "name": "Rotate PDF", "icon": "fa-rotate"}, {"slug": "crop-pdf", "name": "Crop PDF", "icon": "fa-crop-simple"}, {"slug": "add-page-numbers", "name": "Add Page Numbers", "icon": "fa-list-ol"}, {"slug": "watermark-pdf", "name": "Watermark PDF", "icon": "fa-droplet"}, {"slug": "sign-pdf", "name": "Sign PDF", "icon": "fa-signature"}, {"slug": "redact-pdf", "name": "Redact PDF", "icon": "fa-user-secret"}, {"slug": "unlock-pdf", "name": "Unlock PDF", "icon": "fa-unlock"}, {"slug": "pro-pdf-edit", "name": "Pro PDF Edit", "icon": "fa-pen-ruler"}, {"slug": "protect-pdf", "name": "Protect PDF", "icon": "fa-lock"}, {"slug": "compare-pdf", "name": "Compare PDF", "icon": "fa-code-compare"}, {"slug": "fill-pdf-form", "name": "PDF Forms", "icon": "fa-file-pen"}, {"slug": "summarize-pdf", "name": "Summarize PDF", "icon": "fa-list-check"}, {"slug": "translate-pdf", "name": "Translate PDF", "icon": "fa-language"}]}], "products": [["pdfify-api", "PDFify API", "fa-terminal"], ["pdfify-image", "PDFify Image", "fa-image"], ["business", "Business", "fa-briefcase"], ["integrations", "Integrations", "fa-plug"]], "company": [["features", "Features", "fa-star"], ["pricing", "Pricing", "fa-tags"], ["security", "Security", "fa-shield-halved"], ["about", "About us", "fa-circle-info"], ["faq", "FAQ", "fa-circle-question"], ["contact", "Contact", "fa-envelope"]], "email": "pdfify963@gmail.com", "address": "Al Amarat Al Mahaj 119, Muscat, Oman"};
+    var ROOT = '/';
+    var loggedIn = false;
+    try { var ss = JSON.parse(localStorage.getItem('pdfify_session') || 'null'); loggedIn = !!(ss && ss.access_token && (ss.expires_at || 0) * 1000 > Date.now() - 30 * 86400000); } catch (e) { loggedIn = false; }
+    function H(p) { return ROOT + p; }
+    function li(slug, name, icon) { return '<li><a href="' + H(slug + '/') + '"><i class="fa-solid ' + icon + '"></i> ' + name + '</a></li>'; }
+
+    var tools = D.groups.map(function (g) {
+        return '<div class="drawer-section"><h5>' + g.name + '</h5><ul>' + g.tools.map(function (t) { return li(t.slug, t.name, t.icon); }).join('') + '</ul></div>';
+    }).join('');
+    var products = '<div class="drawer-section"><h5>Products</h5><ul>' + D.products.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+    var company = '<div class="drawer-section"><h5>Company</h5><ul>' + D.company.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+
+    var logo = '<a href="' + H('') + '" class="logo"><span>PDFify</span><i class="fa-solid fa-heart"></i></a>';
+    var header =
+        '<header><div class="nav-container"><div class="header-left">' +
+        '<button class="nav-toggle-btn" onclick="toggleLeftDrawer()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>' + logo +
+        '</div><div class="header-right">' + (loggedIn ? '<a class="btn-login" href="' + H('account/') + '">Account</a>' : '<a class="btn-login" href="' + H('login/') + '">Log in</a>') +
+        '<button class="btn-share" onclick="shareWebsite()"><i class="fa-solid fa-share-nodes"></i> Share</button></div></div></header>' +
+        '<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawers()"></div>' +
+        '<div class="drawer left-drawer" id="left-drawer"><div class="drawer-header">' + logo +
+        '<i class="fa-solid fa-xmark" onclick="toggleLeftDrawer()" style="cursor:pointer;"></i></div>' +
+        tools + products + company +
+        '<div class="drawer-section"><h5>Legal</h5><ul>' + li('privacy', 'Privacy Policy', 'fa-user-shield') + li('terms', 'Terms of Service', 'fa-file-contract') + '</ul></div>' +
+        '<div class="drawer-auth">' + (loggedIn ? '<a class="a-login" href="' + H('account/') + '">My account</a><button type="button" class="a-signup" onclick="pdfifyLogout()">Log out</button>' : '<a class="a-login" href="' + H('login/') + '">Log in</a><a class="a-signup" href="' + H('signup/') + '">Create free account</a>') +
+        '<button type="button" class="a-login" onclick="installFromMenu()"><i class="fa-solid fa-download"></i> Install App</button></div></div>';
+
+    var footer =
+        '<footer><div class="footer-container">' +
+        '<div class="footer-col"><h4>PDFify</h4><ul><li><a href="' + H('') + '">Home</a></li><li><a href="' + H('tools/') + '">All tools</a></li><li><a href="' + H('features/') + '">Features</a></li><li><a href="' + H('pricing/') + '">Pricing</a></li><li><a href="' + H('about/') + '">About us</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Help &amp; Legal</h4><ul><li><a href="' + H('faq/') + '">FAQ</a></li><li><a href="' + H('contact/') + '">Contact</a></li><li><a href="' + H('security/') + '">Security</a></li><li><a href="' + H('privacy/') + '">Privacy Policy</a></li><li><a href="' + H('terms/') + '">Terms of Service</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Connect With Us</h4><ul>' +
+        '<li><a href="https://fb.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-facebook" style="color:#1877f2;"></i> Facebook Page</a></li>' +
+        '<li><a href="https://insta.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i> Instagram</a></li>' +
+        '<li><a href="https://www.youtube.com/@pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Channel</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Contact Info</h4><p><i class="fa-solid fa-location-dot"></i> ' + D.address + '</p>' +
+        '<p style="margin-top:6px;"><i class="fa-solid fa-envelope"></i> <a href="mailto:' + D.email + '">' + D.email + '</a></p></div></div>' +
+        '<div class="footer-bottom"><p>&copy; 2026 PDFify.online - All Rights Reserved.</p><p>Powered by PDFify Engine</p></div></footer>';
+
+    document.body.insertAdjacentHTML('afterbegin', header);
+
+    window.toggleLeftDrawer = function () {
+        document.getElementById('left-drawer').classList.toggle('active');
+        document.getElementById('drawer-overlay').classList.toggle('active');
+    };
+    window.closeDrawers = function () {
+        document.getElementById('left-drawer').classList.remove('active');
+        document.getElementById('drawer-overlay').classList.remove('active');
+    };
+    window.pdfifyLogout = function () { try { localStorage.removeItem('pdfify_session'); } catch (e) {} location.href = H('login/'); };
+    window.shareWebsite = function () {
+        var url = (location.protocol === 'http:' || location.protocol === 'https:') ? location.origin + location.pathname.replace(/index\.html$/, '') : 'https://pdfify.online/';
+        if (navigator.share) {
+            navigator.share({ title: document.title, text: 'Free online PDF tools - PDFify:', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied: ' + url); }, function () { alert('Copy this link: ' + url); });
+        } else { alert('Copy this link: ' + url); }
+    };
+    var deferred = null;
+    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
+    window.installFromMenu = function () {
+        if (deferred) { window.closeDrawers(); deferred.prompt(); deferred = null; }
+        else { location.href = H('desktop-app/'); }
+    };
+    window.__pdfifyInstallPrompt = function () { var d = deferred; deferred = null; return d; };
+    window.__pdfifyHasPrompt = function () { return !!deferred; };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.body.insertAdjacentHTML('beforeend', footer);
+    });
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+    }
+})();
+
+</script>
+<div class="main-container wide">
+    <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="tool-header-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+    <h1>Pro PDF Edit</h1>
+    <p class="desc">The full editor: add text, shapes, highlights, images and signatures, and black out sensitive content, all in one place.</p>
+    <div id="tool-root" data-tool="pro-pdf-edit"></div>
+    <noscript><div class="msg error">Please turn on JavaScript to use this tool.</div></noscript>
+    <section class="howto"><h2>How to use Pro PDF Edit</h2><ol><li>Select your PDF file.</li><li>Choose a tool and click or drag on the page. Use Redact to permanently hide content.</li><li>Click Download edited PDF.</li></ol><p>Your files stay on your device. PDFify processes them inside your browser, so nothing is uploaded to a server.</p></section>
+</div>
+<script>
+/* PDFify core: loaders, helpers and the generic tool interface.
+   Everything runs in the visitor's browser. Files are never uploaded. */
+(function () {
+    'use strict';
+    const PF = (window.PF = { tools: {} });
+    /* ---------- library loaders (loaded only when a tool needs them) ----------
+       Libraries come from public CDNs with exact versions. If the first CDN is blocked, the second is tried. */
+    const HOSTS = ['https://cdn.jsdelivr.net/npm/', 'https://unpkg.com/'];
+    const PDFJS = 'pdfjs-dist@6.2.108';
+    const scripts = {};
+    const loadOne = (url) => new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = url;
+        s.onload = resolve;
+        s.onerror = () => { s.remove(); reject(new Error('load failed')); };
+        document.head.appendChild(s);
+    });
+    PF.loadLib = (pkgPath) => scripts[pkgPath] || (scripts[pkgPath] = (async () => {
+        let last;
+        for (const h of HOSTS) { try { await loadOne(h + pkgPath); return; } catch (e) { last = e; } }
+        delete scripts[pkgPath];
+        throw new Error('Could not load a required component. Please check your internet connection and try again.');
+    })());
+    PF.pdfLib = async () => { if (!window.PDFLib) await PF.loadLib('pdf-lib@1.17.1/dist/pdf-lib.min.js'); return window.PDFLib; };
+    PF.JSZip = async () => { if (!window.JSZip) await PF.loadLib('jszip@3.10.1/dist/jszip.min.js'); return window.JSZip; };
+    PF.PptxGen = async () => { if (!window.PptxGenJS) await PF.loadLib('pptxgenjs@4.0.1/dist/pptxgen.bundle.js'); return window.PptxGenJS; };
+    let pdfjsP = null, pdfjsBase = '';
+    PF.pdfjs = () => {
+        if (!pdfjsP) {
+            pdfjsP = (async () => {
+                for (const h of HOSTS) {
+                    try {
+                        const m = await import(h + PDFJS + '/build/pdf.min.mjs');
+                        m.GlobalWorkerOptions.workerSrc = h + PDFJS + '/build/pdf.worker.min.mjs';
+                        pdfjsBase = h + PDFJS + '/';
+                        return m;
+                    } catch (e) { /* try next host */ }
+                }
+                pdfjsP = null;
+                throw new Error('Could not load the PDF engine. Please check your internet connection and try again.');
+            })();
+        }
+        return pdfjsP;
+    };
+    /* open a PDF with pdf.js; throws friendly errors */
+    PF.openPdf = async (buf, password, hasField) => {
+        const pdfjs = await PF.pdfjs();
+        try {
+            return await pdfjs.getDocument({
+                data: new Uint8Array(buf.slice ? buf.slice(0) : buf),
+                password: password || undefined,
+                wasmUrl: pdfjsBase + 'wasm/',
+                cMapUrl: pdfjsBase + 'cmaps/',
+                cMapPacked: true,
+                standardFontDataUrl: pdfjsBase + 'standard_fonts/'
+            }).promise;
+        } catch (e) {
+            if (e && e.name === 'PasswordException') {
+                const err = new Error(e.code === 2 ? 'The password is incorrect.' : (hasField ? 'This PDF is password protected. Enter the password above.' : 'This PDF is password protected. Please use the Unlock PDF tool first.'));
+                err.needPassword = true;
+                throw err;
+            }
+            throw new Error('This file could not be read as a PDF. It may be damaged. Try the Repair PDF tool.');
+        }
+    };
+    PF.renderPage = async (doc, num, scale) => {
+        const page = await doc.getPage(num);
+        const vp = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.ceil(vp.width);
+        canvas.height = Math.ceil(vp.height);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        await page.render({ canvasContext: ctx, viewport: vp, canvas }).promise;
+        return canvas;
+    };
+
+    /* ---------- small helpers ---------- */
+    PF.tick = () => new Promise((r) => setTimeout(r, 0));
+    PF.fmt = (n) => (n < 1024 ? n + ' B' : n < 1048576 ? (n / 1024).toFixed(1) + ' KB' : (n / 1048576).toFixed(2) + ' MB');
+    PF.baseName = (n) => n.replace(/\.[^.\/\\]+$/, '');
+    PF.esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    PF.download = (blob, name) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+    };
+    PF.canvasBlob = (canvas, type, q) => new Promise((res, rej) => canvas.toBlob((b) => (b ? res(b) : rej(new Error('Could not create the image.'))), type, q));
+    PF.zip = async (entries) => {
+        const JSZip = await PF.JSZip();
+        const z = new JSZip();
+        entries.forEach((e) => z.file(e.name, e.data));
+        return z.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+    };
+    /* "1-3, 5, 8-"  ->  sorted unique zero-based indexes */
+    PF.pagesFromSpec = (spec, total) => {
+        const out = new Set();
+        const parts = String(spec || '').split(',').map((s) => s.trim()).filter(Boolean);
+        if (!parts.length) throw new Error('Please enter the pages, for example 1-3, 5, 8-');
+        parts.forEach((p) => {
+            const m = p.match(/^(\d*)\s*-\s*(\d*)$/);
+            let a, b;
+            if (m && (m[1] || m[2])) { a = m[1] ? +m[1] : 1; b = m[2] ? +m[2] : total; }
+            else if (/^\d+$/.test(p)) { a = b = +p; }
+            else throw new Error('"' + p + '" is not a valid page or range.');
+            if (a < 1 || b < a || b > total) throw new Error('"' + p + '" is outside this document (it has ' + total + ' pages).');
+            for (let i = a; i <= b; i++) out.add(i - 1);
+        });
+        return Array.from(out).sort((x, y) => x - y);
+    };
+    PF.loadPdfDoc = async (file, opts) => {
+        const { PDFDocument } = await PF.pdfLib();
+        const buf = await file.arrayBuffer();
+        try {
+            return await PDFDocument.load(buf, opts || {});
+        } catch (e) {
+            if (/encrypt/i.test(String(e && e.message)) || (e && e.name === 'EncryptedPDFError')) {
+                throw new Error('"' + file.name + '" is password protected. Use the Unlock PDF tool first.');
+            }
+            throw new Error('"' + file.name + '" could not be read. It may be damaged. Try the Repair PDF tool.');
+        }
+    };
+    /* draw text to a transparent PNG (used for non-Latin text such as Urdu or Arabic) */
+    PF.textToPng = async (text, sizePx, color, bold) => {
+        const scale = 3;
+        const font = (bold ? 'bold ' : '') + sizePx * scale + 'px "Segoe UI","Noto Naskh Arabic","Noto Nastaliq Urdu",Tahoma,Arial,sans-serif';
+        const m = document.createElement('canvas').getContext('2d');
+        m.font = font;
+        const lines = String(text).split('\n');
+        const w = Math.ceil(Math.max(...lines.map((l) => m.measureText(l).width))) + 8;
+        const lh = Math.ceil(sizePx * scale * 1.3);
+        const c = document.createElement('canvas');
+        c.width = Math.max(w, 10);
+        c.height = lh * lines.length + 8;
+        const ctx = c.getContext('2d');
+        ctx.font = font;
+        ctx.fillStyle = color || '#000';
+        ctx.textBaseline = 'top';
+        const rtl = /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/.test(text);
+        ctx.direction = rtl ? 'rtl' : 'ltr';
+        ctx.textAlign = rtl ? 'right' : 'left';
+        lines.forEach((l, i) => ctx.fillText(l, rtl ? c.width - 4 : 4, 4 + i * lh));
+        const blob = await PF.canvasBlob(c, 'image/png');
+        return { bytes: new Uint8Array(await blob.arrayBuffer()), w: c.width / scale, h: c.height / scale };
+    };
+    PF.canEncode = (font, text) => { try { font.encodeText(text); return true; } catch (e) { return false; } };
+    PF.hexToRgb = (hex) => {
+        const h = String(hex || '#000000').replace('#', '');
+        return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255 };
+    };
+
+    /* ---------- generic tool interface ---------- */
+    PF.register = (name, def) => { PF.tools[name] = def; };
+
+    PF.mountGeneric = (root, def) => {
+        const accept = def.accept || '*/*';
+        const state = { files: [], infos: [] };
+        root.innerHTML =
+            '<div class="tl-drop" tabindex="0"><i class="fa-solid ' + (def.dropIcon || 'fa-folder-open') + '"></i><b>' + PF.esc(def.dropLabel || 'Select files from device') + '</b><small>' + PF.esc(def.dropHint || 'or drag and drop them here') + '</small></div>' +
+            '<input type="file" class="tl-input" hidden ' + (def.multiple ? 'multiple ' : '') + 'accept="' + PF.esc(accept) + '"' + (def.capture ? ' capture="environment"' : '') + '>' +
+            '<ul class="tl-files"></ul>' +
+            '<div class="tl-more" style="display:none;margin-top:8px;"><button type="button" class="btn-light">+ Add more files</button></div>' +
+            '<div class="tl-options' + (def.wideOptions ? ' wide' : '') + '" style="display:none;">' + (def.options || '') + '</div>' +
+            '<div><button type="button" class="btn-primary tl-run" disabled>' + PF.esc(def.runLabel || 'Process') + '</button></div>' +
+            '<div class="tl-progress"><span></span><div class="bar"><i></i></div></div>' +
+            '<div class="msg tl-msg"></div>' +
+            '<div class="tl-results"></div>';
+        const $ = (s) => root.querySelector(s);
+        const drop = $('.tl-drop'), input = $('.tl-input'), list = $('.tl-files'), opts = $('.tl-options'), run = $('.tl-run');
+        const prog = $('.tl-progress'), msg = $('.tl-msg'), results = $('.tl-results'), more = $('.tl-more');
+
+        const ui = {
+            root, files: state.files, infos: state.infos,
+            el: (id) => root.querySelector('#' + id),
+            val: (id) => { const e = root.querySelector('#' + id); return e ? (e.type === 'checkbox' ? e.checked : e.value) : ''; },
+            status: (t, pct) => {
+                prog.style.display = 'block';
+                prog.firstChild.textContent = t;
+                if (typeof pct === 'number') prog.querySelector('i').style.width = Math.max(0, Math.min(100, pct)) + '%';
+            },
+            message: (t, type) => { msg.textContent = t || ''; msg.className = 'msg tl-msg' + (t ? ' ' + (type || 'info') : ''); },
+            refresh: () => render()
+        };
+
+        function render() {
+            list.innerHTML = '';
+            state.files.forEach((f, i) => {
+                const li = document.createElement('li');
+                li.innerHTML = '<span class="nm">' + PF.esc(f.name) + '</span><span class="sz">' + (state.infos[i] ? PF.esc(state.infos[i]) + ' · ' : '') + PF.fmt(f.size) + '</span>' +
+                    (def.reorder && state.files.length > 1 ? '<button type="button" class="up" title="Move up"><i class="fa-solid fa-arrow-up"></i></button><button type="button" class="dn" title="Move down"><i class="fa-solid fa-arrow-down"></i></button>' : '') +
+                    '<button type="button" class="rm" title="Remove"><i class="fa-solid fa-xmark"></i></button>';
+                li.querySelector('.rm').onclick = () => { state.files.splice(i, 1); state.infos.splice(i, 1); changed(); };
+                const up = li.querySelector('.up'), dn = li.querySelector('.dn');
+                if (up) up.onclick = () => { if (i > 0) { [state.files[i - 1], state.files[i]] = [state.files[i], state.files[i - 1]]; [state.infos[i - 1], state.infos[i]] = [state.infos[i], state.infos[i - 1]]; render(); } };
+                if (dn) dn.onclick = () => { if (i < state.files.length - 1) { [state.files[i + 1], state.files[i]] = [state.files[i], state.files[i + 1]]; [state.infos[i + 1], state.infos[i]] = [state.infos[i], state.infos[i + 1]]; render(); } };
+                list.appendChild(li);
+            });
+            const min = def.min || 1;
+            run.disabled = state.files.length < min;
+            const has = state.files.length > 0;
+            opts.style.display = has && (def.options || '') ? 'block' : 'none';
+            more.style.display = has && def.multiple ? 'block' : 'none';
+            drop.style.display = has && !def.multiple ? 'none' : (has ? 'none' : 'block');
+        }
+        async function changed() {
+            results.innerHTML = '';
+            ui.message('');
+            render();
+            if (def.onFiles) { try { await def.onFiles(ui); } catch (e) { ui.message(e.message, 'error'); } }
+        }
+        async function addFiles(fl) {
+            let arr = Array.from(fl);
+            if (!arr.length) return;
+            if (def.filter) arr = arr.filter(def.filter);
+            if (!arr.length) { ui.message('Please choose a supported file type (' + (def.dropHint2 || accept) + ').', 'error'); return; }
+            if (!def.multiple) { state.files.length = 0; state.infos.length = 0; arr = arr.slice(0, 1); }
+            for (const f of arr) {
+                state.files.push(f);
+                let info = '';
+                if (def.inspect) { try { info = (await def.inspect(f, ui)) || ''; } catch (e) { info = ''; } }
+                state.infos.push(info);
+            }
+            await changed();
+        }
+        drop.onclick = () => input.click();
+        drop.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } };
+        more.querySelector('button').onclick = () => input.click();
+        input.onchange = () => { addFiles(input.files); input.value = ''; };
+        ['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+        ['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+        drop.addEventListener('drop', (e) => addFiles(e.dataTransfer.files));
+
+        run.onclick = async () => {
+            results.innerHTML = '';
+            ui.message('');
+            run.disabled = true;
+            ui.status('Working...', 2);
+            try {
+                let out = await def.run(ui);
+                if (!out) return;
+                if (!Array.isArray(out)) out = [out];
+                prog.style.display = 'none';
+                out.forEach((r) => {
+                    const row = document.createElement('div');
+                    row.className = 'res';
+                    row.innerHTML = '<div>' + PF.esc(r.name) + '<small>' + PF.fmt(r.blob.size) + (r.note ? ' · ' + PF.esc(r.note) : '') + '</small></div><button type="button" class="btn-primary" style="margin:0;padding:8px 16px;font-size:13px;"><i class="fa-solid fa-download"></i> Download</button>';
+                    row.querySelector('button').onclick = () => PF.download(r.blob, r.name);
+                    results.appendChild(row);
+                });
+                PF.download(out[0].blob, out[0].name);
+                ui.message(def.doneText || 'Done. Your file is downloading. If it did not start, use the Download button.', 'ok');
+            } catch (e) {
+                prog.style.display = 'none';
+                ui.message(e && e.message ? e.message : 'Something went wrong. Please try again.', 'error');
+                if (def.onError) def.onError(e, ui);
+            } finally {
+                prog.style.display = 'none';
+                render();
+            }
+        };
+        if (def.afterMount) def.afterMount(ui);
+        render();
+        return ui;
+    };
+
+    PF.start = () => {
+        const root = document.getElementById('tool-root');
+        if (!root) return;
+        const def = PF.tools[root.dataset.tool];
+        if (!def) { root.innerHTML = '<div class="msg error">This tool is not available.</div>'; return; }
+        if (def.mount) def.mount(root);
+        else PF.mountGeneric(root, def);
+    };
+    /* tool scripts register themselves, then the page calls PF.start() on load */
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(PF.start, 0));
+    else setTimeout(PF.start, 0);
+})();
+
+</script>
+<script>
+/* PDFify page editor: Edit PDF, Sign PDF, Redact PDF. Runs fully in the browser. */
+(function () {
+    'use strict';
+    const isPdf = (f) => /\.pdf$/i.test(f.name) || f.type === 'application/pdf';
+    const TOOLS = {
+        text: { icon: 'fa-font', label: 'Text', hint: 'Click on the page where you want to type. Drag the ✥ handle to move the text.' },
+        rect: { icon: 'fa-square', label: 'Rectangle', hint: 'Drag on the page to draw a filled rectangle.' },
+        highlight: { icon: 'fa-highlighter', label: 'Highlight', hint: 'Drag over the text you want to highlight.' },
+        whiteout: { icon: 'fa-eraser', label: 'White-out', hint: 'Drag over anything you want to cover with white.' },
+        image: { icon: 'fa-image', label: 'Image', hint: 'Choose a picture, then click on the page to place it.' },
+        sign: { icon: 'fa-signature', label: 'Signature', hint: 'Create your signature, then click on the page to place it.' },
+        redact: { icon: 'fa-user-secret', label: 'Redact', hint: 'Drag over the text or picture to remove. Redacted pages are rebuilt as images so the hidden content is really gone.' }
+    };
+
+    function mountEditor(root, cfg) {
+        const S = { doc: null, buf: null, name: '', recs: [], objs: [], tool: null, pending: null, sel: null, uid: 0, SC: 1 };
+        root.innerHTML =
+            '<div class="tl-drop" tabindex="0"><i class="fa-solid fa-file-pdf"></i><b>Select PDF file</b><small>or drag and drop it here</small></div>' +
+            '<input type="file" class="ed-file" hidden accept=".pdf,application/pdf"><input type="file" class="ed-img" hidden accept="image/*">' +
+            '<div class="msg ed-msg"></div>' +
+            '<div class="ed-work" style="display:none">' +
+            '<div class="ed-bar"></div><div class="ed-hint"></div><div class="ed-pages"></div>' +
+            '<div style="margin-top:14px"><button type="button" class="btn-primary ed-save"><i class="fa-solid fa-download"></i> ' + cfg.saveLabel + '</button></div></div>' +
+            '<div class="ed-modal"><div class="box"><div class="tabs"><button type="button" class="btn-light on" data-t="draw">Draw</button><button type="button" class="btn-light" data-t="type">Type</button></div>' +
+            '<div class="pane-draw"><canvas width="460" height="180"></canvas></div><div class="pane-type" style="display:none"><input type="text" placeholder="Type your name" value=""></div>' +
+            '<div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end"><button type="button" class="btn-light m-clear">Clear</button><button type="button" class="btn-light m-cancel">Cancel</button><button type="button" class="btn-primary m-ok" style="margin:0;padding:9px 18px;font-size:13px">Use signature</button></div></div></div>';
+        const $ = (s) => root.querySelector(s);
+        const drop = $('.tl-drop'), fileIn = $('.ed-file'), imgIn = $('.ed-img'), work = $('.ed-work'), bar = $('.ed-bar'), hint = $('.ed-hint'), pagesEl = $('.ed-pages'), msgEl = $('.ed-msg');
+        const say = (t, ty) => { msgEl.textContent = t || ''; msgEl.className = 'msg ed-msg' + (t ? ' ' + ty : ''); };
+
+        /* ----- toolbar ----- */
+        bar.innerHTML = cfg.tools.map((t) => '<button type="button" data-tool="' + t + '"><i class="fa-solid ' + TOOLS[t].icon + '"></i> ' + TOOLS[t].label + '</button>').join('') +
+            (cfg.tools.includes('text') ? '<label style="font-size:12px">Size <input type="number" id="ed-size" value="16" min="6" max="120"></label>' : '') +
+            (cfg.tools.includes('text') ? '<input type="color" id="ed-color" value="#000000" title="Text color">' : '') +
+            (cfg.tools.includes('rect') ? '<input type="color" id="ed-fill" value="#e5322d" title="Rectangle color">' : '') +
+            '<button type="button" id="ed-undo"><i class="fa-solid fa-rotate-left"></i> Undo</button>';
+        const sizeIn = bar.querySelector('#ed-size'), colorIn = bar.querySelector('#ed-color'), fillIn = bar.querySelector('#ed-fill');
+        function setTool(t) {
+            S.tool = t;
+            bar.querySelectorAll('[data-tool]').forEach((b) => b.classList.toggle('on', b.dataset.tool === t));
+            hint.textContent = t ? TOOLS[t === 'place' ? 'sign' : t].hint : 'Pick a tool above. Click an item on the page to select, move, resize or delete it.';
+            pagesEl.querySelectorAll('.ed-over').forEach((o) => o.classList.toggle('tool', !!t));
+        }
+        bar.querySelectorAll('[data-tool]').forEach((b) => (b.onclick = () => {
+            const t = b.dataset.tool;
+            if (S.tool === t) { setTool(null); return; }
+            if (t === 'image') { imgIn.click(); return; }
+            if (t === 'sign') { openModal(); return; }
+            setTool(t);
+        }));
+        bar.querySelector('#ed-undo').onclick = () => { const o = S.objs.pop(); if (o) { o.el.remove(); S.sel = null; } };
+        if (sizeIn) sizeIn.oninput = () => { if (S.sel && S.sel.type === 'text') { S.sel.size = +sizeIn.value || 16; S.sel.el.style.fontSize = S.sel.size * S.SC + 'px'; } };
+        if (colorIn) colorIn.oninput = () => { if (S.sel && S.sel.type === 'text') { S.sel.color = colorIn.value; S.sel.el.style.color = colorIn.value; } };
+        imgIn.onchange = async () => {
+            const f = imgIn.files[0]; imgIn.value = '';
+            if (!f) return;
+            try { S.pending = await fileToPng(f); setTool('place'); hint.textContent = TOOLS.image.hint; } catch (e) { say(e.message, 'error'); }
+        };
+
+        async function fileToPng(f) {
+            let bmp;
+            try { bmp = await createImageBitmap(f, { imageOrientation: 'from-image' }); } catch (e) { try { bmp = await createImageBitmap(f); } catch (e2) { throw new Error('This image could not be read. Use JPG, PNG or WebP.'); } }
+            let w = bmp.width, h = bmp.height; const m = 1600;
+            if (Math.max(w, h) > m) { const k = m / Math.max(w, h); w = Math.round(w * k); h = Math.round(h * k); }
+            const c = document.createElement('canvas'); c.width = w; c.height = h;
+            c.getContext('2d').drawImage(bmp, 0, 0, w, h);
+            return { src: c.toDataURL('image/png'), w, h };
+        }
+
+        /* ----- signature modal ----- */
+        const modal = $('.ed-modal'), mc = modal.querySelector('canvas'), mctx = mc.getContext('2d'), typeIn = modal.querySelector('.pane-type input');
+        let mode = 'draw', drawing = false, drawn = false;
+        function openModal() { modal.classList.add('open'); clearModal(); }
+        function clearModal() { mctx.clearRect(0, 0, mc.width, mc.height); drawn = false; typeIn.value = ''; }
+        modal.querySelectorAll('.tabs button').forEach((b) => (b.onclick = () => {
+            mode = b.dataset.t;
+            modal.querySelectorAll('.tabs button').forEach((x) => x.classList.toggle('on', x === b));
+            modal.querySelector('.pane-draw').style.display = mode === 'draw' ? 'block' : 'none';
+            modal.querySelector('.pane-type').style.display = mode === 'type' ? 'block' : 'none';
+        }));
+        const mpos = (e) => { const r = mc.getBoundingClientRect(); return { x: ((e.clientX - r.left) / r.width) * mc.width, y: ((e.clientY - r.top) / r.height) * mc.height }; };
+        mc.addEventListener('pointerdown', (e) => { drawing = true; drawn = true; mc.setPointerCapture(e.pointerId); const p = mpos(e); mctx.beginPath(); mctx.moveTo(p.x, p.y); mctx.lineWidth = 3; mctx.lineCap = 'round'; mctx.lineJoin = 'round'; mctx.strokeStyle = '#111'; });
+        mc.addEventListener('pointermove', (e) => { if (!drawing) return; const p = mpos(e); mctx.lineTo(p.x, p.y); mctx.stroke(); });
+        ['pointerup', 'pointercancel'].forEach((ev) => mc.addEventListener(ev, () => { drawing = false; }));
+        modal.querySelector('.m-clear').onclick = clearModal;
+        modal.querySelector('.m-cancel').onclick = () => modal.classList.remove('open');
+        modal.querySelector('.m-ok').onclick = () => {
+            let src = mc;
+            if (mode === 'type') {
+                const t = typeIn.value.trim();
+                if (!t) return;
+                src = document.createElement('canvas'); src.width = 700; src.height = 160;
+                const c = src.getContext('2d'); c.font = 'italic 72px "Brush Script MT","Segoe Script","Lucida Handwriting",cursive'; c.fillStyle = '#111'; c.textBaseline = 'middle'; c.fillText(t, 10, 80);
+            } else if (!drawn) return;
+            const ctx = src.getContext('2d'), d = ctx.getImageData(0, 0, src.width, src.height).data;
+            let x0 = src.width, y0 = src.height, x1 = 0, y1 = 0;
+            for (let y = 0; y < src.height; y++) for (let x = 0; x < src.width; x++) if (d[(y * src.width + x) * 4 + 3] > 10) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+            if (x1 <= x0) return;
+            const w = x1 - x0 + 1, h = y1 - y0 + 1, out = document.createElement('canvas'); out.width = w; out.height = h;
+            out.getContext('2d').drawImage(src, x0, y0, w, h, 0, 0, w, h);
+            S.pending = { src: out.toDataURL('image/png'), w, h };
+            modal.classList.remove('open');
+            setTool('place'); hint.textContent = TOOLS.sign.hint;
+        };
+
+        /* ----- loading the PDF ----- */
+        drop.onclick = () => fileIn.click();
+        drop.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileIn.click(); } };
+        ['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+        ['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+        drop.addEventListener('drop', (e) => load(e.dataTransfer.files[0]));
+        fileIn.onchange = () => { load(fileIn.files[0]); fileIn.value = ''; };
+
+        async function load(f) {
+            if (!f) return;
+            if (!isPdf(f)) { say('Please choose a PDF file.', 'error'); return; }
+            say('Opening PDF...', 'info');
+            try {
+                S.buf = await f.arrayBuffer(); S.name = f.name;
+                S.doc = await PF.openPdf(S.buf);
+                S.objs = []; S.recs = []; S.sel = null;
+                pagesEl.innerHTML = '';
+                const maxPages = 60;
+                if (S.doc.numPages > maxPages) throw new Error('This editor supports up to ' + maxPages + ' pages. Use Split PDF or Extract Pages first.');
+                const first = await S.doc.getPage(1);
+                const avail = Math.max(260, Math.min(pagesEl.clientWidth || root.clientWidth || 800, 900) - 24);
+                S.SC = Math.min(1.4, avail / first.getViewport({ scale: 1 }).width);
+                const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { io.unobserve(en.target); renderRec(en.target._rec); } }), { rootMargin: '700px' });
+                let rotated = false;
+                for (let i = 1; i <= S.doc.numPages; i++) {
+                    const page = await S.doc.getPage(i);
+                    const v = page.getViewport({ scale: 1 });
+                    if (page.rotate % 360) rotated = true;
+                    const wrap = document.createElement('div');
+                    wrap.className = 'ed-page';
+                    wrap.style.width = v.width * S.SC + 'px'; wrap.style.height = v.height * S.SC + 'px';
+                    const over = document.createElement('div'); over.className = 'ed-over';
+                    wrap.appendChild(over);
+                    const rec = { idx: i - 1, w: v.width, h: v.height, wrap, over };
+                    wrap._rec = rec; S.recs.push(rec);
+                    pagesEl.appendChild(wrap);
+                    bindOver(rec);
+                    io.observe(wrap);
+                }
+                drop.style.display = 'none'; work.style.display = 'block';
+                setTool(null);
+                say(rotated ? 'Some pages in this PDF are rotated. Edits on rotated pages may be placed incorrectly.' : '', 'info');
+            } catch (e) { say(e.message, 'error'); drop.style.display = 'block'; work.style.display = 'none'; }
+        }
+        async function renderRec(rec) {
+            const canvas = await PF.renderPage(S.doc, rec.idx + 1, S.SC * Math.min(2, window.devicePixelRatio || 1));
+            rec.wrap.insertBefore(canvas, rec.over);
+        }
+
+        /* ----- objects ----- */
+        const pt = (e, rec) => { const r = rec.over.getBoundingClientRect(); return { x: (e.clientX - r.left) / S.SC, y: (e.clientY - r.top) / S.SC }; };
+        function select(o) {
+            if (S.sel) S.sel.el.classList.remove('sel');
+            S.sel = o;
+            if (o) { o.el.classList.add('sel'); if (o.type === 'text') { if (sizeIn) sizeIn.value = o.size; if (colorIn) colorIn.value = o.color; } }
+        }
+        function place(o) {
+            const el = document.createElement('div');
+            el.className = 'ed-obj';
+            o.el = el;
+            const rec = S.recs[o.page];
+            const fix = () => { el.style.left = o.x * S.SC + 'px'; el.style.top = o.y * S.SC + 'px'; if (o.type !== 'text') { el.style.width = o.w * S.SC + 'px'; el.style.height = o.h * S.SC + 'px'; } };
+            o.fix = fix;
+            if (o.type === 'text') {
+                el.classList.add('txt');
+                el.style.fontSize = o.size * S.SC + 'px'; el.style.color = o.color; el.style.fontFamily = 'Helvetica, Arial, sans-serif';
+                const tx = document.createElement('span');
+                tx.className = 'tx'; tx.contentEditable = 'true'; tx.spellcheck = false; tx.textContent = o.text || '';
+                tx.style.cssText = 'display:inline-block;min-width:20px;white-space:pre;outline:none;cursor:text;';
+                tx.addEventListener('input', () => { o.text = tx.innerText; });
+                tx.addEventListener('focus', () => select(o));
+                el.appendChild(tx); o.tx = tx;
+                const mv = document.createElement('span'); mv.className = 'mv'; mv.textContent = '✥';
+                mv.style.cssText = 'position:absolute;left:-16px;top:-16px;width:16px;height:16px;background:#2563eb;color:#fff;border-radius:3px;font-size:11px;line-height:16px;text-align:center;cursor:move;user-select:none;touch-action:none;';
+                el.appendChild(mv);
+                drag(mv, o);
+            } else {
+                const colors = { rect: o.color, highlight: 'rgba(255,235,0,0.4)', whiteout: '#ffffff', redact: '#000000' };
+                if (o.type === 'image') { el.classList.add('img'); const im = document.createElement('img'); im.src = o.src; el.appendChild(im); }
+                else el.style.background = colors[o.type];
+                if (o.type === 'whiteout') el.style.outline = '1px dashed #bbb';
+                drag(el, o);
+                const rs = document.createElement('span'); rs.className = 'rs'; el.appendChild(rs); resize(rs, o);
+            }
+            const del = document.createElement('button'); del.type = 'button'; del.className = 'del'; del.textContent = '×'; del.contentEditable = 'false';
+            del.onclick = (e) => { e.stopPropagation(); el.remove(); S.objs = S.objs.filter((x) => x !== o); if (S.sel === o) S.sel = null; };
+            el.appendChild(del);
+            fix();
+            rec.over.appendChild(el);
+            if (!S.objs.includes(o)) S.objs.push(o);
+            return el;
+        }
+        function drag(handle, o) {
+            handle.addEventListener('pointerdown', (e) => {
+                if (e.target.classList.contains('rs') || e.target.classList.contains('del')) return;
+                if (o.type === 'text' && e.target !== handle) return;
+                e.preventDefault(); e.stopPropagation();
+                select(o);
+                handle.setPointerCapture(e.pointerId);
+                const sx = e.clientX, sy = e.clientY, ox = o.x, oy = o.y, rec = S.recs[o.page];
+                const mv = (ev) => { o.x = Math.max(0, Math.min(rec.w - 5, ox + (ev.clientX - sx) / S.SC)); o.y = Math.max(0, Math.min(rec.h - 5, oy + (ev.clientY - sy) / S.SC)); o.fix(); };
+                const up = () => { handle.removeEventListener('pointermove', mv); handle.removeEventListener('pointerup', up); handle.removeEventListener('pointercancel', up); };
+                handle.addEventListener('pointermove', mv); handle.addEventListener('pointerup', up); handle.addEventListener('pointercancel', up);
+            });
+        }
+        function resize(handle, o) {
+            handle.addEventListener('pointerdown', (e) => {
+                e.preventDefault(); e.stopPropagation(); select(o);
+                handle.setPointerCapture(e.pointerId);
+                const sx = e.clientX, sy = e.clientY, ow = o.w, oh = o.h, ratio = o.w / o.h;
+                const mv = (ev) => {
+                    let w = Math.max(6, ow + (ev.clientX - sx) / S.SC), h = Math.max(6, oh + (ev.clientY - sy) / S.SC);
+                    if (o.type === 'image') h = w / ratio;
+                    o.w = w; o.h = h; o.fix();
+                };
+                const up = () => { handle.removeEventListener('pointermove', mv); handle.removeEventListener('pointerup', up); handle.removeEventListener('pointercancel', up); };
+                handle.addEventListener('pointermove', mv); handle.addEventListener('pointerup', up); handle.addEventListener('pointercancel', up);
+            });
+        }
+        function bindOver(rec) {
+            rec.over.addEventListener('pointerdown', (e) => {
+                if (e.target !== rec.over) return;
+                const t = S.tool;
+                if (!t) { select(null); return; }
+                const p = pt(e, rec);
+                if (t === 'text') {
+                    e.preventDefault();
+                    const o = { id: ++S.uid, type: 'text', page: rec.idx, x: p.x, y: p.y, size: +(sizeIn && sizeIn.value) || 16, color: (colorIn && colorIn.value) || '#000000', text: '' };
+                    place(o); setTool(null); select(o); o.tx.focus(); setTimeout(() => o.tx.focus(), 0);
+                } else if (t === 'place' && S.pending) {
+                    e.preventDefault();
+                    const w = Math.min(160, rec.w * 0.5), h = (w * S.pending.h) / S.pending.w;
+                    const o = { id: ++S.uid, type: 'image', page: rec.idx, x: Math.max(0, p.x - w / 2), y: Math.max(0, p.y - h / 2), w, h, src: S.pending.src };
+                    place(o); select(o); S.pending = null; setTool(null);
+                } else if (['rect', 'highlight', 'whiteout', 'redact'].includes(t)) {
+                    e.preventDefault();
+                    rec.over.setPointerCapture(e.pointerId);
+                    const o = { id: ++S.uid, type: t, page: rec.idx, x: p.x, y: p.y, w: 1, h: 1, color: (fillIn && fillIn.value) || '#e5322d' };
+                    place(o);
+                    const sx = p.x, sy = p.y;
+                    const mv = (ev) => { const q = pt(ev, rec); o.x = Math.min(sx, q.x); o.y = Math.min(sy, q.y); o.w = Math.abs(q.x - sx); o.h = Math.abs(q.y - sy); o.fix(); };
+                    const up = () => {
+                        rec.over.removeEventListener('pointermove', mv); rec.over.removeEventListener('pointerup', up); rec.over.removeEventListener('pointercancel', up);
+                        if (o.w < 4 || o.h < 4) { o.el.remove(); S.objs = S.objs.filter((x) => x !== o); } else { select(o); }
+                    };
+                    rec.over.addEventListener('pointermove', mv); rec.over.addEventListener('pointerup', up); rec.over.addEventListener('pointercancel', up);
+                }
+            });
+        }
+        document.addEventListener('keydown', (e) => {
+            if (!S.sel || e.key !== 'Delete' || (S.sel.tx && document.activeElement === S.sel.tx)) return;
+            S.sel.el.remove(); S.objs = S.objs.filter((x) => x !== S.sel); S.sel = null;
+        });
+
+        /* ----- export ----- */
+        const dataBytes = async (url) => new Uint8Array(await (await fetch(url)).arrayBuffer());
+        $('.ed-save').onclick = async () => {
+            const btn = $('.ed-save');
+            btn.disabled = true; say('Creating your PDF...', 'info');
+            try {
+                const lib = await PF.pdfLib();
+                const { PDFDocument, StandardFonts, rgb } = lib;
+                const objs = S.objs.filter((o) => o.type !== 'text' || (o.text || '').trim());
+                if (!objs.length) throw new Error('Nothing to save yet. Add something to the PDF first.');
+                const pdf = await PDFDocument.load(S.buf, { ignoreEncryption: false });
+                const font = await pdf.embedFont(StandardFonts.Helvetica);
+                const redactPages = new Set(objs.filter((o) => o.type === 'redact').map((o) => o.page));
+                for (const o of objs) {
+                    if (o.type === 'redact') continue;
+                    const page = pdf.getPage(o.page);
+                    const H = page.getSize().height;
+                    if (o.type === 'text') {
+                        const lines = o.text.replace(/\r/g, '').split('\n'), c = PF.hexToRgb(o.color);
+                        if (PF.canEncode(font, lines.join(' '))) {
+                            lines.forEach((ln, i) => page.drawText(ln, { x: o.x + 2, y: H - o.y - o.size * 0.98 - i * o.size * 1.15, size: o.size, font, color: rgb(c.r, c.g, c.b) }));
+                        } else {
+                            const r = await PF.textToPng(lines.join('\n'), o.size, o.color, false);
+                            const im = await pdf.embedPng(r.bytes);
+                            page.drawImage(im, { x: o.x, y: H - o.y - r.h, width: r.w, height: r.h });
+                        }
+                    } else if (o.type === 'image') {
+                        const im = await pdf.embedPng(await dataBytes(o.src));
+                        page.drawImage(im, { x: o.x, y: H - o.y - o.h, width: o.w, height: o.h });
+                    } else {
+                        const c = o.type === 'rect' ? PF.hexToRgb(o.color) : o.type === 'highlight' ? { r: 1, g: 0.92, b: 0 } : { r: 1, g: 1, b: 1 };
+                        page.drawRectangle({ x: o.x, y: H - o.y - o.h, width: o.w, height: o.h, color: rgb(c.r, c.g, c.b), opacity: o.type === 'highlight' ? 0.4 : 1, borderWidth: 0 });
+                    }
+                }
+                let bytes;
+                if (redactPages.size) {
+                    const midBytes = await pdf.save();
+                    const rdoc = await PF.openPdf(midBytes.buffer.slice(midBytes.byteOffset, midBytes.byteOffset + midBytes.byteLength));
+                    const out = await PDFDocument.create();
+                    const total = pdf.getPageCount();
+                    for (let i = 0; i < total; i++) {
+                        say('Processing page ' + (i + 1) + ' of ' + total + '...', 'info');
+                        if (!redactPages.has(i)) { const [p] = await out.copyPages(pdf, [i]); out.addPage(p); continue; }
+                        const rec = S.recs[i], scale = 2;
+                        const canvas = await PF.renderPage(rdoc, i + 1, scale);
+                        const ctx = canvas.getContext('2d');
+                        ctx.fillStyle = '#000';
+                        objs.filter((o) => o.type === 'redact' && o.page === i).forEach((o) => ctx.fillRect(o.x * scale, o.y * scale, o.w * scale, o.h * scale));
+                        const blob = await PF.canvasBlob(canvas, 'image/jpeg', 0.92);
+                        const im = await out.embedJpg(new Uint8Array(await blob.arrayBuffer()));
+                        out.addPage([rec.w, rec.h]).drawImage(im, { x: 0, y: 0, width: rec.w, height: rec.h });
+                        canvas.width = canvas.height = 0;
+                        await PF.tick();
+                    }
+                    bytes = await out.save();
+                } else bytes = await pdf.save();
+                PF.download(new Blob([bytes], { type: 'application/pdf' }), PF.baseName(S.name) + cfg.suffix + '.pdf');
+                say('Done. Your PDF is downloading.', 'ok');
+            } catch (e) { say(e.message || 'Could not save the PDF.', 'error'); }
+            btn.disabled = false;
+        };
+    }
+
+    PF.register('edit-pdf', { mount: (r) => mountEditor(r, { tools: ['text', 'rect', 'highlight', 'whiteout', 'image', 'sign'], saveLabel: 'Download edited PDF', suffix: '-edited' }) });
+    PF.register('sign-pdf', { mount: (r) => mountEditor(r, { tools: ['sign', 'text', 'image'], saveLabel: 'Download signed PDF', suffix: '-signed' }) });
+    PF.register('pro-pdf-edit', { mount: (r) => mountEditor(r, { tools: ['text', 'rect', 'highlight', 'whiteout', 'image', 'sign', 'redact'], saveLabel: 'Download edited PDF', suffix: '-edited' }) });
+    PF.register('redact-pdf', { mount: (r) => mountEditor(r, { tools: ['redact'], saveLabel: 'Apply redaction and download', suffix: '-redacted' }) });
+})();
+
+</script>
+</body>
+</html>

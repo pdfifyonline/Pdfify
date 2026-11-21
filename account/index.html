@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account | PDFify Online</title>
-    <meta name="description" content="Manage your PDFify account and API keys.">
+    <meta name="description" content="Manage your PDFify account.">
     <meta name="author" content="Muhammad Kamran">
     <meta name="pdfify-build" content="20261116">
     <script src="/config.js"></script>
@@ -300,8 +300,8 @@ footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margi
     <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
     <div class="tool-header-icon"><i class="fa-solid fa-circle-user"></i></div>
     <h1>My account</h1>
-    <p class="desc">Manage your PDFify account and API keys.</p>
-    <div class="form-box acc" data-auth="account"><div class="msg" id="auth-msg"></div><div id="acc-loading" class="alt-line">Loading your account...</div><div id="acc" style="display:none"><h2>Profile</h2><div class="who" id="acc-email"></div><div class="since" id="acc-since"></div><button type="button" class="btn-light" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</button><h2>Change password</h2><form id="pw-form"><label for="npw">New password (at least 8 characters)</label><input type="password" id="npw" autocomplete="new-password" minlength="8" required><label for="npw2">Repeat the new password</label><input type="password" id="npw2" autocomplete="new-password" required><button type="submit" class="btn-primary">Change password</button></form><div class="msg" id="pw-msg"></div><h2>API keys</h2><p class="alt-line" style="text-align:left;margin:0">Each key has a public part and a secret part. The secret is shown only once when you create the key, so copy it and keep it safe. The PDFify API itself is not live yet; keys you create now will work when it launches. Up to 5 keys.</p><ul class="keys" id="keys"></ul><div class="msg" id="key-msg"></div><form id="key-form"><label for="key-name">Key name</label><input type="text" id="key-name" maxlength="60" placeholder="My project"><button type="submit" class="btn-primary">Create key</button></form><div class="newkey" id="newkey"><b>Your new key. Copy the secret now, it will not be shown again.</b><div>Public key</div><code id="new-public"></code><div>Secret key</div><code id="new-secret"></code><button type="button" class="btn-light" id="copy-secret">Copy secret</button></div></div></div>
+    <p class="desc">Manage your PDFify account.</p>
+    <div class="form-box acc" data-auth="account"><div class="msg" id="auth-msg"></div><div id="acc-loading" class="alt-line">Loading your account...</div><div id="acc" style="display:none"><h2>Profile</h2><div class="who" id="acc-email"></div><div class="since" id="acc-since"></div><button type="button" class="btn-light" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</button><h2>Change password</h2><form id="pw-form"><label for="npw">New password (at least 8 characters)</label><input type="password" id="npw" autocomplete="new-password" minlength="8" required><label for="npw2">Repeat the new password</label><input type="password" id="npw2" autocomplete="new-password" required><button type="submit" class="btn-primary">Change password</button></form><div class="msg" id="pw-msg"></div><h2>Developers</h2><p class="alt-line" style="text-align:left;margin:0">Looking for API keys? Developers have a separate portal with free monthly credits, keys and usage.</p><a class="btn-light" href="/developers/" style="display:inline-block;margin-top:10px;text-decoration:none">Open the developer portal</a></div></div>
 </div>
 <script>
 /* PDFify accounts: login, sign up, password reset and the account page.
@@ -508,47 +508,6 @@ footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margi
                 catch (err) { show(err.message, 'error'); }
                 busy($('pw-form'), false);
             });
-            // API keys
-            var list = $('keys'), km = $('key-msg');
-            var kshow = function (t, ty) { km.textContent = t || ''; km.className = 'msg' + (t ? ' ' + ty : ''); };
-            var rnd = function (prefix, n) { var abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', b = crypto.getRandomValues(new Uint8Array(n)), s = ''; for (var i = 0; i < n; i++) s += abc[b[i] % abc.length]; return prefix + s; };
-            var sha = async function (t) { var d = new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t))); return Array.prototype.map.call(d, function (x) { return x.toString(16).padStart(2, '0'); }).join(''); };
-            async function loadKeys() {
-                try {
-                    var rows = await api('/rest/v1/api_keys?select=id,name,public_key,created_at&order=created_at.desc', { token: await validToken() });
-                    list.innerHTML = '';
-                    if (!rows.length) { list.innerHTML = '<li class="key-empty">You have no keys yet.</li>'; return rows; }
-                    rows.forEach(function (r) {
-                        var li = document.createElement('li');
-                        li.innerHTML = '<div><b></b><code></code><small></small></div><button type="button" class="btn-light">Delete</button>';
-                        li.querySelector('b').textContent = r.name || 'Key';
-                        li.querySelector('code').textContent = r.public_key;
-                        li.querySelector('small').textContent = 'Created ' + String(r.created_at).slice(0, 10);
-                        li.querySelector('button').onclick = async function () {
-                            if (!confirm('Delete this key? Apps that use it will stop working.')) return;
-                            try { await api('/rest/v1/api_keys?id=eq.' + encodeURIComponent(r.id), { method: 'DELETE', token: await validToken() }); kshow('Key deleted.', 'ok'); loadKeys(); } catch (err) { kshow(err.message, 'error'); }
-                        };
-                        list.appendChild(li);
-                    });
-                    return rows;
-                } catch (err) { list.innerHTML = ''; kshow('Could not load your keys. ' + err.message, 'error'); return []; }
-            }
-            await loadKeys();
-            $('key-form').addEventListener('submit', async function (e) {
-                e.preventDefault();
-                var name = $('key-name').value.trim() || 'My project';
-                busy($('key-form'), true); kshow('');
-                try {
-                    var secret = rnd('sk_live_', 40), pub = rnd('pk_live_', 24);
-                    await api('/rest/v1/api_keys', { method: 'POST', token: await validToken(), headers: { Prefer: 'return=minimal' }, body: { name: name, public_key: pub, secret_hash: await sha(secret) } });
-                    $('new-secret').textContent = secret; $('new-public').textContent = pub;
-                    $('newkey').style.display = 'block';
-                    $('key-name').value = '';
-                    await loadKeys();
-                } catch (err) { kshow(/violates|limit|maximum|5 keys/i.test(err.message) ? 'You can have up to 5 keys. Delete one first.' : err.message, 'error'); }
-                busy($('key-form'), false);
-            });
-            $('copy-secret').onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText($('new-secret').textContent); $('copy-secret').textContent = 'Copied'; };
         })();
     }
 })();

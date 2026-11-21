@@ -1,0 +1,37 @@
+HOW TO TURN ON ACCOUNTS (about 10 minutes, free)
+=================================================
+The login, sign up, forgot password and account pages are already built. They only need a free Supabase project.
+
+STEP 1  Create the project
+  - Go to https://supabase.com and sign in. Click "New project". Choose any name and a strong database password.
+
+STEP 2  Create the table for API keys
+  - In Supabase open "SQL Editor" > "New query".
+  - Open the file supabase-setup.sql from this folder, copy ALL of it, paste it, click "Run".
+
+STEP 3  Tell Supabase your website address
+  - Authentication > URL Configuration:
+      Site URL:        https://pdfify.online/account/
+      Redirect URLs:   https://pdfify.online/account/
+                       https://pdfify.online/reset-password/
+  - Authentication > Providers > Email: keep "Confirm email" ON (recommended).
+
+STEP 4  Copy your two values
+  - Project Settings > API:
+      Project URL            (looks like https://abcdxyz.supabase.co)
+      anon public key        (a long text)
+  - Open config.js in this folder and paste them between the quotes. Save.
+  - NEVER paste the "service_role" key anywhere.
+
+STEP 5  Upload
+  - Upload config.js (and any changed files) to the root of your website. Wait a minute.
+  - Open https://pdfify.online/signup/ and create a test account. Open the email link, then log in.
+
+OPTIONAL: Google and Facebook buttons
+  - Authentication > Providers: switch on Google and/or Facebook and follow Supabase's short guide
+    (you must create an app on Google Cloud / Facebook Developers and paste its keys into Supabase).
+  - Until you do this, those two buttons show an error from Supabase. If you do not want them, tell me and I will remove them.
+
+EMAIL SENDING
+  - Supabase's built-in email is only for testing and is limited to a few emails per hour.
+    Before many people sign up, add your own SMTP (for example Brevo or Resend) in Authentication > SMTP Settings.

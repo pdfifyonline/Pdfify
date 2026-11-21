@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair PDF – Recover a Damaged PDF Online | PDFify Online</title>
+    <meta name="description" content="Recover the readable pages of a damaged PDF.">
+    <meta name="author" content="Muhammad Kamran">
+    <meta name="pdfify-build" content="20261116">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pdfify.online/repair-pdf/">
+    <meta name="google-site-verification" content="f7a075e9edc2152b">
+    <meta name="theme-color" content="#e5322d">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3QDB80S0X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3QDB80S0X');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+:root {
+    --primary-red: #e5322d;
+    --primary-hover: #c8231f;
+    --dark-navy: #1f2430;
+    --light-bg: #f8f9fa;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { background-color: var(--light-bg); color: #333333; display: flex; flex-direction: column; min-height: 100vh; }
+
+header { background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.nav-toggle-btn { background: none; border: none; font-size: 18px; color: var(--dark-navy); cursor: pointer; padding: 5px; }
+.logo { font-size: 20px; font-weight: 800; color: var(--dark-navy); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+.logo i, .logo span { color: var(--primary-red); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.btn-share { background: var(--primary-red); color: #fff; border: none; padding: 6px 14px; border-radius: 16px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.btn-login { color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 700; padding: 6px 10px; }
+
+.drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.2s ease; }
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+.drawer { position: fixed; top: 0; width: 290px; height: 100%; background: #ffffff; z-index: 1100; transition: transform 0.2s ease; overflow-y: auto; padding: 20px; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+.left-drawer { left: 0; transform: translateX(-100%); }
+.left-drawer.active { transform: translateX(0); }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+.drawer-section { margin-bottom: 18px; }
+.drawer-section h5 { font-size: 11px; text-transform: uppercase; color: #a0aec0; margin-bottom: 6px; font-weight: 700; }
+.drawer-section ul { list-style: none; }
+.drawer-section ul li a { display: flex; align-items: center; gap: 10px; padding: 7px 0; color: var(--dark-navy); text-decoration: none; font-size: 13px; font-weight: 600; }
+.drawer-section ul li a:hover { color: var(--primary-red); }
+.drawer-section ul li a i { color: var(--primary-red); width: 16px; text-align: center; }
+.drawer-auth { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.drawer-auth a, .drawer-auth button { display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--primary-red); }
+.drawer-auth .a-login { color: var(--primary-red); background: #fff; }
+.drawer-auth .a-signup { color: #fff; background: var(--primary-red); }
+
+.main-container { max-width: 900px; margin: 30px auto; padding: 25px; flex: 1; width: calc(100% - 24px); background: #ffffff; border-radius: 8px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); text-align: center; }
+.main-container.wide { max-width: 1100px; }
+.back-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--dark-navy); color: #ffffff; padding: 8px 16px; border-radius: 14px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 20px; transition: background 0.2s; }
+.back-btn:hover { background: var(--primary-red); }
+.tool-header-icon { font-size: 40px; color: var(--primary-red); margin-bottom: 12px; }
+h1 { font-size: 22px; color: var(--dark-navy); margin-bottom: 10px; font-weight: 800; }
+h2 { font-size: 17px; color: var(--dark-navy); margin: 22px 0 8px; }
+p.desc { color: #666; font-size: 13px; max-width: 640px; margin: 0 auto 25px; line-height: 1.5; }
+.btn-primary { background: var(--primary-red); color: #ffffff; padding: 12px 28px; font-size: 15px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; margin-top: 15px; display: inline-block; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-light { background: #f1f5f9; color: var(--dark-navy); padding: 9px 18px; font-size: 13px; font-weight: 700; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; display: inline-block; text-decoration: none; }
+.btn-light:hover { background: #e2e8f0; }
+
+footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margin-top: 40px; }
+.footer-container { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; text-align: left; }
+.footer-col h4 { font-size: 12px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; color: #fff; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 6px; }
+.footer-col a, .footer-col p { color: #a0aec0; text-decoration: none; font-size: 12px; line-height: 1.5; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { max-width: 1240px; margin: 15px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: #a0aec0; }
+
+/* messages */
+.msg { display: none; font-size: 13px; font-weight: 600; padding: 10px 12px; border-radius: 8px; margin: 14px auto 0; max-width: 560px; text-align: left; }
+.msg.error { display: block; background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.msg.ok { display: block; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.msg.info { display: block; background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+/* tool UI */
+.tl-drop { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 35px 20px; background: #f8fafc; max-width: 520px; margin: 0 auto; cursor: pointer; text-align: center; transition: all 0.2s; }
+.tl-drop:hover, .tl-drop.over { background: #f1f5f9; border-color: var(--primary-red); }
+.tl-drop i { font-size: 40px; color: var(--primary-red); }
+.tl-drop b { display: block; margin-top: 10px; color: var(--dark-navy); font-size: 14px; }
+.tl-drop small { display: block; margin-top: 4px; color: #888; font-size: 12px; }
+.tl-files { list-style: none; max-width: 520px; margin: 14px auto 0; text-align: left; }
+.tl-files li { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 6px; background: #fff; font-size: 13px; }
+.tl-files .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--dark-navy); }
+.tl-files .sz { color: #888; font-size: 12px; white-space: nowrap; }
+.tl-files button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 26px; height: 26px; cursor: pointer; color: var(--dark-navy); }
+.tl-files button:hover { background: #e2e8f0; }
+.tl-files button.rm:hover { background: #fee2e2; color: #b91c1c; }
+.tl-options { max-width: 520px; margin: 16px auto 0; text-align: left; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; }
+.tl-options label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.tl-options label:first-child { margin-top: 0; }
+.tl-options input[type=text], .tl-options input[type=number], .tl-options input[type=password], .tl-options select, .tl-options textarea { width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; background: #fff; }
+.tl-options input[type=color] { width: 48px; height: 32px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 2px; background: #fff; }
+.tl-options .row { display: flex; gap: 10px; }
+.tl-options .row > div { flex: 1; }
+.tl-options .chk { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.tl-options .hint { font-size: 12px; color: #777; margin-top: 4px; font-weight: 400; }
+.tl-progress { margin: 14px auto 0; max-width: 520px; font-size: 13px; font-weight: 600; color: #1e40af; display: none; }
+.tl-progress .bar { height: 6px; background: #dbeafe; border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.tl-progress .bar i { display: block; height: 100%; width: 0; background: var(--primary-red); transition: width 0.15s; }
+.tl-results { max-width: 520px; margin: 16px auto 0; text-align: left; }
+.tl-results .res { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #bbf7d0; background: #f0fdf4; border-radius: 8px; margin-bottom: 8px; }
+.tl-results .res div { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; color: #166534; word-break: break-all; }
+.tl-results .res small { display: block; font-weight: 400; color: #4d7c5f; margin-top: 2px; }
+.howto { text-align: left; max-width: 640px; margin: 30px auto 0; padding-top: 18px; border-top: 1px solid var(--border-color); }
+.howto ol { margin: 6px 0 0 18px; font-size: 13px; color: #555; line-height: 1.8; }
+.howto p { font-size: 13px; color: #555; line-height: 1.7; margin-top: 8px; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; text-align: left; margin-top: 10px; }
+.grid-cards a { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--dark-navy); transition: all 0.15s; }
+.grid-cards a:hover { border-color: var(--primary-red); box-shadow: 0 2px 8px rgba(229,50,45,0.12); }
+.grid-cards a i { color: var(--primary-red); font-size: 22px; margin-top: 2px; }
+.grid-cards a b { display: block; font-size: 14px; }
+.grid-cards a span { display: block; font-size: 12px; color: #777; margin-top: 2px; line-height: 1.4; }
+.doc { text-align: left; max-width: 720px; margin: 0 auto; }
+.doc h2 { margin-top: 26px; }
+.doc p, .doc li { font-size: 14px; color: #444; line-height: 1.75; margin-top: 8px; }
+.doc ul, .doc ol { margin-left: 20px; }
+.doc a { color: var(--primary-red); font-weight: 600; text-decoration: none; }
+.faq details { border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; margin-top: 10px; background: #fff; }
+.faq summary { font-weight: 700; font-size: 14px; color: var(--dark-navy); cursor: pointer; }
+.faq details p { margin-top: 8px; }
+
+/* organize grid */
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin: 16px auto 0; text-align: center; }
+.pg-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; background: #fff; }
+.pg-item canvas { max-width: 100%; height: auto; border: 1px solid #eee; transition: transform 0.2s; }
+.pg-item .ctl { display: flex; justify-content: center; gap: 4px; margin-top: 6px; }
+.pg-item .ctl button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 4px; width: 28px; height: 26px; cursor: pointer; }
+.pg-item .ctl button:hover { background: #e2e8f0; }
+.pg-item .num { font-size: 11px; color: #777; margin-top: 4px; }
+
+/* page editor */
+.ed-bar { position: sticky; top: 56px; z-index: 50; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; margin: 0 auto 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; }
+.ed-bar button { background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 6px; padding: 7px 12px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--dark-navy); display: inline-flex; align-items: center; gap: 6px; }
+.ed-bar button.on { background: var(--primary-red); color: #fff; border-color: var(--primary-red); }
+.ed-bar input[type=number] { width: 58px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; }
+.ed-bar input[type=color] { width: 34px; height: 30px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 1px; background: #fff; }
+.ed-hint { font-size: 12px; color: #666; margin-bottom: 10px; }
+.ed-pages { display: flex; flex-direction: column; align-items: center; gap: 14px; background: #e9edf2; padding: 14px 6px; border-radius: 8px; overflow-x: auto; }
+.ed-page { position: relative; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); flex-shrink: 0; touch-action: pan-y; }
+.ed-page canvas { display: block; width: 100%; height: 100%; }
+.ed-over { position: absolute; inset: 0; }
+.ed-over.tool { cursor: crosshair; touch-action: none; }
+.ed-obj { position: absolute; }
+.ed-obj.sel { outline: 1.5px dashed #2563eb; }
+.ed-obj .del { display: none; position: absolute; top: -12px; right: -12px; width: 22px; height: 22px; border-radius: 50%; background: #dc2626; color: #fff; border: none; cursor: pointer; font-size: 12px; line-height: 22px; text-align: center; z-index: 5; }
+.ed-obj .rs { display: none; position: absolute; right: -7px; bottom: -7px; width: 14px; height: 14px; background: #2563eb; border-radius: 3px; cursor: nwse-resize; z-index: 5; touch-action: none; }
+.ed-obj.sel .del, .ed-obj.sel .rs { display: block; }
+.ed-obj.txt { white-space: pre; outline: 1px dashed rgba(37,99,235,0.5); min-width: 20px; padding: 0 2px; cursor: move; line-height: 1.15; }
+.ed-obj.img img { width: 100%; height: 100%; display: block; pointer-events: none; }
+.ed-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 14px; }
+.ed-modal.open { display: flex; }
+.ed-modal .box { background: #fff; border-radius: 10px; padding: 16px; width: 100%; max-width: 460px; text-align: left; }
+.ed-modal canvas { width: 100%; height: 180px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; touch-action: none; cursor: crosshair; }
+.ed-modal input[type=text] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 22px; font-family: "Brush Script MT", "Segoe Script", cursive; }
+.ed-modal .tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+.ed-modal .tabs button { flex: 1; }
+
+@media (max-width: 640px) { .main-container { padding: 16px; } }
+
+.tl-options.wide { max-width: 100%; }
+
+/* forms */
+.form-box { max-width: 380px; margin: 0 auto; text-align: left; }
+.social-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; background: #fff; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--dark-navy); cursor: pointer; }
+.social-btn:hover { background: #f8fafc; }
+.divider { text-align: center; font-size: 12px; color: #888; margin: 14px 0; }
+.form-box label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin-bottom: 5px; }
+.form-box input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; margin-bottom: 14px; }
+.form-box input:focus { outline: 2px solid rgba(229,50,45,0.35); border-color: var(--primary-red); }
+.form-box .btn-primary { width: 100%; margin-top: 4px; }
+.form-box .msg { max-width: none; margin: 0 0 14px; }
+.alt-line { font-size: 13px; color: #555; margin-top: 14px; text-align: center; }
+.alt-line a, .legal a, .small-link { color: var(--primary-red); text-decoration: none; font-weight: 600; font-size: 13px; }
+.legal { font-size: 12px; color: #777; margin-top: 10px; line-height: 1.5; text-align: center; }
+@media (max-width: 420px) { .btn-login { display: none; } }
+
+/* account page */
+.acc { max-width: 560px; margin: 0 auto; text-align: left; }
+.acc h2 { margin: 24px 0 8px; padding-top: 16px; border-top: 1px solid var(--border-color); }
+.acc h2:first-of-type { border-top: none; padding-top: 0; }
+.acc .who { font-size: 15px; font-weight: 700; color: var(--dark-navy); }
+.acc .since { font-size: 12px; color: #777; margin: 2px 0 10px; }
+.acc form label { display: block; font-size: 13px; font-weight: 600; color: var(--dark-navy); margin: 10px 0 4px; }
+.acc form input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+.acc form .btn-primary { margin-top: 12px; }
+.acc ul.keys { list-style: none; margin-top: 8px; }
+.acc ul.keys li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 8px; background: #fff; }
+.acc ul.keys li div { min-width: 0; }
+.acc ul.keys b { display: block; font-size: 14px; color: var(--dark-navy); }
+.acc ul.keys code { display: block; font-size: 12px; color: #555; word-break: break-all; margin: 2px 0; }
+.acc ul.keys small { color: #888; font-size: 11px; }
+.acc ul.keys .key-empty { color: #777; font-size: 13px; justify-content: center; }
+.newkey { display: none; border: 1px solid #fde68a; background: #fffbeb; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 13px; color: #78350f; }
+.newkey code { display: block; background: #fff; border: 1px solid #fde68a; border-radius: 6px; padding: 8px; margin: 6px 0; word-break: break-all; color: #111; font-size: 12px; }
+
+    </style>
+</head>
+<body>
+<script>
+/* PDFify shared layout: header, menu, share button and footer for every page.
+   Edit this file once and every page updates. */
+(function () {
+    'use strict';
+    var D = {"groups": [{"name": "Organize PDF", "tools": [{"slug": "merge-pdf", "name": "Merge PDF", "icon": "fa-object-group"}, {"slug": "split-pdf", "name": "Split PDF", "icon": "fa-scissors"}, {"slug": "remove-pages", "name": "Remove Pages", "icon": "fa-trash-can"}, {"slug": "extract-pages", "name": "Extract Pages", "icon": "fa-file-export"}, {"slug": "organize-pdf", "name": "Organize PDF", "icon": "fa-table-cells-large"}]}, {"name": "Optimize PDF", "tools": [{"slug": "compress-pdf", "name": "Compress PDF", "icon": "fa-compress"}, {"slug": "repair-pdf", "name": "Repair PDF", "icon": "fa-wrench"}, {"slug": "scan-pdf", "name": "Scan to PDF", "icon": "fa-camera"}, {"slug": "ocr-pdf", "name": "OCR PDF", "icon": "fa-eye"}]}, {"name": "Convert to PDF", "tools": [{"slug": "jpg-to-pdf", "name": "JPG to PDF", "icon": "fa-image"}, {"slug": "png-to-pdf", "name": "PNG to PDF", "icon": "fa-file-image"}, {"slug": "word-to-pdf", "name": "WORD to PDF", "icon": "fa-file-word"}, {"slug": "html-to-pdf", "name": "HTML to PDF", "icon": "fa-code"}, {"slug": "text-to-document", "name": "Text to Document", "icon": "fa-file-lines"}, {"slug": "excel-to-pdf", "name": "EXCEL to PDF", "icon": "fa-file-excel"}, {"slug": "powerpoint-to-pdf", "name": "POWERPOINT to PDF", "icon": "fa-file-powerpoint"}]}, {"name": "Convert from PDF", "tools": [{"slug": "pdf-to-word", "name": "PDF to WORD", "icon": "fa-file-word"}, {"slug": "pdf-to-jpg", "name": "PDF to JPG", "icon": "fa-file-image"}, {"slug": "pdf-to-png", "name": "PDF to PNG", "icon": "fa-images"}, {"slug": "pdf-to-powerpoint", "name": "PDF to POWERPOINT", "icon": "fa-file-powerpoint"}, {"slug": "pdf-to-pdfa", "name": "PDF to PDF/A", "icon": "fa-box-archive"}, {"slug": "pdf-to-excel", "name": "PDF to EXCEL", "icon": "fa-file-excel"}, {"slug": "pdf-to-text", "name": "Copy PDF Text", "icon": "fa-copy"}, {"slug": "pdf-to-markdown", "name": "PDF to Markdown", "icon": "fa-hashtag"}]}, {"name": "Edit & Security", "tools": [{"slug": "edit-pdf", "name": "Edit PDF", "icon": "fa-pen-to-square"}, {"slug": "rotate-pdf", "name": "Rotate PDF", "icon": "fa-rotate"}, {"slug": "crop-pdf", "name": "Crop PDF", "icon": "fa-crop-simple"}, {"slug": "add-page-numbers", "name": "Add Page Numbers", "icon": "fa-list-ol"}, {"slug": "watermark-pdf", "name": "Watermark PDF", "icon": "fa-droplet"}, {"slug": "sign-pdf", "name": "Sign PDF", "icon": "fa-signature"}, {"slug": "redact-pdf", "name": "Redact PDF", "icon": "fa-user-secret"}, {"slug": "unlock-pdf", "name": "Unlock PDF", "icon": "fa-unlock"}, {"slug": "pro-pdf-edit", "name": "Pro PDF Edit", "icon": "fa-pen-ruler"}, {"slug": "protect-pdf", "name": "Protect PDF", "icon": "fa-lock"}, {"slug": "compare-pdf", "name": "Compare PDF", "icon": "fa-code-compare"}, {"slug": "fill-pdf-form", "name": "PDF Forms", "icon": "fa-file-pen"}, {"slug": "summarize-pdf", "name": "Summarize PDF", "icon": "fa-list-check"}, {"slug": "translate-pdf", "name": "Translate PDF", "icon": "fa-language"}]}], "products": [["pdfify-api", "PDFify API", "fa-terminal"], ["pdfify-image", "PDFify Image", "fa-image"], ["business", "Business", "fa-briefcase"], ["integrations", "Integrations", "fa-plug"]], "company": [["features", "Features", "fa-star"], ["pricing", "Pricing", "fa-tags"], ["security", "Security", "fa-shield-halved"], ["about", "About us", "fa-circle-info"], ["faq", "FAQ", "fa-circle-question"], ["contact", "Contact", "fa-envelope"]], "email": "pdfify963@gmail.com", "address": "Al Amarat Al Mahaj 119, Muscat, Oman"};
+    var ROOT = '/';
+    var loggedIn = false;
+    try { var ss = JSON.parse(localStorage.getItem('pdfify_session') || 'null'); loggedIn = !!(ss && ss.access_token && (ss.expires_at || 0) * 1000 > Date.now() - 30 * 86400000); } catch (e) { loggedIn = false; }
+    function H(p) { return ROOT + p; }
+    function li(slug, name, icon) { return '<li><a href="' + H(slug + '/') + '"><i class="fa-solid ' + icon + '"></i> ' + name + '</a></li>'; }
+
+    var tools = D.groups.map(function (g) {
+        return '<div class="drawer-section"><h5>' + g.name + '</h5><ul>' + g.tools.map(function (t) { return li(t.slug, t.name, t.icon); }).join('') + '</ul></div>';
+    }).join('');
+    var products = '<div class="drawer-section"><h5>Products</h5><ul>' + D.products.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+    var company = '<div class="drawer-section"><h5>Company</h5><ul>' + D.company.map(function (p) { return li(p[0], p[1], p[2]); }).join('') + '</ul></div>';
+
+    var logo = '<a href="' + H('') + '" class="logo"><span>PDFify</span><i class="fa-solid fa-heart"></i></a>';
+    var header =
+        '<header><div class="nav-container"><div class="header-left">' +
+        '<button class="nav-toggle-btn" onclick="toggleLeftDrawer()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>' + logo +
+        '</div><div class="header-right">' + (loggedIn ? '<a class="btn-login" href="' + H('account/') + '">Account</a>' : '<a class="btn-login" href="' + H('login/') + '">Log in</a>') +
+        '<button class="btn-share" onclick="shareWebsite()"><i class="fa-solid fa-share-nodes"></i> Share</button></div></div></header>' +
+        '<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawers()"></div>' +
+        '<div class="drawer left-drawer" id="left-drawer"><div class="drawer-header">' + logo +
+        '<i class="fa-solid fa-xmark" onclick="toggleLeftDrawer()" style="cursor:pointer;"></i></div>' +
+        tools + products + company +
+        '<div class="drawer-section"><h5>Legal</h5><ul>' + li('privacy', 'Privacy Policy', 'fa-user-shield') + li('terms', 'Terms of Service', 'fa-file-contract') + '</ul></div>' +
+        '<div class="drawer-auth">' + (loggedIn ? '<a class="a-login" href="' + H('account/') + '">My account</a><button type="button" class="a-signup" onclick="pdfifyLogout()">Log out</button>' : '<a class="a-login" href="' + H('login/') + '">Log in</a><a class="a-signup" href="' + H('signup/') + '">Create free account</a>') +
+        '<button type="button" class="a-login" onclick="installFromMenu()"><i class="fa-solid fa-download"></i> Install App</button></div></div>';
+
+    var footer =
+        '<footer><div class="footer-container">' +
+        '<div class="footer-col"><h4>PDFify</h4><ul><li><a href="' + H('') + '">Home</a></li><li><a href="' + H('tools/') + '">All tools</a></li><li><a href="' + H('features/') + '">Features</a></li><li><a href="' + H('pricing/') + '">Pricing</a></li><li><a href="' + H('about/') + '">About us</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Help &amp; Legal</h4><ul><li><a href="' + H('faq/') + '">FAQ</a></li><li><a href="' + H('contact/') + '">Contact</a></li><li><a href="' + H('security/') + '">Security</a></li><li><a href="' + H('privacy/') + '">Privacy Policy</a></li><li><a href="' + H('terms/') + '">Terms of Service</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Connect With Us</h4><ul>' +
+        '<li><a href="https://fb.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-facebook" style="color:#1877f2;"></i> Facebook Page</a></li>' +
+        '<li><a href="https://insta.pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i> Instagram</a></li>' +
+        '<li><a href="https://www.youtube.com/@pdfify.online" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Channel</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Contact Info</h4><p><i class="fa-solid fa-location-dot"></i> ' + D.address + '</p>' +
+        '<p style="margin-top:6px;"><i class="fa-solid fa-envelope"></i> <a href="mailto:' + D.email + '">' + D.email + '</a></p></div></div>' +
+        '<div class="footer-bottom"><p>&copy; 2026 PDFify.online - All Rights Reserved.</p><p>Powered by PDFify Engine</p></div></footer>';
+
+    document.body.insertAdjacentHTML('afterbegin', header);
+
+    window.toggleLeftDrawer = function () {
+        document.getElementById('left-drawer').classList.toggle('active');
+        document.getElementById('drawer-overlay').classList.toggle('active');
+    };
+    window.closeDrawers = function () {
+        document.getElementById('left-drawer').classList.remove('active');
+        document.getElementById('drawer-overlay').classList.remove('active');
+    };
+    window.pdfifyLogout = function () { try { localStorage.removeItem('pdfify_session'); } catch (e) {} location.href = H('login/'); };
+    window.shareWebsite = function () {
+        var url = (location.protocol === 'http:' || location.protocol === 'https:') ? location.origin + location.pathname.replace(/index\.html$/, '') : 'https://pdfify.online/';
+        if (navigator.share) {
+            navigator.share({ title: document.title, text: 'Free online PDF tools - PDFify:', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied: ' + url); }, function () { alert('Copy this link: ' + url); });
+        } else { alert('Copy this link: ' + url); }
+    };
+    var deferred = null;
+    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
+    window.installFromMenu = function () {
+        if (deferred) { window.closeDrawers(); deferred.prompt(); deferred = null; }
+        else { location.href = H('desktop-app/'); }
+    };
+    window.__pdfifyInstallPrompt = function () { var d = deferred; deferred = null; return d; };
+    window.__pdfifyHasPrompt = function () { return !!deferred; };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.body.insertAdjacentHTML('beforeend', footer);
+    });
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+    }
+})();
+
+</script>
+<div class="main-container">
+    <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="tool-header-icon"><i class="fa-solid fa-wrench"></i></div>
+    <h1>Repair PDF</h1>
+    <p class="desc">Recover the readable pages of a damaged PDF.</p>
+    <div id="tool-root" data-tool="repair-pdf"></div>
+    <noscript><div class="msg error">Please turn on JavaScript to use this tool.</div></noscript>
+    <section class="howto"><h2>How to use Repair PDF</h2><ol><li>Select the damaged PDF.</li><li>Click Repair PDF.</li><li>Download the recovered file.</li></ol><p>Your files stay on your device. PDFify processes them inside your browser, so nothing is uploaded to a server.</p></section>
+</div>
+<script>
+/* PDFify core: loaders, helpers and the generic tool interface.
+   Everything runs in the visitor's browser. Files are never uploaded. */
+(function () {
+    'use strict';
+    const PF = (window.PF = { tools: {} });
+    /* ---------- library loaders (loaded only when a tool needs them) ----------
+       Libraries come from public CDNs with exact versions. If the first CDN is blocked, the second is tried. */
+    const HOSTS = ['https://cdn.jsdelivr.net/npm/', 'https://unpkg.com/'];
+    const PDFJS = 'pdfjs-dist@6.2.108';
+    const scripts = {};
+    const loadOne = (url) => new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = url;
+        s.onload = resolve;
+        s.onerror = () => { s.remove(); reject(new Error('load failed')); };
+        document.head.appendChild(s);
+    });
+    PF.loadLib = (pkgPath) => scripts[pkgPath] || (scripts[pkgPath] = (async () => {
+        let last;
+        for (const h of HOSTS) { try { await loadOne(h + pkgPath); return; } catch (e) { last = e; } }
+        delete scripts[pkgPath];
+        throw new Error('Could not load a required component. Please check your internet connection and try again.');
+    })());
+    PF.pdfLib = async () => { if (!window.PDFLib) await PF.loadLib('pdf-lib@1.17.1/dist/pdf-lib.min.js'); return window.PDFLib; };
+    PF.JSZip = async () => { if (!window.JSZip) await PF.loadLib('jszip@3.10.1/dist/jszip.min.js'); return window.JSZip; };
+    PF.PptxGen = async () => { if (!window.PptxGenJS) await PF.loadLib('pptxgenjs@4.0.1/dist/pptxgen.bundle.js'); return window.PptxGenJS; };
+    let pdfjsP = null, pdfjsBase = '';
+    PF.pdfjs = () => {
+        if (!pdfjsP) {
+            pdfjsP = (async () => {
+                for (const h of HOSTS) {
+                    try {
+                        const m = await import(h + PDFJS + '/build/pdf.min.mjs');
+                        m.GlobalWorkerOptions.workerSrc = h + PDFJS + '/build/pdf.worker.min.mjs';
+                        pdfjsBase = h + PDFJS + '/';
+                        return m;
+                    } catch (e) { /* try next host */ }
+                }
+                pdfjsP = null;
+                throw new Error('Could not load the PDF engine. Please check your internet connection and try again.');
+            })();
+        }
+        return pdfjsP;
+    };
+    /* open a PDF with pdf.js; throws friendly errors */
+    PF.openPdf = async (buf, password, hasField) => {
+        const pdfjs = await PF.pdfjs();
+        try {
+            return await pdfjs.getDocument({
+                data: new Uint8Array(buf.slice ? buf.slice(0) : buf),
+                password: password || undefined,
+                wasmUrl: pdfjsBase + 'wasm/',
+                cMapUrl: pdfjsBase + 'cmaps/',
+                cMapPacked: true,
+                standardFontDataUrl: pdfjsBase + 'standard_fonts/'
+            }).promise;
+        } catch (e) {
+            if (e && e.name === 'PasswordException') {
+                const err = new Error(e.code === 2 ? 'The password is incorrect.' : (hasField ? 'This PDF is password protected. Enter the password above.' : 'This PDF is password protected. Please use the Unlock PDF tool first.'));
+                err.needPassword = true;
+                throw err;
+            }
+            throw new Error('This file could not be read as a PDF. It may be damaged. Try the Repair PDF tool.');
+        }
+    };
+    PF.renderPage = async (doc, num, scale) => {
+        const page = await doc.getPage(num);
+        const vp = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.ceil(vp.width);
+        canvas.height = Math.ceil(vp.height);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        await page.render({ canvasContext: ctx, viewport: vp, canvas }).promise;
+        return canvas;
+    };
+
+    /* ---------- small helpers ---------- */
+    PF.tick = () => new Promise((r) => setTimeout(r, 0));
+    PF.fmt = (n) => (n < 1024 ? n + ' B' : n < 1048576 ? (n / 1024).toFixed(1) + ' KB' : (n / 1048576).toFixed(2) + ' MB');
+    PF.baseName = (n) => n.replace(/\.[^.\/\\]+$/, '');
+    PF.esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    PF.download = (blob, name) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+    };
+    PF.canvasBlob = (canvas, type, q) => new Promise((res, rej) => canvas.toBlob((b) => (b ? res(b) : rej(new Error('Could not create the image.'))), type, q));
+    PF.zip = async (entries) => {
+        const JSZip = await PF.JSZip();
+        const z = new JSZip();
+        entries.forEach((e) => z.file(e.name, e.data));
+        return z.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+    };
+    /* "1-3, 5, 8-"  ->  sorted unique zero-based indexes */
+    PF.pagesFromSpec = (spec, total) => {
+        const out = new Set();
+        const parts = String(spec || '').split(',').map((s) => s.trim()).filter(Boolean);
+        if (!parts.length) throw new Error('Please enter the pages, for example 1-3, 5, 8-');
+        parts.forEach((p) => {
+            const m = p.match(/^(\d*)\s*-\s*(\d*)$/);
+            let a, b;
+            if (m && (m[1] || m[2])) { a = m[1] ? +m[1] : 1; b = m[2] ? +m[2] : total; }
+            else if (/^\d+$/.test(p)) { a = b = +p; }
+            else throw new Error('"' + p + '" is not a valid page or range.');
+            if (a < 1 || b < a || b > total) throw new Error('"' + p + '" is outside this document (it has ' + total + ' pages).');
+            for (let i = a; i <= b; i++) out.add(i - 1);
+        });
+        return Array.from(out).sort((x, y) => x - y);
+    };
+    PF.loadPdfDoc = async (file, opts) => {
+        const { PDFDocument } = await PF.pdfLib();
+        const buf = await file.arrayBuffer();
+        try {
+            return await PDFDocument.load(buf, opts || {});
+        } catch (e) {
+            if (/encrypt/i.test(String(e && e.message)) || (e && e.name === 'EncryptedPDFError')) {
+                throw new Error('"' + file.name + '" is password protected. Use the Unlock PDF tool first.');
+            }
+            throw new Error('"' + file.name + '" could not be read. It may be damaged. Try the Repair PDF tool.');
+        }
+    };
+    /* draw text to a transparent PNG (used for non-Latin text such as Urdu or Arabic) */
+    PF.textToPng = async (text, sizePx, color, bold) => {
+        const scale = 3;
+        const font = (bold ? 'bold ' : '') + sizePx * scale + 'px "Segoe UI","Noto Naskh Arabic","Noto Nastaliq Urdu",Tahoma,Arial,sans-serif';
+        const m = document.createElement('canvas').getContext('2d');
+        m.font = font;
+        const lines = String(text).split('\n');
+        const w = Math.ceil(Math.max(...lines.map((l) => m.measureText(l).width))) + 8;
+        const lh = Math.ceil(sizePx * scale * 1.3);
+        const c = document.createElement('canvas');
+        c.width = Math.max(w, 10);
+        c.height = lh * lines.length + 8;
+        const ctx = c.getContext('2d');
+        ctx.font = font;
+        ctx.fillStyle = color || '#000';
+        ctx.textBaseline = 'top';
+        const rtl = /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/.test(text);
+        ctx.direction = rtl ? 'rtl' : 'ltr';
+        ctx.textAlign = rtl ? 'right' : 'left';
+        lines.forEach((l, i) => ctx.fillText(l, rtl ? c.width - 4 : 4, 4 + i * lh));
+        const blob = await PF.canvasBlob(c, 'image/png');
+        return { bytes: new Uint8Array(await blob.arrayBuffer()), w: c.width / scale, h: c.height / scale };
+    };
+    PF.canEncode = (font, text) => { try { font.encodeText(text); return true; } catch (e) { return false; } };
+    PF.hexToRgb = (hex) => {
+        const h = String(hex || '#000000').replace('#', '');
+        return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255 };
+    };
+
+    /* ---------- generic tool interface ---------- */
+    PF.register = (name, def) => { PF.tools[name] = def; };
+
+    PF.mountGeneric = (root, def) => {
+        const accept = def.accept || '*/*';
+        const state = { files: [], infos: [] };
+        root.innerHTML =
+            '<div class="tl-drop" tabindex="0"><i class="fa-solid ' + (def.dropIcon || 'fa-folder-open') + '"></i><b>' + PF.esc(def.dropLabel || 'Select files from device') + '</b><small>' + PF.esc(def.dropHint || 'or drag and drop them here') + '</small></div>' +
+            '<input type="file" class="tl-input" hidden ' + (def.multiple ? 'multiple ' : '') + 'accept="' + PF.esc(accept) + '"' + (def.capture ? ' capture="environment"' : '') + '>' +
+            '<ul class="tl-files"></ul>' +
+            '<div class="tl-more" style="display:none;margin-top:8px;"><button type="button" class="btn-light">+ Add more files</button></div>' +
+            '<div class="tl-options' + (def.wideOptions ? ' wide' : '') + '" style="display:none;">' + (def.options || '') + '</div>' +
+            '<div><button type="button" class="btn-primary tl-run" disabled>' + PF.esc(def.runLabel || 'Process') + '</button></div>' +
+            '<div class="tl-progress"><span></span><div class="bar"><i></i></div></div>' +
+            '<div class="msg tl-msg"></div>' +
+            '<div class="tl-results"></div>';
+        const $ = (s) => root.querySelector(s);
+        const drop = $('.tl-drop'), input = $('.tl-input'), list = $('.tl-files'), opts = $('.tl-options'), run = $('.tl-run');
+        const prog = $('.tl-progress'), msg = $('.tl-msg'), results = $('.tl-results'), more = $('.tl-more');
+
+        const ui = {
+            root, files: state.files, infos: state.infos,
+            el: (id) => root.querySelector('#' + id),
+            val: (id) => { const e = root.querySelector('#' + id); return e ? (e.type === 'checkbox' ? e.checked : e.value) : ''; },
+            status: (t, pct) => {
+                prog.style.display = 'block';
+                prog.firstChild.textContent = t;
+                if (typeof pct === 'number') prog.querySelector('i').style.width = Math.max(0, Math.min(100, pct)) + '%';
+            },
+            message: (t, type) => { msg.textContent = t || ''; msg.className = 'msg tl-msg' + (t ? ' ' + (type || 'info') : ''); },
+            refresh: () => render()
+        };
+
+        function render() {
+            list.innerHTML = '';
+            state.files.forEach((f, i) => {
+                const li = document.createElement('li');
+                li.innerHTML = '<span class="nm">' + PF.esc(f.name) + '</span><span class="sz">' + (state.infos[i] ? PF.esc(state.infos[i]) + ' · ' : '') + PF.fmt(f.size) + '</span>' +
+                    (def.reorder && state.files.length > 1 ? '<button type="button" class="up" title="Move up"><i class="fa-solid fa-arrow-up"></i></button><button type="button" class="dn" title="Move down"><i class="fa-solid fa-arrow-down"></i></button>' : '') +
+                    '<button type="button" class="rm" title="Remove"><i class="fa-solid fa-xmark"></i></button>';
+                li.querySelector('.rm').onclick = () => { state.files.splice(i, 1); state.infos.splice(i, 1); changed(); };
+                const up = li.querySelector('.up'), dn = li.querySelector('.dn');
+                if (up) up.onclick = () => { if (i > 0) { [state.files[i - 1], state.files[i]] = [state.files[i], state.files[i - 1]]; [state.infos[i - 1], state.infos[i]] = [state.infos[i], state.infos[i - 1]]; render(); } };
+                if (dn) dn.onclick = () => { if (i < state.files.length - 1) { [state.files[i + 1], state.files[i]] = [state.files[i], state.files[i + 1]]; [state.infos[i + 1], state.infos[i]] = [state.infos[i], state.infos[i + 1]]; render(); } };
+                list.appendChild(li);
+            });
+            const min = def.min || 1;
+            run.disabled = state.files.length < min;
+            const has = state.files.length > 0;
+            opts.style.display = has && (def.options || '') ? 'block' : 'none';
+            more.style.display = has && def.multiple ? 'block' : 'none';
+            drop.style.display = has && !def.multiple ? 'none' : (has ? 'none' : 'block');
+        }
+        async function changed() {
+            results.innerHTML = '';
+            ui.message('');
+            render();
+            if (def.onFiles) { try { await def.onFiles(ui); } catch (e) { ui.message(e.message, 'error'); } }
+        }
+        async function addFiles(fl) {
+            let arr = Array.from(fl);
+            if (!arr.length) return;
+            if (def.filter) arr = arr.filter(def.filter);
+            if (!arr.length) { ui.message('Please choose a supported file type (' + (def.dropHint2 || accept) + ').', 'error'); return; }
+            if (!def.multiple) { state.files.length = 0; state.infos.length = 0; arr = arr.slice(0, 1); }
+            for (const f of arr) {
+                state.files.push(f);
+                let info = '';
+                if (def.inspect) { try { info = (await def.inspect(f, ui)) || ''; } catch (e) { info = ''; } }
+                state.infos.push(info);
+            }
+            await changed();
+        }
+        drop.onclick = () => input.click();
+        drop.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } };
+        more.querySelector('button').onclick = () => input.click();
+        input.onchange = () => { addFiles(input.files); input.value = ''; };
+        ['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+        ['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+        drop.addEventListener('drop', (e) => addFiles(e.dataTransfer.files));
+
+        run.onclick = async () => {
+            results.innerHTML = '';
+            ui.message('');
+            run.disabled = true;
+            ui.status('Working...', 2);
+            try {
+                let out = await def.run(ui);
+                if (!out) return;
+                if (!Array.isArray(out)) out = [out];
+                prog.style.display = 'none';
+                out.forEach((r) => {
+                    const row = document.createElement('div');
+                    row.className = 'res';
+                    row.innerHTML = '<div>' + PF.esc(r.name) + '<small>' + PF.fmt(r.blob.size) + (r.note ? ' · ' + PF.esc(r.note) : '') + '</small></div><button type="button" class="btn-primary" style="margin:0;padding:8px 16px;font-size:13px;"><i class="fa-solid fa-download"></i> Download</button>';
+                    row.querySelector('button').onclick = () => PF.download(r.blob, r.name);
+                    results.appendChild(row);
+                });
+                PF.download(out[0].blob, out[0].name);
+                ui.message(def.doneText || 'Done. Your file is downloading. If it did not start, use the Download button.', 'ok');
+            } catch (e) {
+                prog.style.display = 'none';
+                ui.message(e && e.message ? e.message : 'Something went wrong. Please try again.', 'error');
+                if (def.onError) def.onError(e, ui);
+            } finally {
+                prog.style.display = 'none';
+                render();
+            }
+        };
+        if (def.afterMount) def.afterMount(ui);
+        render();
+        return ui;
+    };
+
+    PF.start = () => {
+        const root = document.getElementById('tool-root');
+        if (!root) return;
+        const def = PF.tools[root.dataset.tool];
+        if (!def) { root.innerHTML = '<div class="msg error">This tool is not available.</div>'; return; }
+        if (def.mount) def.mount(root);
+        else PF.mountGeneric(root, def);
+    };
+    /* tool scripts register themselves, then the page calls PF.start() on load */
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(PF.start, 0));
+    else setTimeout(PF.start, 0);
+})();
+
+</script>
+<script>
+/* PDFify tools: merge, split, remove, extract, rotate, crop, page numbers, watermark, repair, organize, compress, unlock */
+(function () {
+    'use strict';
+    const isPdf = (f) => /\.pdf$/i.test(f.name) || f.type === 'application/pdf';
+    const pdfBlob = (bytes) => new Blob([bytes], { type: 'application/pdf' });
+    const inspectPdf = async (file) => {
+        try { const d = await PF.loadPdfDoc(file); const n = d.getPageCount(); return n + (n === 1 ? ' page' : ' pages'); } catch (e) { return ''; }
+    };
+    const PDF_BASE = { accept: '.pdf,application/pdf', dropLabel: 'Select PDF file', dropHint2: 'PDF', filter: isPdf, inspect: inspectPdf, dropIcon: 'fa-file-pdf' };
+    const opt = (html) => html;
+
+    /* ---------- merge ---------- */
+    PF.register('merge-pdf', Object.assign({}, PDF_BASE, {
+        multiple: true, reorder: true, min: 2, dropLabel: 'Select PDF files', runLabel: 'Merge PDF',
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const out = await PDFDocument.create();
+            for (let i = 0; i < ui.files.length; i++) {
+                ui.status('Merging file ' + (i + 1) + ' of ' + ui.files.length, (i / ui.files.length) * 100);
+                const src = await PF.loadPdfDoc(ui.files[i]);
+                const pages = await out.copyPages(src, src.getPageIndices());
+                pages.forEach((p) => out.addPage(p));
+                await PF.tick();
+            }
+            ui.status('Saving...', 95);
+            return { blob: pdfBlob(await out.save()), name: 'merged.pdf' };
+        }
+    }));
+
+    /* ---------- split ---------- */
+    PF.register('split-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Split PDF',
+        options: opt('<label>Split mode</label><select id="mode"><option value="ranges">By page ranges</option><option value="every">Every page into a separate file</option><option value="n">Every N pages</option></select>' +
+            '<div id="w-ranges"><label>Ranges (each range becomes a file)</label><input type="text" id="ranges" placeholder="1-3, 4-6, 7-"><div class="hint">Example: 1-3, 4-6 creates two files.</div></div>' +
+            '<div id="w-n" style="display:none"><label>Pages per file</label><input type="number" id="n" min="1" value="1"></div>'),
+        afterMount(ui) {
+            const m = ui.el('mode');
+            m.onchange = () => { ui.el('w-ranges').style.display = m.value === 'ranges' ? 'block' : 'none'; ui.el('w-n').style.display = m.value === 'n' ? 'block' : 'none'; };
+        },
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const f = ui.files[0];
+            const src = await PF.loadPdfDoc(f);
+            const total = src.getPageCount();
+            const mode = ui.val('mode');
+            let groups = [];
+            if (mode === 'every') for (let i = 0; i < total; i++) groups.push([i]);
+            else if (mode === 'n') {
+                const n = Math.max(1, parseInt(ui.val('n'), 10) || 1);
+                for (let i = 0; i < total; i += n) groups.push(Array.from({ length: Math.min(n, total - i) }, (_, k) => i + k));
+            } else {
+                const parts = ui.val('ranges').split(',').map((s) => s.trim()).filter(Boolean);
+                if (!parts.length) throw new Error('Please enter the page ranges, for example 1-3, 4-6.');
+                groups = parts.map((p) => PF.pagesFromSpec(p, total));
+            }
+            const base = PF.baseName(f.name);
+            const entries = [];
+            for (let g = 0; g < groups.length; g++) {
+                ui.status('Creating file ' + (g + 1) + ' of ' + groups.length, (g / groups.length) * 100);
+                const d = await PDFDocument.create();
+                (await d.copyPages(src, groups[g])).forEach((p) => d.addPage(p));
+                entries.push({ name: base + '-part-' + (g + 1) + '.pdf', data: await d.save() });
+                await PF.tick();
+            }
+            if (entries.length === 1) return { blob: pdfBlob(entries[0].data), name: entries[0].name };
+            return { blob: await PF.zip(entries), name: base + '-split.zip', note: entries.length + ' PDF files in a ZIP' };
+        }
+    }));
+
+    /* ---------- remove / extract pages ---------- */
+    PF.register('remove-pages', Object.assign({}, PDF_BASE, {
+        runLabel: 'Remove pages',
+        options: opt('<label>Pages to remove</label><input type="text" id="pages" placeholder="2, 4-6"><div class="hint">Example: 2, 4-6 removes pages 2, 4, 5 and 6.</div>'),
+        async run(ui) {
+            const doc = await PF.loadPdfDoc(ui.files[0]);
+            const total = doc.getPageCount();
+            const del = PF.pagesFromSpec(ui.val('pages'), total);
+            if (del.length >= total) throw new Error('You cannot remove every page of the document.');
+            del.slice().reverse().forEach((i) => doc.removePage(i));
+            return { blob: pdfBlob(await doc.save()), name: PF.baseName(ui.files[0].name) + '-removed.pdf', note: del.length + ' page(s) removed' };
+        }
+    }));
+    PF.register('extract-pages', Object.assign({}, PDF_BASE, {
+        runLabel: 'Extract pages',
+        options: opt('<label>Pages to extract</label><input type="text" id="pages" placeholder="1-3, 5"><div class="hint">Example: 1-3, 5 creates a new PDF with pages 1, 2, 3 and 5.</div>'),
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const src = await PF.loadPdfDoc(ui.files[0]);
+            const keep = PF.pagesFromSpec(ui.val('pages'), src.getPageCount());
+            const out = await PDFDocument.create();
+            (await out.copyPages(src, keep)).forEach((p) => out.addPage(p));
+            return { blob: pdfBlob(await out.save()), name: PF.baseName(ui.files[0].name) + '-extracted.pdf', note: keep.length + ' page(s)' };
+        }
+    }));
+
+    /* ---------- rotate ---------- */
+    PF.register('rotate-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Rotate PDF',
+        options: opt('<label>Rotation</label><select id="angle"><option value="90">90° clockwise</option><option value="180">180°</option><option value="270">90° counter-clockwise</option></select>' +
+            '<label>Pages (leave empty for all pages)</label><input type="text" id="pages" placeholder="all pages">'),
+        async run(ui) {
+            const { degrees } = await PF.pdfLib();
+            const doc = await PF.loadPdfDoc(ui.files[0]);
+            const total = doc.getPageCount();
+            const spec = ui.val('pages').trim();
+            const idx = spec ? PF.pagesFromSpec(spec, total) : doc.getPageIndices();
+            const a = parseInt(ui.val('angle'), 10);
+            idx.forEach((i) => { const p = doc.getPage(i); p.setRotation(degrees((p.getRotation().angle + a) % 360)); });
+            return { blob: pdfBlob(await doc.save()), name: PF.baseName(ui.files[0].name) + '-rotated.pdf' };
+        }
+    }));
+
+    /* ---------- crop ---------- */
+    PF.register('crop-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Crop PDF',
+        options: opt('<div class="row"><div><label>Top (mm)</label><input type="number" id="t" min="0" value="10"></div><div><label>Bottom (mm)</label><input type="number" id="b" min="0" value="10"></div></div>' +
+            '<div class="row"><div><label>Left (mm)</label><input type="number" id="l" min="0" value="10"></div><div><label>Right (mm)</label><input type="number" id="r" min="0" value="10"></div></div>' +
+            '<div class="hint">The margins are trimmed from every page.</div>'),
+        async run(ui) {
+            const doc = await PF.loadPdfDoc(ui.files[0]);
+            const mm = 72 / 25.4;
+            const t = (+ui.val('t') || 0) * mm, b = (+ui.val('b') || 0) * mm, l = (+ui.val('l') || 0) * mm, r = (+ui.val('r') || 0) * mm;
+            doc.getPages().forEach((p, i) => {
+                const box = p.getMediaBox();
+                const w = box.width - l - r, h = box.height - t - b;
+                if (w < 20 || h < 20) throw new Error('The margins are too large for page ' + (i + 1) + '.');
+                p.setCropBox(box.x + l, box.y + b, w, h);
+            });
+            return { blob: pdfBlob(await doc.save()), name: PF.baseName(ui.files[0].name) + '-cropped.pdf' };
+        }
+    }));
+
+    /* ---------- page numbers ---------- */
+    PF.register('add-page-numbers', Object.assign({}, PDF_BASE, {
+        runLabel: 'Add page numbers',
+        options: opt('<label>Position</label><select id="pos"><option value="bottom-center">Bottom center</option><option value="bottom-right">Bottom right</option><option value="bottom-left">Bottom left</option><option value="top-center">Top center</option><option value="top-right">Top right</option><option value="top-left">Top left</option></select>' +
+            '<label>Format</label><select id="fmt"><option value="{n}">1, 2, 3</option><option value="Page {n}">Page 1</option><option value="Page {n} of {total}">Page 1 of 10</option></select>' +
+            '<div class="row"><div><label>First number</label><input type="number" id="start" value="1"></div><div><label>Font size</label><input type="number" id="size" value="11" min="6" max="40"></div></div>' +
+            '<label class="chk"><input type="checkbox" id="skip"> Do not number the first page</label>'),
+        async run(ui) {
+            const { StandardFonts, rgb } = await PF.pdfLib();
+            const doc = await PF.loadPdfDoc(ui.files[0]);
+            const font = await doc.embedFont(StandardFonts.Helvetica);
+            const pos = ui.val('pos'), fmt = ui.val('fmt'), start = parseInt(ui.val('start'), 10) || 1, size = parseInt(ui.val('size'), 10) || 11, skip = ui.val('skip');
+            const total = doc.getPageCount();
+            doc.getPages().forEach((p, i) => {
+                if (skip && i === 0) return;
+                const num = start + i - (skip ? 1 : 0);
+                const text = fmt.replace('{n}', num).replace('{total}', start + total - 1 - (skip ? 1 : 0));
+                const { width: W, height: H } = p.getSize();
+                const w = font.widthOfTextAtSize(text, size), m = 28;
+                const x = pos.endsWith('left') ? m : pos.endsWith('right') ? W - m - w : (W - w) / 2;
+                const y = pos.startsWith('top') ? H - m - size * 0.8 : m;
+                p.drawText(text, { x, y, size, font, color: rgb(0.1, 0.1, 0.1) });
+            });
+            return { blob: pdfBlob(await doc.save()), name: PF.baseName(ui.files[0].name) + '-numbered.pdf' };
+        }
+    }));
+
+    /* ---------- watermark ---------- */
+    PF.register('watermark-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Add watermark',
+        options: opt('<label>Watermark text</label><input type="text" id="text" value="CONFIDENTIAL">' +
+            '<div class="row"><div><label>Size</label><input type="number" id="size" value="60" min="8" max="200"></div><div><label>Opacity (%)</label><input type="number" id="op" value="30" min="5" max="100"></div></div>' +
+            '<div class="row"><div><label>Rotation</label><select id="rot"><option value="45">45°</option><option value="0">0°</option><option value="-45">-45°</option><option value="90">90°</option></select></div><div><label>Color</label><br><input type="color" id="color" value="#888888"></div></div>'),
+        async run(ui) {
+            const { StandardFonts, rgb, degrees } = await PF.pdfLib();
+            const text = ui.val('text').trim();
+            if (!text) throw new Error('Please enter the watermark text.');
+            const doc = await PF.loadPdfDoc(ui.files[0]);
+            const size = +ui.val('size') || 60, opacity = (+ui.val('op') || 30) / 100, rot = +ui.val('rot') || 0, hex = ui.val('color');
+            const c = PF.hexToRgb(hex);
+            const font = await doc.embedFont(StandardFonts.HelveticaBold);
+            const vector = PF.canEncode(font, text);
+            let img = null, iw = 0, ih = 0;
+            if (!vector) { const r = await PF.textToPng(text, size, hex, true); img = await doc.embedPng(r.bytes); iw = r.w; ih = r.h; }
+            const th = (rot * Math.PI) / 180;
+            doc.getPages().forEach((p) => {
+                const { width: W, height: H } = p.getSize();
+                const w = vector ? font.widthOfTextAtSize(text, size) : iw, h = vector ? size * 0.7 : ih;
+                const x = W / 2 - ((w / 2) * Math.cos(th) - (h / 2) * Math.sin(th));
+                const y = H / 2 - ((w / 2) * Math.sin(th) + (h / 2) * Math.cos(th));
+                if (vector) p.drawText(text, { x, y, size, font, color: rgb(c.r, c.g, c.b), opacity, rotate: degrees(rot) });
+                else p.drawImage(img, { x, y, width: iw, height: ih, opacity, rotate: degrees(rot) });
+            });
+            return { blob: pdfBlob(await doc.save()), name: PF.baseName(ui.files[0].name) + '-watermarked.pdf' };
+        }
+    }));
+
+    /* ---------- repair ---------- */
+    PF.register('repair-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Repair PDF', inspect: null,
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const f = ui.files[0];
+            const buf = await f.arrayBuffer();
+            let src;
+            try { src = await PDFDocument.load(buf, { ignoreEncryption: true, throwOnInvalidObject: false, updateMetadata: false }); }
+            catch (e) { throw new Error('This PDF is too badly damaged to be repaired in the browser.'); }
+            const out = await PDFDocument.create();
+            let copied = 0;
+            for (let i = 0; i < src.getPageCount(); i++) {
+                try { const [p] = await out.copyPages(src, [i]); out.addPage(p); copied++; } catch (e) { /* skip unreadable page */ }
+            }
+            if (!copied) throw new Error('No readable pages were found in this file.');
+            const lost = src.getPageCount() - copied;
+            return { blob: pdfBlob(await out.save()), name: PF.baseName(f.name) + '-repaired.pdf', note: lost ? lost + ' unreadable page(s) skipped' : copied + ' page(s) recovered' };
+        }
+    }));
+
+    /* ---------- compress ---------- */
+    PF.register('compress-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Compress PDF',
+        options: opt('<label>Compression level</label><select id="level"><option value="rec">Recommended (good quality, much smaller)</option><option value="high">Maximum (smallest file, lower quality)</option><option value="low">Light (keeps text, small saving)</option></select>' +
+            '<div class="hint">Recommended and Maximum turn each page into an image, so text can no longer be selected. Light keeps the document as it is.</div>'),
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const f = ui.files[0];
+            const level = ui.val('level');
+            const buf = await f.arrayBuffer();
+            let bytes;
+            if (level === 'low') {
+                const doc = await PF.loadPdfDoc(f);
+                bytes = await doc.save({ useObjectStreams: true });
+            } else {
+                const scale = level === 'high' ? 1.0 : 1.4, q = level === 'high' ? 0.5 : 0.72;
+                const src = await PF.openPdf(buf);
+                const out = await PDFDocument.create();
+                for (let i = 1; i <= src.numPages; i++) {
+                    ui.status('Compressing page ' + i + ' of ' + src.numPages, ((i - 1) / src.numPages) * 100);
+                    const page = await src.getPage(i);
+                    const base = page.getViewport({ scale: 1 });
+                    const canvas = await PF.renderPage(src, i, scale);
+                    const jpg = await PF.canvasBlob(canvas, 'image/jpeg', q);
+                    const img = await out.embedJpg(new Uint8Array(await jpg.arrayBuffer()));
+                    const pg = out.addPage([base.width, base.height]);
+                    pg.drawImage(img, { x: 0, y: 0, width: base.width, height: base.height });
+                    canvas.width = canvas.height = 0;
+                    await PF.tick();
+                }
+                bytes = await out.save({ useObjectStreams: true });
+            }
+            if (bytes.length >= f.size) {
+                return { blob: f, name: PF.baseName(f.name) + '-compressed.pdf', note: 'This file is already well optimized, so the original is returned' };
+            }
+            const pct = Math.round((1 - bytes.length / f.size) * 100);
+            return { blob: pdfBlob(bytes), name: PF.baseName(f.name) + '-compressed.pdf', note: pct + '% smaller (' + PF.fmt(f.size) + ' to ' + PF.fmt(bytes.length) + ')' };
+        }
+    }));
+
+    /* ---------- unlock ---------- */
+    PF.register('unlock-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Unlock PDF', inspect: null,
+        options: opt('<label>Password (if the file asks for one to open)</label><input type="password" id="pw" placeholder="Leave empty if it only has editing restrictions" autocomplete="off">' +
+            '<div class="hint">Your password never leaves your device. The unlocked file is rebuilt page by page, so text becomes an image and cannot be selected.</div>'),
+        async run(ui) {
+            const { PDFDocument } = await PF.pdfLib();
+            const f = ui.files[0];
+            const buf = await f.arrayBuffer();
+            try { await PDFDocument.load(buf); return { blob: f, name: f.name, note: 'This file is not password protected, so it is returned unchanged' }; } catch (e) { /* encrypted, continue */ }
+            const src = await PF.openPdf(buf, ui.val('pw'), true);
+            const out = await PDFDocument.create();
+            for (let i = 1; i <= src.numPages; i++) {
+                ui.status('Unlocking page ' + i + ' of ' + src.numPages, ((i - 1) / src.numPages) * 100);
+                const page = await src.getPage(i);
+                const base = page.getViewport({ scale: 1 });
+                const canvas = await PF.renderPage(src, i, 2);
+                const jpg = await PF.canvasBlob(canvas, 'image/jpeg', 0.9);
+                const img = await out.embedJpg(new Uint8Array(await jpg.arrayBuffer()));
+                const pg = out.addPage([base.width, base.height]);
+                pg.drawImage(img, { x: 0, y: 0, width: base.width, height: base.height });
+                canvas.width = canvas.height = 0;
+                await PF.tick();
+            }
+            return { blob: pdfBlob(await out.save()), name: PF.baseName(f.name) + '-unlocked.pdf', note: 'Unlocked, ' + src.numPages + ' page(s)' };
+        }
+    }));
+
+    /* ---------- organize ---------- */
+    PF.register('organize-pdf', Object.assign({}, PDF_BASE, {
+        runLabel: 'Save organized PDF', inspect: null, wideOptions: true,
+        options: '<div class="hint" style="margin:0 0 6px;">Use the buttons under each page to move, rotate or delete it.</div><div id="grid" class="pg-grid"></div>',
+        async onFiles(ui) {
+            const grid = ui.el('grid');
+            grid.innerHTML = '';
+            ui.items = [];
+            if (!ui.files[0]) return;
+            ui.status('Loading pages...', 5);
+            const doc = await PF.openPdf(await ui.files[0].arrayBuffer());
+            for (let p = 1; p <= doc.numPages; p++) {
+                const canvas = await PF.renderPage(doc, p, 0.3);
+                ui.items.push({ src: p - 1, rot: 0, canvas });
+                ui.status('Loading pages... ' + p + '/' + doc.numPages, (p / doc.numPages) * 100);
+                await PF.tick();
+            }
+            document.querySelector('.tl-progress').style.display = 'none';
+            const draw = () => {
+                grid.innerHTML = '';
+                ui.items.forEach((it, i) => {
+                    const d = document.createElement('div');
+                    d.className = 'pg-item';
+                    it.canvas.style.transform = 'rotate(' + it.rot + 'deg)';
+                    d.appendChild(it.canvas);
+                    const ctl = document.createElement('div');
+                    ctl.className = 'ctl';
+                    ctl.innerHTML = '<button type="button" title="Move left"><i class="fa-solid fa-arrow-left"></i></button><button type="button" title="Rotate"><i class="fa-solid fa-rotate-right"></i></button><button type="button" title="Delete"><i class="fa-solid fa-trash"></i></button><button type="button" title="Move right"><i class="fa-solid fa-arrow-right"></i></button>';
+                    const b = ctl.querySelectorAll('button');
+                    b[0].onclick = () => { if (i > 0) { [ui.items[i - 1], ui.items[i]] = [ui.items[i], ui.items[i - 1]]; draw(); } };
+                    b[1].onclick = () => { it.rot = (it.rot + 90) % 360; draw(); };
+                    b[2].onclick = () => { ui.items.splice(i, 1); draw(); };
+                    b[3].onclick = () => { if (i < ui.items.length - 1) { [ui.items[i + 1], ui.items[i]] = [ui.items[i], ui.items[i + 1]]; draw(); } };
+                    d.appendChild(ctl);
+                    const n = document.createElement('div');
+                    n.className = 'num';
+                    n.textContent = 'Page ' + (it.src + 1);
+                    d.appendChild(n);
+                    grid.appendChild(d);
+                });
+            };
+            ui.draw = draw;
+            draw();
+        },
+        async run(ui) {
+            if (!ui.items || !ui.items.length) throw new Error('There are no pages left to save.');
+            const { PDFDocument, degrees } = await PF.pdfLib();
+            const src = await PF.loadPdfDoc(ui.files[0]);
+            const out = await PDFDocument.create();
+            for (const it of ui.items) {
+                const [p] = await out.copyPages(src, [it.src]);
+                p.setRotation(degrees((p.getRotation().angle + it.rot) % 360));
+                out.addPage(p);
+            }
+            return { blob: pdfBlob(await out.save()), name: PF.baseName(ui.files[0].name) + '-organized.pdf', note: ui.items.length + ' page(s)' };
+        }
+    }));
+})();
+
+</script>
+</body>
+</html>

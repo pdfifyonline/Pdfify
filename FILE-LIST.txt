@@ -16,7 +16,7 @@ ROOT FILES (put next to index.html)
   icon-maskable-512.png
   apple-touch-icon.png
 
-TOOL PAGES - 32 tools (one folder each, with index.html inside)
+TOOL PAGES - 38 tools (one folder each, with index.html inside)
 ------------------------------------------------------------
   [Organize PDF]
     merge-pdf/index.html         Merge PDF
@@ -33,6 +33,10 @@ TOOL PAGES - 32 tools (one folder each, with index.html inside)
     fill-pdf-form/index.html     PDF Forms
     summarize-pdf/index.html     Summarize PDF
     translate-pdf/index.html     Translate PDF
+    developers/index.html        Developer portal (keys, credits, usage)
+    developers/login/index.html  Developer log in
+    developers/signup/index.html Developer sign up
+    developers/docs/index.html   API documentation
     cloudflare-worker/pdfify-ai.js   free AI helper (paste into Cloudflare, NOT uploaded to GitHub)
     scan-pdf/index.html          Scan to PDF
     ocr-pdf/index.html           OCR PDF
