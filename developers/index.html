@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portal | PDFify API</title>
+    <title>Developer Console | PDFify API</title>
     <meta name="description" content="Manage your PDFify API keys, free monthly credits and usage.">
     <meta name="author" content="Muhammad Kamran">
     <meta name="pdfify-build" content="20261116">
@@ -220,7 +220,7 @@ footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margi
    Edit this file once and every page updates. */
 (function () {
     'use strict';
-    var D = {"groups": [{"name": "Organize PDF", "tools": [{"slug": "merge-pdf", "name": "Merge PDF", "icon": "fa-object-group"}, {"slug": "split-pdf", "name": "Split PDF", "icon": "fa-scissors"}, {"slug": "remove-pages", "name": "Remove Pages", "icon": "fa-trash-can"}, {"slug": "extract-pages", "name": "Extract Pages", "icon": "fa-file-export"}, {"slug": "organize-pdf", "name": "Organize PDF", "icon": "fa-table-cells-large"}]}, {"name": "Optimize PDF", "tools": [{"slug": "compress-pdf", "name": "Compress PDF", "icon": "fa-compress"}, {"slug": "repair-pdf", "name": "Repair PDF", "icon": "fa-wrench"}, {"slug": "scan-pdf", "name": "Scan to PDF", "icon": "fa-camera"}, {"slug": "ocr-pdf", "name": "OCR PDF", "icon": "fa-eye"}]}, {"name": "Convert to PDF", "tools": [{"slug": "jpg-to-pdf", "name": "JPG to PDF", "icon": "fa-image"}, {"slug": "png-to-pdf", "name": "PNG to PDF", "icon": "fa-file-image"}, {"slug": "word-to-pdf", "name": "WORD to PDF", "icon": "fa-file-word"}, {"slug": "html-to-pdf", "name": "HTML to PDF", "icon": "fa-code"}, {"slug": "text-to-document", "name": "Text to Document", "icon": "fa-file-lines"}, {"slug": "excel-to-pdf", "name": "EXCEL to PDF", "icon": "fa-file-excel"}, {"slug": "powerpoint-to-pdf", "name": "POWERPOINT to PDF", "icon": "fa-file-powerpoint"}]}, {"name": "Convert from PDF", "tools": [{"slug": "pdf-to-word", "name": "PDF to WORD", "icon": "fa-file-word"}, {"slug": "pdf-to-jpg", "name": "PDF to JPG", "icon": "fa-file-image"}, {"slug": "pdf-to-png", "name": "PDF to PNG", "icon": "fa-images"}, {"slug": "pdf-to-powerpoint", "name": "PDF to POWERPOINT", "icon": "fa-file-powerpoint"}, {"slug": "pdf-to-pdfa", "name": "PDF to PDF/A", "icon": "fa-box-archive"}, {"slug": "pdf-to-excel", "name": "PDF to EXCEL", "icon": "fa-file-excel"}, {"slug": "pdf-to-text", "name": "Copy PDF Text", "icon": "fa-copy"}, {"slug": "pdf-to-markdown", "name": "PDF to Markdown", "icon": "fa-hashtag"}]}, {"name": "Edit & Security", "tools": [{"slug": "edit-pdf", "name": "Edit PDF", "icon": "fa-pen-to-square"}, {"slug": "rotate-pdf", "name": "Rotate PDF", "icon": "fa-rotate"}, {"slug": "crop-pdf", "name": "Crop PDF", "icon": "fa-crop-simple"}, {"slug": "add-page-numbers", "name": "Add Page Numbers", "icon": "fa-list-ol"}, {"slug": "watermark-pdf", "name": "Watermark PDF", "icon": "fa-droplet"}, {"slug": "sign-pdf", "name": "Sign PDF", "icon": "fa-signature"}, {"slug": "redact-pdf", "name": "Redact PDF", "icon": "fa-user-secret"}, {"slug": "unlock-pdf", "name": "Unlock PDF", "icon": "fa-unlock"}, {"slug": "pro-pdf-edit", "name": "Pro PDF Edit", "icon": "fa-pen-ruler"}, {"slug": "protect-pdf", "name": "Protect PDF", "icon": "fa-lock"}, {"slug": "compare-pdf", "name": "Compare PDF", "icon": "fa-code-compare"}, {"slug": "fill-pdf-form", "name": "PDF Forms", "icon": "fa-file-pen"}, {"slug": "summarize-pdf", "name": "Summarize PDF", "icon": "fa-list-check"}, {"slug": "translate-pdf", "name": "Translate PDF", "icon": "fa-language"}]}], "products": [["pdfify-api", "PDFify API", "fa-terminal"], ["pdfify-image", "PDFify Image", "fa-image"], ["business", "Business", "fa-briefcase"], ["integrations", "Integrations", "fa-plug"]], "company": [["features", "Features", "fa-star"], ["pricing", "Pricing", "fa-tags"], ["security", "Security", "fa-shield-halved"], ["about", "About us", "fa-circle-info"], ["faq", "FAQ", "fa-circle-question"], ["contact", "Contact", "fa-envelope"]], "email": "pdfify963@gmail.com", "address": "Al Amarat Al Mahaj 119, Muscat, Oman"};
+    var D = {"groups": [{"name": "Organize PDF", "tools": [{"slug": "merge-pdf", "name": "Merge PDF", "icon": "fa-object-group"}, {"slug": "split-pdf", "name": "Split PDF", "icon": "fa-scissors"}, {"slug": "remove-pages", "name": "Remove Pages", "icon": "fa-trash-can"}, {"slug": "extract-pages", "name": "Extract Pages", "icon": "fa-file-export"}, {"slug": "organize-pdf", "name": "Organize PDF", "icon": "fa-table-cells-large"}]}, {"name": "Optimize PDF", "tools": [{"slug": "compress-pdf", "name": "Compress PDF", "icon": "fa-compress"}, {"slug": "repair-pdf", "name": "Repair PDF", "icon": "fa-wrench"}, {"slug": "scan-pdf", "name": "Scan to PDF", "icon": "fa-camera"}, {"slug": "ocr-pdf", "name": "OCR PDF", "icon": "fa-eye"}]}, {"name": "Convert to PDF", "tools": [{"slug": "jpg-to-pdf", "name": "JPG to PDF", "icon": "fa-image"}, {"slug": "png-to-pdf", "name": "PNG to PDF", "icon": "fa-file-image"}, {"slug": "word-to-pdf", "name": "WORD to PDF", "icon": "fa-file-word"}, {"slug": "html-to-pdf", "name": "HTML to PDF", "icon": "fa-code"}, {"slug": "text-to-document", "name": "Text to Document", "icon": "fa-file-lines"}, {"slug": "excel-to-pdf", "name": "EXCEL to PDF", "icon": "fa-file-excel"}, {"slug": "powerpoint-to-pdf", "name": "POWERPOINT to PDF", "icon": "fa-file-powerpoint"}]}, {"name": "Convert from PDF", "tools": [{"slug": "pdf-to-word", "name": "PDF to WORD", "icon": "fa-file-word"}, {"slug": "pdf-to-jpg", "name": "PDF to JPG", "icon": "fa-file-image"}, {"slug": "pdf-to-png", "name": "PDF to PNG", "icon": "fa-images"}, {"slug": "pdf-to-powerpoint", "name": "PDF to POWERPOINT", "icon": "fa-file-powerpoint"}, {"slug": "pdf-to-pdfa", "name": "PDF to PDF/A", "icon": "fa-box-archive"}, {"slug": "pdf-to-excel", "name": "PDF to EXCEL", "icon": "fa-file-excel"}, {"slug": "pdf-to-text", "name": "Copy PDF Text", "icon": "fa-copy"}, {"slug": "pdf-to-markdown", "name": "PDF to Markdown", "icon": "fa-hashtag"}]}, {"name": "Edit & Security", "tools": [{"slug": "edit-pdf", "name": "Edit PDF", "icon": "fa-pen-to-square"}, {"slug": "rotate-pdf", "name": "Rotate PDF", "icon": "fa-rotate"}, {"slug": "crop-pdf", "name": "Crop PDF", "icon": "fa-crop-simple"}, {"slug": "add-page-numbers", "name": "Add Page Numbers", "icon": "fa-list-ol"}, {"slug": "watermark-pdf", "name": "Watermark PDF", "icon": "fa-droplet"}, {"slug": "sign-pdf", "name": "Sign PDF", "icon": "fa-signature"}, {"slug": "redact-pdf", "name": "Redact PDF", "icon": "fa-user-secret"}, {"slug": "unlock-pdf", "name": "Unlock PDF", "icon": "fa-unlock"}, {"slug": "pro-pdf-edit", "name": "Pro PDF Edit", "icon": "fa-pen-ruler"}, {"slug": "protect-pdf", "name": "Protect PDF", "icon": "fa-lock"}, {"slug": "compare-pdf", "name": "Compare PDF", "icon": "fa-code-compare"}, {"slug": "fill-pdf-form", "name": "PDF Forms", "icon": "fa-file-pen"}, {"slug": "summarize-pdf", "name": "Summarize PDF", "icon": "fa-list-check"}, {"slug": "translate-pdf", "name": "Translate PDF", "icon": "fa-language"}]}], "products": [["pdfify-api", "PDFify API", "fa-terminal"], ["developers", "Developer portal", "fa-code"], ["pdfify-image", "PDFify Image", "fa-image"], ["business", "Business", "fa-briefcase"], ["integrations", "Integrations", "fa-plug"]], "company": [["features", "Features", "fa-star"], ["pricing", "Pricing", "fa-tags"], ["security", "Security", "fa-shield-halved"], ["about", "About us", "fa-circle-info"], ["faq", "FAQ", "fa-circle-question"], ["contact", "Contact", "fa-envelope"]], "email": "pdfify963@gmail.com", "address": "Al Amarat Al Mahaj 119, Muscat, Oman"};
     var ROOT = '/';
     var loggedIn = false;
     try { var ss = JSON.parse(localStorage.getItem('pdfify_session') || 'null'); loggedIn = !!(ss && ss.access_token && (ss.expires_at || 0) * 1000 > Date.now() - 30 * 86400000); } catch (e) { loggedIn = false; }
@@ -296,279 +296,232 @@ footer { background: var(--dark-navy); color: #ffffff; padding: 25px 15px; margi
 })();
 
 </script>
-<div class="main-container">
-    <a href="/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-    <div class="tool-header-icon"><i class="fa-solid fa-code"></i></div>
-    <h1>Developer portal</h1>
-    <p class="desc">Create API keys and watch your free monthly credits.</p>
-    <div class="form-box acc" data-auth="account"><div class="msg" id="auth-msg"></div><div id="acc-loading" class="alt-line">Loading your account...</div><div id="acc" style="display:none"><h2>Free credits</h2><div id="cr-text" class="who">Loading...</div><div style="height:12px;background:#eee;border-radius:8px;overflow:hidden;margin:8px 0"><div id="cr-bar" style="height:100%;width:0;background:#e5322d"></div></div><p class="alt-line" style="text-align:left;margin:0">You get 2,500 free credits every month. 1 credit = 1 PDF file processed. Credits reset on the 1st of each month. There is no paid plan.</p><h2>Profile</h2><div class="who" id="acc-email"></div><div class="since" id="acc-since"></div><button type="button" class="btn-light" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</button><h2>Recent API calls</h2><ul class="keys" id="usage"></ul><h2>Quick start</h2><p class="alt-line" style="text-align:left;margin:0">See all tools and examples in the <a href="/developers/docs/">API documentation</a>.</p><h2>Change password</h2><form id="pw-form"><label for="npw">New password (at least 8 characters)</label><input type="password" id="npw" autocomplete="new-password" minlength="8" required><label for="npw2">Repeat the new password</label><input type="password" id="npw2" autocomplete="new-password" required><button type="submit" class="btn-primary">Change password</button></form><div class="msg" id="pw-msg"></div><h2>Projects and API keys</h2><p class="alt-line" style="text-align:left;margin:0">Make one key for each app or project. The secret key is shown only once. Use it only on your own server and never inside a website or mobile app. Up to 5 keys.</p><ul class="keys" id="keys"></ul><div class="msg" id="key-msg"></div><form id="key-form"><label for="key-name">Project name</label><input type="text" id="key-name" maxlength="60" placeholder="My project"><button type="submit" class="btn-primary">Create key</button></form><div class="newkey" id="newkey"><b>Your new key. Copy the secret now, it will not be shown again.</b><div>Public key</div><code id="new-public"></code><div>Secret key</div><code id="new-secret"></code><button type="button" class="btn-light" id="copy-secret">Copy secret</button></div></div></div>
+<style>
+#dv-console{text-align:left}
+#dv-console .dv-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:#1f2937;color:#fff;border-radius:10px;padding:12px 16px}
+#dv-console .dv-top button{background:#374151;color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
+#dv-console .dv-tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid #e5e7eb;margin:12px 0}
+#dv-console .dv-tabs a{padding:10px 14px;text-decoration:none;color:#374151;border-bottom:3px solid transparent;white-space:nowrap}
+#dv-console .dv-tabs a.on{color:#e5322d;border-color:#e5322d;font-weight:700}
+#dv-console .dv-card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;margin:12px 0}
+#dv-console .dv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+#dv-console .dv-stat b{font-size:24px;display:block}
+#dv-console .dv-stat span{color:#6b7280;font-size:13px}
+#dv-console h2{font-size:18px;margin:0 0 8px}
+#dv-console label{display:block;font-weight:600;margin:10px 0 4px;font-size:14px}
+#dv-console input,#dv-console select{width:100%;box-sizing:border-box;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-size:15px}
+#dv-console .dv-btn{background:#e5322d;color:#fff;border:0;border-radius:8px;padding:11px 18px;font-size:15px;cursor:pointer;margin-top:12px}
+#dv-console .dv-btn.light{background:#f3f4f6;color:#111}
+#dv-console .dv-btn.red{background:#fff;color:#b91c1c;border:1px solid #fecaca;padding:6px 10px;margin:0}
+#dv-console .dv-bar{height:12px;background:#eee;border-radius:8px;overflow:hidden;margin:8px 0}
+#dv-console .dv-bar i{display:block;height:100%;background:#e5322d;width:0}
+#dv-console table{width:100%;border-collapse:collapse;font-size:14px}
+#dv-console th,#dv-console td{padding:8px 6px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+#dv-console code{background:#f3f4f6;padding:2px 6px;border-radius:5px;word-break:break-all;font-size:13px}
+#dv-console .dv-scroll{overflow-x:auto}
+#dv-console .dv-note{color:#6b7280;font-size:13px;margin:6px 0}
+#dv-console .dv-new{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;margin:12px 0}
+#dv-console [hidden]{display:none!important}
+</style>
+<div class="main-container wide" id="dv-console">
+  <div id="dv-msg" class="msg info">Loading your developer console...</div>
+
+  <div id="dv-onboard" hidden>
+    <h1>Create your developer account</h1>
+    <p class="dv-note">Tell us a little about you. This is your PDFify developer profile. It is separate from your normal website account and it is free.</p>
+    <div class="dv-card">
+      <label for="ob-name">Full name</label><input id="ob-name" maxlength="100" autocomplete="name">
+      <label for="ob-company">Company (optional)</label><input id="ob-company" maxlength="100" autocomplete="organization">
+      <label for="ob-country">Country</label><input id="ob-country" maxlength="60" autocomplete="country-name">
+      <label for="ob-use">What will you build?</label>
+      <select id="ob-use"><option>Website</option><option>Mobile app</option><option>Automation or internal tool</option><option>Testing or learning</option><option>Other</option></select>
+      <button class="dv-btn" id="ob-save" type="button">Create developer account</button>
+    </div>
+  </div>
+
+  <div id="dv-app" hidden>
+    <div class="dv-top"><b><i class="fa-solid fa-code"></i> PDFify Developers</b><span id="dv-who"></span><button id="dv-logout" type="button">Log out</button></div>
+    <nav class="dv-tabs">
+      <a href="#overview" data-tab="overview">Overview</a><a href="#keys" data-tab="keys">API keys</a><a href="#usage" data-tab="usage">Usage</a><a href="#plans" data-tab="plans">Plans</a><a href="#account" data-tab="account">Account</a><a href="/developers/docs/">Docs</a>
+    </nav>
+
+    <section data-pane="overview">
+      <h1 id="ov-hello">Welcome</h1>
+      <div class="dv-card"><h2>Free credits</h2><div id="cr-text">Loading...</div><div class="dv-bar"><i id="cr-bar"></i></div><div class="dv-note">2,500 free credits every month. They start again on the 1st. 1 credit = 1 PDF file.</div></div>
+      <div class="dv-grid">
+        <div class="dv-card dv-stat"><b id="st-calls">0</b><span>API calls this month</span></div>
+        <div class="dv-card dv-stat"><b id="st-used">0</b><span>Credits used</span></div>
+        <div class="dv-card dv-stat"><b id="st-keys">0</b><span>Projects (keys)</span></div>
+      </div>
+      <div class="dv-card"><h2>Latest API calls</h2><div class="dv-scroll"><table><thead><tr><th>Time (UTC)</th><th>Tool</th><th>Credits</th></tr></thead><tbody id="ov-calls"></tbody></table></div></div>
+      <div class="dv-card"><h2>Start here</h2><ol><li>Open <a href="#keys">API keys</a> and make a project.</li><li>Copy the secret key at once. It is shown only one time.</li><li>Follow an example in the <a href="/developers/docs/">documentation</a>.</li></ol></div>
+    </section>
+
+    <section data-pane="keys" hidden>
+      <h1>API keys</h1>
+      <p class="dv-note">One project = one pair of keys. The public key is the project ID. The secret key must stay on your own server. You can have up to 5 projects.</p>
+      <div class="dv-card"><h2>New project</h2><label for="k-name">Project name</label><input id="k-name" maxlength="60" placeholder="My website"><button class="dv-btn" id="k-create" type="button">Create keys</button><div id="k-msg" class="dv-note"></div></div>
+      <div id="k-new" class="dv-new" hidden><b>Copy your secret key now. You cannot see it again.</b><label>Public key (project ID)</label><code id="k-pub"></code><label>Secret key</label><code id="k-sec"></code><div><button class="dv-btn light" id="k-copy" type="button">Copy secret key</button></div></div>
+      <div class="dv-card"><h2>Your projects</h2><div class="dv-scroll"><table><thead><tr><th>Project</th><th>Public key</th><th>Created</th><th></th></tr></thead><tbody id="k-list"></tbody></table></div></div>
+    </section>
+
+    <section data-pane="usage" hidden>
+      <h1>Usage</h1>
+      <div class="dv-card"><h2>This month by tool</h2><div class="dv-scroll"><table><thead><tr><th>Tool</th><th>Calls</th><th>Credits</th></tr></thead><tbody id="u-tools"></tbody></table></div></div>
+      <div class="dv-card"><h2>Recent calls</h2><div class="dv-scroll"><table><thead><tr><th>Time (UTC)</th><th>Tool</th><th>Credits</th></tr></thead><tbody id="u-calls"></tbody></table></div></div>
+    </section>
+
+    <section data-pane="plans" hidden>
+      <h1>Plans</h1>
+      <div class="dv-card"><h2>Free plan <small>(your current plan)</small></h2><ul><li>2,500 credits every month</li><li>No card needed</li><li>Tools: merge, split, extract, remove, rotate, watermark, page numbers</li><li>Up to 8 MB per request, 300 pages per file</li><li>Up to 5 projects</li></ul></div>
+      <div class="dv-card"><h2>Credit prices</h2><div class="dv-scroll"><table><thead><tr><th>Tool</th><th>Credits</th></tr></thead><tbody><tr><td>Merge</td><td>1 per file</td></tr><tr><td>Split, Extract, Remove, Rotate, Watermark, Page numbers</td><td>1 per file</td></tr></tbody></table></div></div>
+      <div class="dv-card"><h2>Paid plans</h2><p>There are no paid plans or extra credit packs at this time. Your free credits start again on the 1st of every month.</p></div>
+    </section>
+
+    <section data-pane="account" hidden>
+      <h1>Account</h1>
+      <div class="dv-card"><h2>Profile</h2>
+        <div class="dv-grid" style="grid-template-columns:1fr 1fr"><div><span class="dv-note">Email</span><div id="ac-email"></div></div><div><span class="dv-note">Member since</span><div id="ac-since"></div></div></div>
+        <label for="ac-name">Full name</label><input id="ac-name" maxlength="100">
+        <label for="ac-company">Company</label><input id="ac-company" maxlength="100">
+        <label for="ac-website">Website</label><input id="ac-website" maxlength="200" placeholder="https://">
+        <label for="ac-country">Country</label><input id="ac-country" maxlength="60">
+        <label for="ac-use">What you build</label><select id="ac-use"><option>Website</option><option>Mobile app</option><option>Automation or internal tool</option><option>Testing or learning</option><option>Other</option></select>
+        <button class="dv-btn" id="ac-save" type="button">Save profile</button><div id="ac-msg" class="dv-note"></div>
+      </div>
+      <div class="dv-card"><h2>Change password</h2><label for="pw1">New password</label><input id="pw1" type="password" autocomplete="new-password"><label for="pw2">Repeat new password</label><input id="pw2" type="password" autocomplete="new-password"><button class="dv-btn light" id="pw-save" type="button">Change password</button><div id="pw-msg" class="dv-note"></div></div>
+    </section>
+  </div>
 </div>
+
 <script>
-/* PDFify accounts: login, sign up, password reset and the account page.
-   Talks to Supabase (Auth + database) with plain fetch. Settings come from /config.js. */
 (function () {
     'use strict';
-    var box = document.querySelector('[data-auth]');
-    if (!box) return;
-    var kind = box.getAttribute('data-auth');
-    var CFG = window.PDFIFY_CONFIG || {};
-    var BASE = String(CFG.SUPABASE_URL || '').replace(/\/+$/, '');
-    var KEY = CFG.SUPABASE_ANON_KEY || '';
-    var SKEY = 'pdfify_session';
-    var ORIGIN = location.origin;
-    var $ = function (id) { return document.getElementById(id); };
-    var msg = $('auth-msg');
-    function say(t, type) { if (!msg) return; msg.textContent = t || ''; msg.className = 'msg' + (t ? ' ' + (type || 'info') : ''); }
-    function ready() { return !!(BASE && KEY); }
-
-    /* ----- session ----- */
+    var CFG = window.PDFIFY_CONFIG || {}, BASE = String(CFG.SUPABASE_URL || '').replace(/\/+$/, ''), KEY = CFG.SUPABASE_ANON_KEY || '', SKEY = 'pdfify_session';
+    var LIMIT = 2500, $ = function (id) { return document.getElementById(id); };
+    var state = { user: null, dev: null, keys: [], usage: [], used: 0 };
+    function say(t, type) { var m = $('dv-msg'); m.textContent = t || ''; m.className = 'msg ' + (type || 'info'); m.hidden = !t; }
     function getSession() { try { var s = JSON.parse(localStorage.getItem(SKEY) || 'null'); return s && s.access_token ? s : null; } catch (e) { return null; } }
-    function setSession(d) {
-        var s = { access_token: d.access_token, refresh_token: d.refresh_token, expires_at: d.expires_at || Math.floor(Date.now() / 1000) + (parseInt(d.expires_in, 10) || 3600), user: d.user || (getSession() || {}).user || null };
-        try { localStorage.setItem(SKEY, JSON.stringify(s)); } catch (e) { /* storage blocked */ }
-        return s;
-    }
+    function setSession(d) { var s = { access_token: d.access_token, refresh_token: d.refresh_token, expires_at: d.expires_at || Math.floor(Date.now() / 1000) + (parseInt(d.expires_in, 10) || 3600), user: d.user || (getSession() || {}).user || null }; try { localStorage.setItem(SKEY, JSON.stringify(s)); } catch (e) { /* ignore */ } return s; }
     function clearSession() { try { localStorage.removeItem(SKEY); } catch (e) { /* ignore */ } }
-
-    /* ----- http ----- */
-    function friendly(d, status) {
-        var m = d && (d.error_description || d.msg || d.message || d.error) || '';
-        if (/invalid login credentials/i.test(m)) return 'The email or password is not correct.';
-        if (/email not confirmed/i.test(m)) return 'Please confirm your email first. Check your inbox for our message.';
-        if (/already registered|already been registered/i.test(m)) return 'An account with this email already exists. Try logging in.';
-        if (/password should be at least|weak password|too short/i.test(m)) return 'Your password is too weak. Use at least 8 characters.';
-        if (/rate limit|too many|security purposes/i.test(m)) return 'Too many attempts. Please wait a few minutes and try again.';
-        if (/same password|different from the old/i.test(m)) return 'Please choose a password that is different from the old one.';
-        if (status === 401 || status === 403) return 'Your session has ended. Please log in again.';
-        return m ? m : 'Something went wrong. Please try again.';
-    }
+    function friendly(d, st) { var m = d && (d.error_description || d.msg || d.message || d.error) || ''; if (/same password|different from the old/i.test(m)) return 'Please choose a password that is different from the old one.'; if (/password should be at least|weak/i.test(m)) return 'Your password is too weak. Use at least 8 characters.'; if (st === 401 || st === 403) return 'Your session has ended. Please log in again.'; return m || 'Something went wrong. Please try again.'; }
     async function api(path, o) {
         o = o || {};
         var h = { apikey: KEY, 'Content-Type': 'application/json', Authorization: 'Bearer ' + (o.token || KEY) };
         if (o.headers) for (var k in o.headers) h[k] = o.headers[k];
-        var res;
-        try { res = await fetch(BASE + path, { method: o.method || 'GET', headers: h, body: o.body ? JSON.stringify(o.body) : undefined }); }
-        catch (e) { throw new Error('Could not reach the server. Please check your connection.'); }
-        var text = await res.text(), data = null;
-        try { data = text ? JSON.parse(text) : null; } catch (e) { data = null; }
-        if (!res.ok) { var err = new Error(friendly(data, res.status)); err.status = res.status; throw err; }
-        return data;
+        var res; try { res = await fetch(BASE + path, { method: o.method || 'GET', headers: h, body: o.body ? JSON.stringify(o.body) : undefined }); } catch (e) { throw new Error('Could not reach the server. Please check your connection.'); }
+        var tx = await res.text(), d = null; try { d = tx ? JSON.parse(tx) : null; } catch (e) { d = null; }
+        if (!res.ok) { var er = new Error(friendly(d, res.status)); er.status = res.status; throw er; }
+        return d;
     }
-    async function validToken() {
-        var s = getSession();
-        if (!s) return null;
+    function toLogin() { clearSession(); location.replace('/developers/login/?next=/developers/'); }
+    async function token() {
+        var s = getSession(); if (!s) { toLogin(); throw new Error('no session'); }
         if (s.expires_at - 60 > Date.now() / 1000) return s.access_token;
-        if (!s.refresh_token) { clearSession(); return null; }
+        try { return setSession(await api('/auth/v1/token?grant_type=refresh_token', { method: 'POST', body: { refresh_token: s.refresh_token } })).access_token; } catch (e) { toLogin(); throw e; }
+    }
+    async function call(path, o) { o = o || {}; o.token = await token(); try { return await api(path, o); } catch (e) { if (e.status === 401) toLogin(); throw e; } }
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+    function when(t) { return String(t || '').replace('T', ' ').slice(0, 16); }
+    function day(t) { return String(t || '').slice(0, 10); }
+
+    /* ---------- screens ---------- */
+    function tab() {
+        var t = (location.hash || '#overview').slice(1);
+        if (!document.querySelector('[data-pane="' + t + '"]')) t = 'overview';
+        document.querySelectorAll('[data-pane]').forEach(function (p) { p.hidden = p.getAttribute('data-pane') !== t; });
+        document.querySelectorAll('[data-tab]').forEach(function (a) { a.className = a.getAttribute('data-tab') === t ? 'on' : ''; });
+    }
+    function rows(list, cols, empty) {
+        if (!list.length) return '<tr><td colspan="' + cols + '" class="dv-note">' + empty + '</td></tr>';
+        return list.join('');
+    }
+    function render() {
+        var d = state.dev || {};
+        $('dv-who').textContent = (d.name ? d.name + ' - ' : '') + (state.user.email || '');
+        $('ov-hello').textContent = 'Welcome' + (d.name ? ', ' + d.name : '');
+        var left = Math.max(0, LIMIT - state.used);
+        $('cr-text').textContent = left.toLocaleString() + ' of ' + LIMIT.toLocaleString() + ' free credits left this month';
+        $('cr-bar').style.width = (left / LIMIT * 100) + '%';
+        $('st-calls').textContent = state.usage.length; $('st-used').textContent = state.used; $('st-keys').textContent = state.keys.length;
+        var call = function (r) { return '<tr><td>' + esc(when(r.created_at)) + '</td><td>' + esc(r.tool) + '</td><td>' + esc(r.credits) + '</td></tr>'; };
+        $('ov-calls').innerHTML = rows(state.usage.slice(0, 5).map(call), 3, 'No API calls yet.');
+        $('u-calls').innerHTML = rows(state.usage.slice(0, 50).map(call), 3, 'No API calls yet.');
+        var by = {}; state.usage.forEach(function (r) { by[r.tool] = by[r.tool] || { n: 0, c: 0 }; by[r.tool].n++; by[r.tool].c += r.credits; });
+        $('u-tools').innerHTML = rows(Object.keys(by).sort().map(function (t) { return '<tr><td>' + esc(t) + '</td><td>' + by[t].n + '</td><td>' + by[t].c + '</td></tr>'; }), 3, 'No usage this month.');
+        $('k-list').innerHTML = rows(state.keys.map(function (k) { return '<tr><td>' + esc(k.name) + '</td><td><code>' + esc(k.public_key) + '</code></td><td>' + esc(day(k.created_at)) + '</td><td><button class="dv-btn red" data-del="' + esc(k.id) + '" type="button">Delete</button></td></tr>'; }), 4, 'No projects yet. Make your first one above.');
+        $('ac-email').textContent = state.user.email || ''; $('ac-since').textContent = day(state.user.created_at);
+        $('ac-name').value = d.name || ''; $('ac-company').value = d.company || ''; $('ac-website').value = d.website || ''; $('ac-country').value = d.country || ''; if (d.use_case) $('ac-use').value = d.use_case;
+    }
+    async function load() {
+        var per = new Date().toISOString().slice(0, 7), from = per + '-01T00:00:00Z';
+        var r = await Promise.all([
+            call('/rest/v1/api_keys?select=id,name,public_key,created_at&order=created_at.desc'),
+            call('/rest/v1/api_credits?select=period,used'),
+            call('/rest/v1/api_usage?select=tool,credits,created_at&created_at=gte.' + from + '&order=created_at.desc&limit=500')
+        ]);
+        state.keys = r[0] || []; state.used = r[1] && r[1].length && r[1][0].period === per ? r[1][0].used : 0; state.usage = r[2] || [];
+        render();
+    }
+    function saveProfile(v) { return call('/rest/v1/developers?on_conflict=user_id', { method: 'POST', headers: { Prefer: 'resolution=merge-duplicates,return=minimal' }, body: Object.assign({ user_id: state.user.id, updated_at: new Date().toISOString() }, v) }); }
+
+    /* ---------- keys ---------- */
+    function rand(n) { var c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', o = ''; while (o.length < n) { var a = new Uint8Array(n * 2); crypto.getRandomValues(a); for (var i = 0; i < a.length && o.length < n; i++) if (a[i] < 248) o += c[a[i] % 62]; } return o; }
+    async function sha256(t) { var b = new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t))); return Array.prototype.map.call(b, function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
+    async function createKey() {
+        var name = $('k-name').value.trim() || 'My project', km = $('k-msg'); km.textContent = '';
+        var pub = 'pk_live_' + rand(24), sec = 'sk_live_' + rand(40);
+        $('k-create').disabled = true;
         try {
-            var d = await api('/auth/v1/token?grant_type=refresh_token', { method: 'POST', body: { refresh_token: s.refresh_token } });
-            return setSession(d).access_token;
-        } catch (e) { clearSession(); return null; }
-    }
-    function safeNext() {
-        var n = new URLSearchParams(location.search).get('next') || '';
-        return /^\/[a-z0-9\-_\/]*$/i.test(n) && n.indexOf('//') !== 0 ? n : '/developers/';
-    }
-    function hashParams() { return new URLSearchParams(location.hash.replace(/^#/, '')); }
-    function busy(form, on) { var b = form && form.querySelector('button[type=submit]'); if (b) b.disabled = on; }
-    function notReady() { say('Accounts are not open yet. Please try again later.', 'info'); }
-
-    /* ----- social sign-in ----- */
-    box.querySelectorAll('[data-social]').forEach(function (b) {
-        b.onclick = function () {
-            if (!ready()) { notReady(); return; }
-            location.href = BASE + '/auth/v1/authorize?provider=' + b.getAttribute('data-social') + '&redirect_to=' + encodeURIComponent(ORIGIN + '/developers/');
-        };
-    });
-
-    var form = $('auth-form');
-    var emailOk = function (e) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); };
-
-    /* ----- login ----- */
-    if (kind === 'login') {
-        if (getSession()) { location.replace(safeNext()); return; }
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            var email = $('email').value.trim(), pw = $('password').value;
-            if (!emailOk(email)) { say('Please enter a valid email address.', 'error'); return; }
-            if (!pw) { say('Please enter your password.', 'error'); return; }
-            if (!ready()) { notReady(); return; }
-            busy(form, true); say('Logging in...', 'info');
-            try {
-                var d = await api('/auth/v1/token?grant_type=password', { method: 'POST', body: { email: email, password: pw } });
-                setSession(d);
-                location.href = safeNext();
-            } catch (err) { say(err.message, 'error'); }
-            busy(form, false);
-        });
-        var rs = $('resend');
-        if (rs) rs.onclick = async function (e) {
-            e.preventDefault();
-            var email = $('email').value.trim();
-            if (!emailOk(email)) { say('Enter your email above first.', 'error'); return; }
-            if (!ready()) { notReady(); return; }
-            try { await api('/auth/v1/resend?redirect_to=' + encodeURIComponent(ORIGIN + '/developers/'), { method: 'POST', body: { type: 'signup', email: email } }); say('We sent the confirmation email again. Please check your inbox.', 'ok'); }
-            catch (err) { say(err.message, 'error'); }
-        };
+            await call('/rest/v1/api_keys', { method: 'POST', headers: { Prefer: 'return=minimal' }, body: { name: name, public_key: pub, secret_hash: await sha256(sec) } });
+            $('k-pub').textContent = pub; $('k-sec').textContent = sec; $('k-new').hidden = false; $('k-name').value = '';
+            await load();
+        } catch (e) { km.textContent = /up to 5/.test(e.message) ? 'You can have up to 5 projects. Delete one first.' : e.message; }
+        $('k-create').disabled = false;
     }
 
-    /* ----- sign up ----- */
-    if (kind === 'signup') {
-        if (getSession()) { location.replace('/developers/'); return; }
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            var email = $('email').value.trim(), pw = $('password').value, pw2 = $('password2').value;
-            if (!emailOk(email)) { say('Please enter a valid email address.', 'error'); return; }
-            if (pw.length < 8) { say('Your password must be at least 8 characters.', 'error'); return; }
-            if (pw !== pw2) { say('The two passwords are not the same.', 'error'); return; }
-            if (!ready()) { notReady(); return; }
-            busy(form, true); say('Creating your account...', 'info');
-            try {
-                var d = await api('/auth/v1/signup?redirect_to=' + encodeURIComponent(ORIGIN + '/developers/'), { method: 'POST', body: { email: email, password: pw } });
-                if (d && d.access_token) { setSession(d); location.href = '/developers/'; return; }
-                form.style.display = 'none';
-                say('Almost done! We sent a confirmation link to ' + email + '. Open it to activate your account, then log in.', 'ok');
-            } catch (err) { say(err.message, 'error'); }
-            busy(form, false);
-        });
-    }
-
-    /* ----- forgot password ----- */
-    if (kind === 'forgot') {
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            var email = $('email').value.trim();
-            if (!emailOk(email)) { say('Please enter a valid email address.', 'error'); return; }
-            if (!ready()) { notReady(); return; }
-            busy(form, true); say('Sending...', 'info');
-            try {
-                await api('/auth/v1/recover?redirect_to=' + encodeURIComponent(ORIGIN + '/reset-password/'), { method: 'POST', body: { email: email } });
-                say('If this email has an account, a reset link is on its way. Please check your inbox.', 'ok');
-            } catch (err) { say(err.message, 'error'); }
-            busy(form, false);
-        });
-    }
-
-    /* ----- reset password (opened from the email link) ----- */
-    if (kind === 'reset') {
-        var hp = hashParams(), tok = hp.get('access_token');
-        if (hp.get('error_description')) { form.style.display = 'none'; say(hp.get('error_description').replace(/\+/g, ' ') + '. Please request a new link.', 'error'); return; }
-        if (!tok) { form.style.display = 'none'; say('This page works only from the link in the reset email. Please request a new link.', 'info'); return; }
-        history.replaceState(null, '', location.pathname);
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            var pw = $('password').value, pw2 = $('password2').value;
-            if (pw.length < 8) { say('Your password must be at least 8 characters.', 'error'); return; }
-            if (pw !== pw2) { say('The two passwords are not the same.', 'error'); return; }
-            if (!ready()) { notReady(); return; }
-            busy(form, true); say('Saving...', 'info');
-            try {
-                await api('/auth/v1/user', { method: 'PUT', token: tok, body: { password: pw } });
-                clearSession();
-                form.style.display = 'none';
-                say('Your password was changed. You can log in with it now.', 'ok');
-                setTimeout(function () { location.href = '/developers/login/'; }, 1800);
-            } catch (err) { say(err.message, 'error'); busy(form, false); }
-        });
-    }
-
-    /* ----- account page ----- */
-    if (kind === 'account') {
-        (async function () {
-            var hp = hashParams();
-            if (hp.get('error_description')) { $('acc-loading').style.display = 'none'; say(hp.get('error_description').replace(/\+/g, ' '), 'error'); return; }
-            if (hp.get('access_token')) {            // coming back from Google, Facebook or the confirmation email
-                var s0 = setSession({ access_token: hp.get('access_token'), refresh_token: hp.get('refresh_token'), expires_in: hp.get('expires_in') });
-                history.replaceState(null, '', location.pathname);
-                if (ready()) { try { var u0 = await api('/auth/v1/user', { token: s0.access_token }); setSession({ access_token: s0.access_token, refresh_token: s0.refresh_token, expires_at: s0.expires_at, user: u0 }); } catch (e) { /* ignore */ } }
+    /* ---------- start ---------- */
+    async function start() {
+        if (!BASE || !KEY) { say('The developer portal is not open yet. Please try again later.', 'error'); return; }
+        if (!getSession()) { toLogin(); return; }
+        try {
+            state.user = await call('/auth/v1/user');
+            var dv = await call('/rest/v1/developers?select=*');
+            state.dev = dv && dv[0] || null;
+            if (!state.dev) {
+                say('', ''); $('dv-onboard').hidden = false;
+                var meta = state.user.user_metadata || {}; $('ob-name').value = meta.full_name || meta.name || '';
+                $('ob-save').onclick = async function () {
+                    var n = $('ob-name').value.trim(); if (n.length < 2) { say('Please enter your full name.', 'error'); return; }
+                    $('ob-save').disabled = true;
+                    try { await saveProfile({ name: n, company: $('ob-company').value.trim(), country: $('ob-country').value.trim(), use_case: $('ob-use').value }); location.reload(); }
+                    catch (e) { say(e.message, 'error'); $('ob-save').disabled = false; }
+                };
+                return;
             }
-            var token = await validToken();
-            if (!token) { location.replace('/developers/login/?next=/developers/'); return; }
-            var user = (getSession() || {}).user;
-            if (!user || !user.email) {
-                try { user = await api('/auth/v1/user', { token: token }); var cur = getSession(); setSession({ access_token: token, refresh_token: cur.refresh_token, expires_at: cur.expires_at, user: user }); }
-                catch (e) { clearSession(); location.replace('/developers/login/?next=/developers/'); return; }
-            }
-            $('acc-loading').style.display = 'none';
-            $('acc').style.display = 'block';
-            $('acc-email').textContent = user.email || '';
-            $('acc-since').textContent = user.created_at ? 'Member since ' + new Date(user.created_at).toISOString().slice(0, 10) : '';
-            $('logout').onclick = async function () {
-                try { await api('/auth/v1/logout', { method: 'POST', token: token }); } catch (e) { /* ignore */ }
-                clearSession(); location.href = '/developers/login/';
-            };
-            // change password
-            $('pw-form').addEventListener('submit', async function (e) {
-                e.preventDefault();
-                var pw = $('npw').value, pw2 = $('npw2').value, m = $('pw-msg');
-                var show = function (t, ty) { m.textContent = t; m.className = 'msg ' + ty; };
-                if (pw.length < 8) { show('Your password must be at least 8 characters.', 'error'); return; }
-                if (pw !== pw2) { show('The two passwords are not the same.', 'error'); return; }
-                busy($('pw-form'), true);
-                try { await api('/auth/v1/user', { method: 'PUT', token: await validToken(), body: { password: pw } }); show('Your password was changed.', 'ok'); $('npw').value = ''; $('npw2').value = ''; }
-                catch (err) { show(err.message, 'error'); }
-                busy($('pw-form'), false);
-            });
-            try { await api('/rest/v1/developers?on_conflict=user_id', { method: 'POST', token: token, headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' }, body: { name: String(user.email || '').split('@')[0] } }); } catch (e) { /* ignore */ }
-            var LIMIT = 2500;
-            async function loadCredits() {
-                try {
-                    var per = new Date().toISOString().slice(0, 7);
-                    var c = await api('/rest/v1/api_credits?select=period,used', { token: await validToken() });
-                    var used = c && c.length && c[0].period === per ? c[0].used : 0;
-                    $('cr-text').textContent = (LIMIT - used).toLocaleString() + ' of ' + LIMIT.toLocaleString() + ' free credits left this month';
-                    $('cr-bar').style.width = Math.max(0, Math.min(100, (LIMIT - used) / LIMIT * 100)) + '%';
-                    var u = await api('/rest/v1/api_usage?select=tool,credits,created_at&order=created_at.desc&limit=20', { token: await validToken() });
-                    var ul = $('usage'); ul.innerHTML = '';
-                    if (!u.length) ul.innerHTML = '<li class="key-empty">No API calls yet.</li>';
-                    u.forEach(function (r) { var li = document.createElement('li'); li.textContent = String(r.created_at).replace('T', ' ').slice(0, 16) + ' UTC - ' + r.tool + ' (' + r.credits + ' credit' + (r.credits > 1 ? 's' : '') + ')'; ul.appendChild(li); });
-                } catch (err) { $('cr-text').textContent = 'Could not load your credits.'; }
-            }
-            // API keys
-            var list = $('keys'), km = $('key-msg');
-            var kshow = function (t, ty) { km.textContent = t || ''; km.className = 'msg' + (t ? ' ' + ty : ''); };
-            var rnd = function (prefix, n) { var abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', b = crypto.getRandomValues(new Uint8Array(n)), s = ''; for (var i = 0; i < n; i++) s += abc[b[i] % abc.length]; return prefix + s; };
-            var sha = async function (t) { var d = new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t))); return Array.prototype.map.call(d, function (x) { return x.toString(16).padStart(2, '0'); }).join(''); };
-            async function loadKeys() {
-                try {
-                    var rows = await api('/rest/v1/api_keys?select=id,name,public_key,created_at&order=created_at.desc', { token: await validToken() });
-                    list.innerHTML = '';
-                    if (!rows.length) { list.innerHTML = '<li class="key-empty">You have no keys yet.</li>'; return rows; }
-                    rows.forEach(function (r) {
-                        var li = document.createElement('li');
-                        li.innerHTML = '<div><b></b><code></code><small></small></div><button type="button" class="btn-light">Delete</button>';
-                        li.querySelector('b').textContent = r.name || 'Key';
-                        li.querySelector('code').textContent = r.public_key;
-                        li.querySelector('small').textContent = 'Created ' + String(r.created_at).slice(0, 10);
-                        li.querySelector('button').onclick = async function () {
-                            if (!confirm('Delete this key? Apps that use it will stop working.')) return;
-                            try { await api('/rest/v1/api_keys?id=eq.' + encodeURIComponent(r.id), { method: 'DELETE', token: await validToken() }); kshow('Key deleted.', 'ok'); loadKeys(); } catch (err) { kshow(err.message, 'error'); }
-                        };
-                        list.appendChild(li);
-                    });
-                    return rows;
-                } catch (err) { list.innerHTML = ''; kshow('Could not load your keys. ' + err.message, 'error'); return []; }
-            }
-            await loadKeys();
-            loadCredits();
-            $('key-form').addEventListener('submit', async function (e) {
-                e.preventDefault();
-                var name = $('key-name').value.trim() || 'My project';
-                busy($('key-form'), true); kshow('');
-                try {
-                    var secret = rnd('sk_live_', 40), pub = rnd('pk_live_', 24);
-                    await api('/rest/v1/api_keys', { method: 'POST', token: await validToken(), headers: { Prefer: 'return=minimal' }, body: { name: name, public_key: pub, secret_hash: await sha(secret) } });
-                    $('new-secret').textContent = secret; $('new-public').textContent = pub;
-                    $('newkey').style.display = 'block';
-                    $('key-name').value = '';
-                    await loadKeys();
-                } catch (err) { kshow(/violates|limit|maximum|5 keys/i.test(err.message) ? 'You can have up to 5 keys. Delete one first.' : err.message, 'error'); }
-                busy($('key-form'), false);
-            });
-            $('copy-secret').onclick = function () { if (navigator.clipboard) navigator.clipboard.writeText($('new-secret').textContent); $('copy-secret').textContent = 'Copied'; };
-        })();
+            say('', ''); $('dv-app').hidden = false; tab(); await load();
+        } catch (e) { if (e.message !== 'no session') say(e.message, 'error'); }
     }
+    window.addEventListener('hashchange', tab);
+    $('k-create').onclick = createKey;
+    $('k-copy').onclick = function () { var t = $('k-sec').textContent; try { navigator.clipboard.writeText(t); $('k-copy').textContent = 'Copied'; } catch (e) { $('k-copy').textContent = 'Select and copy it by hand'; } };
+    $('k-list').onclick = async function (e) {
+        var id = e.target && e.target.getAttribute && e.target.getAttribute('data-del'); if (!id) return;
+        if (!confirm('Delete this project? Apps that use its keys will stop working.')) return;
+        try { await call('/rest/v1/api_keys?id=eq.' + encodeURIComponent(id), { method: 'DELETE' }); await load(); } catch (er) { $('k-msg').textContent = er.message; }
+    };
+    $('ac-save').onclick = async function () {
+        var n = $('ac-name').value.trim(), m = $('ac-msg'); if (n.length < 2) { m.textContent = 'Please enter your full name.'; return; }
+        try { await saveProfile({ name: n, company: $('ac-company').value.trim(), website: $('ac-website').value.trim(), country: $('ac-country').value.trim(), use_case: $('ac-use').value }); state.dev = (await call('/rest/v1/developers?select=*'))[0]; render(); m.textContent = 'Saved.'; } catch (e) { m.textContent = e.message; }
+    };
+    $('pw-save').onclick = async function () {
+        var a = $('pw1').value, b = $('pw2').value, m = $('pw-msg');
+        if (a.length < 8) { m.textContent = 'Use at least 8 characters.'; return; } if (a !== b) { m.textContent = 'The two passwords are not the same.'; return; }
+        try { await call('/auth/v1/user', { method: 'PUT', body: { password: a } }); $('pw1').value = $('pw2').value = ''; m.textContent = 'Your password was changed.'; } catch (e) { m.textContent = e.message; }
+    };
+    $('dv-logout').onclick = async function () { try { await call('/auth/v1/logout', { method: 'POST' }); } catch (e) { /* ignore */ } clearSession(); location.href = '/developers/login/'; };
+    start();
 })();
-
 </script>
 </body>
 </html>
